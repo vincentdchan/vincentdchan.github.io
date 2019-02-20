@@ -1,0 +1,1 @@
+{"data":{"markdownRemark":{"html":"<p>最近在写一个关于 JavaScript 的静态分析器，作为我的毕业设计。我写静态分析主要是为了 js 做更好的 tree shaking，做更多关于 ES6 层面的优化。</p>","frontmatter":{"date":"2019-02-20","path":"/2019/02/parse-javascript-with-ocaml","title":"使用 OCaml 解析 JavaScript","permalink":null,"headerImage":null}}},"pageContext":{"title":"使用 OCaml 解析 JavaScript"}}
