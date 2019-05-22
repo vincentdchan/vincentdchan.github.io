@@ -1,0 +1,1603 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's personal blog]]></description><link>https://diverse.space/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 22 May 2019 19:18:40 GMT</lastBuildDate><item><title><![CDATA[转换网易 ncm 格式到 mp3]]></title><description><![CDATA[不知道什么时候开始，网易下载的歌曲都不用以前的 mp3 格式，而采用了自家的 ncm，说真的，比较恶心，平时自己想要剪个视频用个配乐都很麻烦，搜了很久很多工具，最后搜到了这个： ncmdump 。 首页提供了 Windows 和 Linux 的使用方法，mac…]]></description><link>https://diverse.space//在 mac 上转换网易 ncm 格式到 mp3/</link><guid isPermaLink="false">https://diverse.space//在 mac 上转换网易 ncm 格式到 mp3/</guid><pubDate>Tue, 07 May 2019 17:23:00 GMT</pubDate><content:encoded>&lt;p&gt;不知道什么时候开始，网易下载的歌曲都不用以前的 mp3 格式，而采用了自家的 ncm，说真的，比较恶心，平时自己想要剪个视频用个配乐都很麻烦，搜了很久很多工具，最后搜到了这个：&lt;a href=&quot;https://github.com/anonymous5l/ncmdump&quot;&gt;ncmdump&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;首页提供了 Windows 和 Linux 的使用方法，mac 下面使用也很简单，先用 brew 安装 taglib，然后 make 即可：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;$ git clone https://github.com/anonymous5l/ncmdump
+$ brew install taglib
+$ make
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;实测可以转换成功：&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/39d4dbc9482ac806db796cf198e30f78/cd7e3/screenshot.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 69.33471933471932%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACsUlEQVQ4y3VT6XLSUBTOE1jb8YctWYCwhawQshOWsrR1HH0pZ2xrnQp0lPomOgSyQjs+RaG+h/dcoOKM/fHNOTk5y3eWS3z9/GF1Pb5+HI+/P45vb39/G48fB8PhanRzA1h+urpanl9crj6eX4C+Go5G2D4c3Sy/DAYPyBdLZF8OBsMHolAWZ4Zpx4ZtJ7ppxaqmx0w6G2TY3BSQzrIemy9My4LoM5msd0RSk/2DVz/3Xh78eLGDvf21JNSaFumWFTtuI9EMM7YdN6m7zUQ3rFjTzaiiqqFSVcNcoTQ7IulJimImdDrjQXKQdDq7BrPWiUazNe+fnt2/fff+F8hu/+Su0+vfgd4/fXPf7pwtWse9hWnZsVyphqiDCNgWitxMVqohL0oBfEtKBesEOLU7XRTUWdh1F7MEtpZTx7CdRgLfULjZOp43Wu25gZILkhzkUVIYBwA6yOWLM8JFjt3eyR0w652cIna9+2pNW0BiaLumGxHMFiQAGFbUGgAzEiUlAAkMQSckWQkct5402+25jRhtquO5AUT0H7qAeZbKgl8ocTMKzYtEs6TotEcxCPRfEIqqRzXTiWVVD7OIcoqi4ccEArZI/QP6v4meEqpGPTbddiJU9LAsyiFynMI2SZrxELAER3IbhNjhZM+AMKxm4rS6c91uJla9MUfzSlTNiHhhvT2OF3wWMS9yZT+by0/J3aQ7TGlsy3iEhhKpViOumo1YVGqRiOYHWwNm63tjN7e2DgD26w522kb21ylyAkdPtI67C16Ug8MUhdsDIzjDhktl3t/OjNwAtg/3h1lukkGMa6DHoFoRYaKXIVW1UFDUsMDxPqI+hcr4eNFGn5hs2EARjodnyHrb9qGoguJ5XvKJimZHRUEJcpzoswXOR+94CoFQFbPb3SaTfqbltHe4afkPiYl2OXePz7MAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;screenshot&quot;
+        title=&quot;&quot;
+        src=&quot;/static/39d4dbc9482ac806db796cf198e30f78/84ad3/screenshot.png&quot;
+        srcset=&quot;/static/39d4dbc9482ac806db796cf198e30f78/687da/screenshot.png 175w,
+/static/39d4dbc9482ac806db796cf198e30f78/0ab4d/screenshot.png 350w,
+/static/39d4dbc9482ac806db796cf198e30f78/84ad3/screenshot.png 700w,
+/static/39d4dbc9482ac806db796cf198e30f78/ef8d3/screenshot.png 1050w,
+/static/39d4dbc9482ac806db796cf198e30f78/fed13/screenshot.png 1400w,
+/static/39d4dbc9482ac806db796cf198e30f78/cd7e3/screenshot.png 1924w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[使用 OCaml 解析 JavaScript]]></title><description><![CDATA[起因 最近在写一个关于 JavaScript 的静态分析器，作为我的毕业设计。我写静态分析主要是为了 ES6 层面的语法做更好的 DCE(Dead Code Elimination)。我选择 OCaml 来实现这个静态分析工具，用 flow 来 parse JavaScript…]]></description><link>https://diverse.space//使用 OCaml 解析 JavaScript/</link><guid isPermaLink="false">https://diverse.space//使用 OCaml 解析 JavaScript/</guid><pubDate>Wed, 20 Feb 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;起因&lt;/h1&gt;
+&lt;p&gt;最近在写一个关于 JavaScript 的静态分析器，作为我的毕业设计。我写静态分析主要是为了 ES6 层面的语法做更好的 DCE(Dead Code Elimination)。我选择 OCaml 来实现这个静态分析工具，用 flow 来 parse JavaScript。&lt;/p&gt;
+&lt;h1&gt;为什么选择 OCaml&lt;/h1&gt;
+&lt;p&gt;在和导师讨论题目的时候，我跟导师说这个项目用 Java 来写，主要是 Java 比较容易说服老师。实际上开始写的时候就塞了很多私货，我的第一个版本其实用的是 Scala，原因是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scala 里面的很多语言特性非常有 FP 风格，也很适合用来写编译器和静态分析工具。&lt;/li&gt;
+&lt;li&gt;运行在 JVM 上面更容易做多线程，可以使静态分析过程有较大的提升。&lt;/li&gt;
+&lt;li&gt;如果有需要，Scala 可以编译成 JS。JVM 上面也有很多可以和 JS 联动的方案，方便和其他 JS library 联动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但是开始使用 Scala 的时候却发现了许多问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我使用的 Parser 和 AST 结构都是 Java 写的（使用了 Graal.js 的 Parser），因此无法使用 Scala 的 case class 风格，这意味着我要在 Scala 里面写 Java Style 的代码，我表示很拒绝。我当然可以用 implicit 语法写一层转换层，但是我觉得这样很蛋疼，所以放弃。&lt;/li&gt;
+&lt;li&gt;我要进行的静态分析是基于图（Graph）的，似乎没办法进行并行计算，即使可以，也会有超级多 overhead，还不如使用单线程。&lt;/li&gt;
+&lt;li&gt;巨慢的编译速度和启动时间。编译速度不说了。运行速度 Scala 应该是很快的，但是启动（预热）却很慢。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;种种蛋疼的情况让我重新审视用 Scala 是不是特别好的方案，我想要一门执行速度相对较快，语法对写编译器相对友好的语言。Scala 已经很接近了，但是还不够。这让我想起之前用过 OCaml 来写过编译器，感觉代数形式的数据结构天生对编译器和静态分析非常友好。而且有两个项目非常启发到我：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://flow.org/&quot;&gt;Flow&lt;/a&gt;&lt;/strong&gt;：静态分析工具，但是已经演化到类似 TypeScript 那样，变成一门语言了。我个人用过 flow，但是感觉非常慢，比 TypeScript 慢很多，但是我觉得不是 OCaml 慢，而是 flow 本身设计的问题。设计 TypeScript 的 Anders Hejlsberg 毕竟是编译器领域的大牛，很多坑都踩过，像 TypeScript 和 VSCode 联动体验这么好肯定是经过优良设计的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://bucklescript.github.io&quot;&gt;BuckleScript&lt;/a&gt;&lt;/strong&gt;：把 OCaml 编译到 JS 的编译器（其实也算一门语言？）。作者号称编译速度最快的语言，编译速度比 TypeScript 还快，并附上了 benchmark。这点也可以理解。毕竟 OCaml 这门语言比 TypeScript 简单太多了。这让我看到了一线生机，OCaml 写出来的编译器也可以很快的啊。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;优点：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ADT&lt;/li&gt;
+&lt;li&gt;冷启动速度却可以秒杀 Scala。想象一下编译几个文件的项目，Scala 还要等 JVM 预热才能达到峰值，其实很蛋疼。&lt;/li&gt;
+&lt;li&gt;编译速度很快（相比 Scala）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;缺点：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;现在 OCaml 依然没有办法实现真正意义上的多线程：有 GIL。而我觉得这不是痛点，而且 multi-core OCaml 准备推出了（2020 年？）。&lt;/li&gt;
+&lt;li&gt;如果需要和 JS 联动，需要编译成 JS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;使用 Flow Parser&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Github:&lt;/strong&gt; &lt;a href=&quot;https://github.com/facebook/flow&quot;&gt;https://github.com/facebook/flow&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Flow 是利器。&lt;/p&gt;
+&lt;p&gt;自己从头开始写 ES 的 Parser 是不太现实的。很幸运 flow 就提供了这么一个工具。Flow 的代码结构还是蛮清晰，我一看项目目录基本了解各个模块的作用，而 parser 是作为独立的一部分：&lt;a href=&quot;https://github.com/facebook/flow/tree/master/src/parser&quot;&gt;Flow Parser&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;AST 定义：&lt;a href=&quot;https://github.com/facebook/flow/blob/master/src/parser/flow_ast.ml&quot;&gt;https://github.com/facebook/flow/blob/master/src/parser/flow_ast.ml&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Flow 的 AST 都写在一个文件里面，我们看 program 的定义：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ocaml&quot;&gt;type (&apos;M, &apos;T) program = &apos;M * (&apos;M, &apos;T) Statement.t list * &apos;M Comment.t list [@@deriving show]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一个 program 就是 &lt;code&gt;list of Statment.t&lt;/code&gt;。有两个泛型参数 &lt;code&gt;&apos;M&lt;/code&gt; 和 &lt;code&gt;&apos;T&lt;/code&gt; 充斥着整个 AST，虽然它的作用很巧妙，但是却并不是那么直观。实际上 parser 输出的结果中，&lt;code&gt;&apos;M&lt;/code&gt; 和 &lt;code&gt;&apos;T&lt;/code&gt; 都是 &lt;code&gt;Loc.t&lt;/code&gt;，就是 AST 的位置信息，那么为什么需要两个范型呢？我们只要看 &lt;code&gt;Statement&lt;/code&gt; 和 &lt;code&gt;Expression&lt;/code&gt; 两个地方的定义就明白了：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Statement&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ocaml&quot;&gt;  and (&apos;M, &apos;T) t = &apos;M * (&apos;M, &apos;T) t&apos;
+  and (&apos;M, &apos;T) t&apos; =
+    | Block of (&apos;M, &apos;T) Block.t
+    | Break of &apos;M Break.t
+    | ClassDeclaration of (&apos;M, &apos;T) Class.t
+    | Continue of &apos;M Continue.t
+    | Debugger
+    | DeclareClass of (&apos;M, &apos;T) DeclareClass.t
+    | DeclareExportDeclaration of (&apos;M, &apos;T) DeclareExportDeclaration.t
+    | DeclareFunction of (&apos;M, &apos;T) DeclareFunction.t
+    | DeclareInterface of (&apos;M, &apos;T) Interface.t
+    | DeclareModule of (&apos;M, &apos;T) DeclareModule.t
+    | DeclareModuleExports of (&apos;M, &apos;T) Type.annotation
+    | DeclareTypeAlias of (&apos;M, &apos;T) TypeAlias.t
+    | DeclareOpaqueType of (&apos;M, &apos;T) OpaqueType.t
+    | DeclareVariable of (&apos;M, &apos;T) DeclareVariable.t
+    | DoWhile of (&apos;M, &apos;T) DoWhile.t
+    | Empty
+    | ExportDefaultDeclaration of (&apos;M, &apos;T) ExportDefaultDeclaration.t
+    | ExportNamedDeclaration of (&apos;M, &apos;T) ExportNamedDeclaration.t
+    | Expression of (&apos;M, &apos;T) Expression.t
+    | For of (&apos;M, &apos;T) For.t
+    | ForIn of (&apos;M, &apos;T) ForIn.t
+    | ForOf of (&apos;M, &apos;T) ForOf.t
+    | FunctionDeclaration of (&apos;M, &apos;T) Function.t
+    | If of (&apos;M, &apos;T) If.t
+    | ImportDeclaration of (&apos;M, &apos;T) ImportDeclaration.t
+    | InterfaceDeclaration of (&apos;M, &apos;T) Interface.t
+    | Labeled of (&apos;M, &apos;T) Labeled.t
+    | Return of (&apos;M, &apos;T) Return.t
+    | Switch of (&apos;M, &apos;T) Switch.t
+    | Throw of (&apos;M, &apos;T) Throw.t
+    | Try of (&apos;M, &apos;T) Try.t
+    | TypeAlias of (&apos;M, &apos;T) TypeAlias.t
+    | OpaqueType of (&apos;M, &apos;T) OpaqueType.t
+    | VariableDeclaration of (&apos;M, &apos;T) VariableDeclaration.t
+    | While of (&apos;M, &apos;T) While.t
+    | With of (&apos;M, &apos;T) With.t
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Expression&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ocaml&quot;&gt;  type (&apos;M, &apos;T) t = &apos;T * (&apos;M, &apos;T) t&apos;
+  and (&apos;M, &apos;T) t&apos; =
+    | Array of (&apos;M, &apos;T) Array.t
+    | ArrowFunction of (&apos;M, &apos;T) Function.t
+    | Assignment of (&apos;M, &apos;T) Assignment.t
+    | Binary of (&apos;M, &apos;T) Binary.t
+    | Call of (&apos;M, &apos;T) Call.t
+    | Class of (&apos;M, &apos;T) Class.t
+    | Comprehension of (&apos;M, &apos;T) Comprehension.t
+    | Conditional of (&apos;M, &apos;T) Conditional.t
+    | Function of (&apos;M, &apos;T) Function.t
+    | Generator of (&apos;M, &apos;T) Generator.t
+    | Identifier of &apos;T Identifier.t
+    | Import of (&apos;M, &apos;T) t
+    | JSXElement of (&apos;M, &apos;T) JSX.element
+    | JSXFragment of (&apos;M, &apos;T) JSX.fragment
+    | Literal of Literal.t
+    | Logical of (&apos;M, &apos;T) Logical.t
+    | Member of (&apos;M, &apos;T) Member.t
+    | MetaProperty of &apos;M MetaProperty.t
+    | New of (&apos;M, &apos;T) New.t
+    | Object of (&apos;M, &apos;T) Object.t
+    | OptionalCall of (&apos;M, &apos;T) OptionalCall.t
+    | OptionalMember of (&apos;M, &apos;T) OptionalMember.t
+    | Sequence of (&apos;M, &apos;T) Sequence.t
+    | Super
+    | TaggedTemplate of (&apos;M, &apos;T) TaggedTemplate.t
+    | TemplateLiteral of (&apos;M, &apos;T) TemplateLiteral.t
+    | This
+    | TypeCast of (&apos;M, &apos;T) TypeCast.t
+    | Unary of (&apos;M, &apos;T) Unary.t
+    | Update of (&apos;M, &apos;T) Update.t
+    | Yield of (&apos;M, &apos;T) Yield.t
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上述代码就是在说，所有的 Expression 结点都会附上一个 &lt;code&gt;&apos;T&lt;/code&gt; 信息，所有的 Statement 都会附上一个 &lt;code&gt;&apos;M&lt;/code&gt; 信息，这就很容易理解了。所以这两个范型是用来区分 Statement 和 Expression 的。在 flow 里面进行 type infer 和 type check 的时候，实际上 &lt;code&gt;&apos;T&lt;/code&gt; 会是 &lt;code&gt;(Loc.t * Type.t)&lt;/code&gt;。这个是 type check 阶段附上的信息，而 Statement 不需要这个信息，所以它仍然是 &lt;code&gt;Loc.t&lt;/code&gt;。举个类型推导例子 🌰 来说明 &apos;T 附在表达式上的作用：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var a = 1 + 1;
+
+var a = ((1: &apos;T) + (1: &apos;T)): &apos;T
+var a = ((1: number) + (1: number)): &apos;T
+var a = ((1: number) + (1: number)): number
+var a: number = ((1: number) + (1: number)): number
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从上述过程可以推出 a 的类型是 number，这个类型信息挂在所有 expression 的 AST 的上面，而 var 语句的 node 不需要这个信息。&lt;/p&gt;
+&lt;h1&gt;安装 Flow Parser&lt;/h1&gt;
+&lt;p&gt;原本 &lt;code&gt;flow_parser&lt;/code&gt; 可以从 opam 安装，但是我更新了 opam 之后似乎因为一些安全策略禁止包里面的 bash 脚本执行（当时社区发生了一件事，一个包的 bash 脚本把用户的整个 ~ 目录删掉，似乎是手滑写的脚本就发布了，后来 opam 对 bash 脚本做了些限制）。所以后来我只能 clone 了 flow 的代码本地进行安装&lt;/p&gt;
+&lt;p&gt;进入 &lt;code&gt;src/parser&lt;/code&gt; 目录执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ make ocamlfind-install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即可安装成功。如果使用 ocamlbuild 编译，进入 &lt;code&gt;_tag&lt;/code&gt; 文件，加上 flow&lt;em&gt;parser。我的 `&lt;/em&gt;tag`:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;true: package(ppx_deriving.show), package(flow_parser), package(core_kernel)
+&amp;#x3C;dist&gt;: -traverse
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;使用方法&lt;/h1&gt;
+&lt;p&gt;使用 &lt;code&gt;Flow_ast&lt;/code&gt; 自带的 &lt;code&gt;pp&lt;/code&gt; 和 &lt;code&gt;show&lt;/code&gt; 方法可以把 AST 打印出来，前提是你要传入 &lt;code&gt;&apos;T&lt;/code&gt; 和 &lt;code&gt;&apos;M&lt;/code&gt; 的 pretty print 方法， 这里我把 &lt;code&gt;Loc.pp&lt;/code&gt; 传进去即可：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ocaml&quot;&gt;let ast, _ = Parser_flow.program code in
+Flow_ast.show_program Loc.pp Loc.pp ast |&gt; print_endline;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;大功告成！&lt;/p&gt;</content:encoded></item><item><title><![CDATA[2018 不停留]]></title><description><![CDATA[人生中一些很重要的时间段，往往会像细水那样慢慢流走，回过头来才发现，涓涓细水汇成了江河大海。对于我来说 2018 年就是这样的一年，回头一看觉得很平淡，但是不乏丰富的细节。 关键词：  GSoC，大四，实习 （暂不开放)]]></description><link>https://diverse.space//2018-never-stops/</link><guid isPermaLink="false">https://diverse.space//2018-never-stops/</guid><pubDate>Tue, 01 Jan 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;人生中一些很重要的时间段，往往会像细水那样慢慢流走，回过头来才发现，涓涓细水汇成了江河大海。对于我来说 2018 年就是这样的一年，回头一看觉得很平淡，但是不乏丰富的细节。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词：&lt;/strong&gt; GSoC，大四，实习&lt;/p&gt;
+&lt;p&gt;（暂不开放)&lt;/p&gt;
+&lt;!-- 今年年底的时候我时常会回忆起 2017 年的 12 月，那时候刚来深圳，可能因为同是 12 月，渐渐变冷的天气让人有相近的感觉，便容易想起往事。17 年的很多心结在现在的我看来都已经解开，即时现在的我也有新的纠结点也无妨，因为我已经在这一年里面得到了足够的成长。
+
+一年很长，足以发生很多事情，在这一年里面，我最耀眼的事情就是参加了 GSoC 2018。现在回过头来看，参加 GSoC 的收益远远超过了我的预期。我本以为，GSoC 只是一个为开源项目做贡献的事情，只算是一种情怀，因此我也没有特别去跟别人说这件事。可是它给我带来的好处却远超我的预期，原因之一无非是碰巧今年 Sean 来广州参加前端大会，而且 Sean 也不遗余力地在 Twitter 和 Medium 上推广我的 GSoC 成果，突然也让我小有了名气。
+
+当然，一次的成功是远远不够的，如果我对此就满意了，那么我以后也不会有什么进步。一次的小爆发说明不了什么，只有持续地输出才能证明自己的能力。因此，2018 年的这些幻光我可以通通忘掉，它虽然很耀眼，但它终究只是我奋斗途中的一个小小的发光点，我相信以后会有更耀眼的成就。
+
+这一年来，我持续地在深圳实习，比很多同龄人都要早。现在回想起来，想起 17 年年底一个乳臭未干的小伙子一个人跑来深圳实习都有点不可思议。这一年来，作为组里面年级最小的员工的记录从来没有打破。但是这对于我来说也不是特别值得炫耀的事情，因为我一直觉得「闻道有先后，术业有专攻」，有些人比较早工作，有些人大器晚成，这些都不重要，重要的是可持续地输出。
+
+我觉得实习给我最大的好处就是：自由。在学校里面，总能感觉到各种束缚，这种束缚的感觉已经伴随我好多年了。当然出来工作并不是完全自由，只不过是从一个小监狱转移到了一个更大的监狱。虽然都是坐牢，待遇却好上不少。实习的时候自己住，没有人理会我回家的时间，也没有人阻碍我做任何事。除了这些肤浅的自由，更大的精神层面的自由就是我可以做自己喜欢的事，这种状态在学校里面可以说是求之不得的。对于厌倦校园生活很久的我来说，2018 年不得不说是一种解脱。
+
+（未完待续） --&gt;</content:encoded></item><item><title><![CDATA[在 Mojave 下编译 SpiderMonkey]]></title><description><![CDATA[自从 macOS 升级到 Mojave(10.14) 之后，编译 SpiderMonkey 变得有点不同。 有一点比较重要的变化是 libstdc++ 被替换成 libc++，这个修改是从 OS X 10.9 就开始有的修改，所以直接调用 ./configure…]]></description><link>https://diverse.space//在-Mojave-下编译-SpiderMonkey/</link><guid isPermaLink="false">https://diverse.space//在-Mojave-下编译-SpiderMonkey/</guid><pubDate>Mon, 29 Oct 2018 00:16:14 GMT</pubDate><content:encoded>&lt;p&gt;自从 macOS 升级到 Mojave(10.14) 之后，编译 SpiderMonkey 变得有点不同。&lt;/p&gt;
+&lt;p&gt;有一点比较重要的变化是 libstdc++ 被替换成 libc++，这个修改是从 OS X 10.9 就开始有的修改，所以直接调用 ./configure 有这样的 warning 和报错：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;checking whether the C++ compiler (/usr/bin/clang++  -fno-common -fno-rtti  -lobjc) actually is a C++ compiler... no
+configure: error: /usr/bin/clang++  -fno-common -fno-rtti  -lobjc failed to compile and link a simple C++ source.
+------ config.log ------
+; return 0; }
+configure:7837: checking for 64-bit OS
+configure:7846: /usr/bin/clang -c  -std=gnu99 -Qunused-arguments  conftest.c 1&gt;&amp;#x26;5
+configure:8119: checking for -framework ExceptionHandling
+configure:8129: /usr/bin/clang -o conftest  -std=gnu99 -fno-common -Qunused-arguments   -lobjc -framework ExceptionHandling conftest.c  1&gt;&amp;#x26;5
+configure:8151: checking for -dead_strip option to ld
+configure:8162: /usr/bin/clang -o conftest  -std=gnu99 -fno-common -Qunused-arguments   -lobjc -Wl,-dead_strip conftest.c  1&gt;&amp;#x26;5
+configure:9034: checking for valid debug flags
+configure:9045: /usr/bin/clang -c  -std=gnu99 -fno-common -g -Qunused-arguments  conftest.c 1&gt;&amp;#x26;5
+configure:9134: checking whether the C++ compiler (/usr/bin/clang++  -fno-common -fno-rtti  -lobjc) actually is a C++ compiler
+configure:9153: /usr/bin/clang++ -o conftest  -fno-common -fno-rtti -Qunused-arguments   -lobjc conftest.C  1&gt;&amp;#x26;5
+clang: warning: libstdc++ is deprecated; move to libc++ with a minimum deployment target of OS X 10.9 [-Wdeprecated]
+warning: include path for stdlibc++ headers not found; pass &apos;-std=libc++&apos; on the command line to use the libc++ standard library instead [-Wstdlibcxx-not-found]
+configure:9147:10: fatal error: &apos;new&apos; file not found
+#include &amp;#x3C;new&gt;
+         ^~~~~
+1 warning and 1 error generated.
+configure: failed program was:
+#line 9146 &quot;configure&quot;
+#include &quot;confdefs.h&quot;
+#include &amp;#x3C;new&gt;
+int main() {
+int *foo = new int;
+; return 0; }
+configure: error: /usr/bin/clang++  -fno-common -fno-rtti  -lobjc failed to compile and link a simple C++ source.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;很明显，报错原因是因为标准库 new 找不到，原因也在于 libstdc++ 被替换了，但是天杀的报错信息写错了。应该加入的 flag 是 &lt;code&gt;-stdlib=libc++&lt;/code&gt; 而不是 &lt;code&gt;-std=libc++&lt;/code&gt;，这一点很坑爹。&lt;/p&gt;
+&lt;p&gt;但是加上了这个 flag 仍然不能编译，因为又有报错：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;clang: error: invalid deployment target for -stdlib=libc++ (requires OS X 10.7 or later)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;想了半天，我的系统不是 10.14 吗，后来才知道是因为要设置 deployment target，很坑爹，所以最后让我编译成功的命令是：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;$ CXXFLAGS=&quot;-stdlib=libc++ -mmacosx-version-min=10.7&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;写篇 blog 庆祝一下。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[理解 Scala 中的 for 表达式]]></title><description><![CDATA[Scala 中的 for 表达式非常强大，用起来很简单顺手，但是理解起来可能需要一些背景知识。这个 for 从名字上看让我们觉得它很像命令式语言中的那种 for statement，但是其实 Scala 的 for 是非常函数式的，它跟命令式语言中的 for…]]></description><link>https://diverse.space//理解-Scala-中的-for-表达式/</link><guid isPermaLink="false">https://diverse.space//理解-Scala-中的-for-表达式/</guid><pubDate>Sun, 10 Jun 2018 02:58:33 GMT</pubDate><content:encoded>&lt;p&gt;Scala 中的 for 表达式非常强大，用起来很简单顺手，但是理解起来可能需要一些背景知识。这个 for 从名字上看让我们觉得它很像命令式语言中的那种 for statement，但是其实 Scala 的 for 是非常函数式的，它跟命令式语言中的 for 语句根本不是一个东西，因为它根本不支持 break 和 continue 这些语句。&lt;/p&gt;
+&lt;p&gt;官方文档提供的例子：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;val twentySomethings = for (user &amp;#x3C;- userBase if (user.age &gt;=20 &amp;#x26;&amp;#x26; user.age &amp;#x3C; 30))
+  yield user.name  // i.e. add this to a list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Scala 的 for 表达式倒是很像 Python 和 Haskell 里面的 list comprehension，其实这个 for 表达式基本上可以等同于 Haskell 的 list comprehension 加上 do annotation 了。然而 Haskell 里面 list comprehension 和 do 也是一个东西，所以基本等同于 for comprehension。&lt;/p&gt;
+&lt;p&gt;在理解 for 之前，需要先了解 &lt;code&gt;map&lt;/code&gt; 和 &lt;code&gt;flatMap&lt;/code&gt;，这些概念在 Scala 和 Haskell 中很相似：&lt;/p&gt;
+&lt;h2&gt;Map&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;map&lt;/code&gt; 大多数人会用在 List 上面，但是更广义的概念上，map 可以用在任何带有 context 的类型上面，不仅限于 List：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// map 通过一个函数，可以把 A 元素的列表转换成列表 B 的
+map(f: A =&gt; B): List[A] =&gt; List[B]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同理，map 不仅可以用在 &lt;code&gt;List&lt;/code&gt; 上面，也可以用在类似 Option 和 Future 这样的类型上面。从直观意义上理解，map 同样可以把 &lt;code&gt;Option[A]&lt;/code&gt; 转换成 &lt;code&gt;Option[B]&lt;/code&gt;，把 &lt;code&gt;Future[A]&lt;/code&gt; 转换成 &lt;code&gt;Future[B]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在 Hasekll 里面，这种支持 map 操作的类型，叫做 Functor，Scala 里面似乎没有一个名字。&lt;/p&gt;
+&lt;h2&gt;FlatMap&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;flatMap&lt;/code&gt; 理解起来则稍微复杂一些，看一下 List 里面的 &lt;code&gt;flatMap&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;def flatMap[U](f: T =&gt; List[U]): List[U]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里面的 &lt;code&gt;f&lt;/code&gt; 不再像 &lt;code&gt;map&lt;/code&gt; 里面返回一个新的子类型，而是，返回一个带有 context 类型本身： &lt;code&gt;List[U]&lt;/code&gt;。也就是说 f 函数返回的新类型是包含在 context 里面的。&lt;strong&gt;需要注意的是&lt;/strong&gt;在这里，返回的结果并不是 List[List[U]]，而是仅仅是 &lt;code&gt;List[U]&lt;/code&gt; 。通过 &lt;code&gt;flatMap&lt;/code&gt; 这个名字中的 &lt;code&gt;flat&lt;/code&gt; 我们也知道，最后的结果会是把每个 list 都拼接在一起，也就是所谓的拍平了。&lt;/p&gt;
+&lt;p&gt;上面提到的是 List 的 flatMap，同样地，&lt;code&gt;Future&lt;/code&gt; 类型同样也是支持 &lt;code&gt;flatMap&lt;/code&gt; 的，它的的参数 &lt;code&gt;f&lt;/code&gt; 类型我们应该也猜到了：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;def flatMap[U](f: T =&gt; Future[U]): Future[U]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过 flatMap 我们就可以做很多事情了。这个时候假设我们有函数 &lt;code&gt;fetch1&lt;/code&gt; 和 &lt;code&gt;fetch2&lt;/code&gt; ，都是返回 &lt;code&gt;Future[Response]&lt;/code&gt;，如果我们要先 fetch1 然后根据 1 的 response 来 fetch2 ，然后把 2 的结果打印出来，我们要怎么做呢：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;// 写法一
+val resp2 = fetch1
+.flatMap { resp1 =&gt;
+    // do something
+    fetch2(resp1.data) // 通过 1 的结果来返回新的 Future
+}
+.map { resp2 =&gt;
+    printf(resp2.data)
+    resp2.data
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后回到开头，我们可以用 for comprehension 来完成这个事情：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;// 写法二
+val resp2 = for {
+    resp1 &amp;#x3C;- fetch1()
+    resp2 &amp;#x3C;- fetch2(resp1.data)
+    printf(resp2.data)
+} yield resp2.data
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其实实际上，Scala 会把上述代码翻译成与下面等价的样子：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;// 写法三
+val resp2 = resp1
+.flatMap { resp1 =&gt;
+    fetch2(resp2.data)
+    .map {
+        printf(resp2.data)
+        resp2.data
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;只要你仔细观察，你就会发现，在这个例子里面，这三种写法的结果都是一样的，但是第一种写法有什么缺点呢，缺点就是在第二个 &lt;code&gt;flatMap&lt;/code&gt; 里面，&lt;code&gt;resp1&lt;/code&gt; 已经不在作用域里面了，这个时候如果你还想调用 resp1 已经不可能了，但是写法三是可以的：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;// 写法三
+val resp2 = resp1
+.flatMap { resp1 =&gt;
+    fetch2(resp2.data)
+    .map {
+        printf(resp1.data) // 在这里仍然可以调用 resp1，因为它还在作用域里面
+        printf(resp2.data)
+        resp2.data
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样看起来就跟 Haskell 的 Monad 很接近了。&lt;/p&gt;
+&lt;h2&gt;For 表达式的几种翻译方式&lt;/h2&gt;
+&lt;p&gt;其实明白了 map 和 flatMap 之后，for 表达式很容易理解了。但是实现起来还要参考 &lt;a href=&quot;https://docs.scala-lang.org/tutorials/FAQ/yield.html&quot;&gt;for 表达式的翻译方式&lt;/a&gt;。&lt;/p&gt;
+&lt;h3&gt;If&lt;/h3&gt;
+&lt;p&gt;值得注意的是 if 语法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;for(x &amp;#x3C;- c; if cond) yield {...}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;会被翻译成：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;c.withFilter(x =&gt; cond).map(x =&gt; {...})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当然会有 fallback （如果不支持 withFilter）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;c.filter(x =&gt; cond).map(x =&gt; {...})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这时候再看文章开头的例子：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;val twentySomethings = for (user &amp;#x3C;- userBase if (user.age &gt;=20 &amp;#x26;&amp;#x26; user.age &amp;#x3C; 30))
+  yield user.name  // i.e. add this to a list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;会被翻译成：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;val twentySomethings = userBase
+.filter { user =&gt;
+    user.age &gt;=20 &amp;#x26;&amp;#x26; user.age &amp;#x3C; 30
+}
+.map { _.name }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就很容易理解了&lt;/p&gt;
+&lt;h3&gt;赋值语句&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;for&lt;/code&gt; 表达式中同样支持赋值语句（这里说的是 &lt;code&gt;=&lt;/code&gt; 不是 &lt;code&gt;&amp;#x3C;-&lt;/code&gt;），这在处理异步请求的时候非常常见：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;val resp2 = for {
+    resp1 &amp;#x3C;- fetch1()
+    data = doSomething(resp1)
+    resp2 &amp;#x3C;- fetch2(data)
+    printf(resp2.data)
+} yield resp2.data
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意，在 for comprehension 中写 &lt;code&gt;=&lt;/code&gt; 赋值语句并不需要写 &lt;code&gt;var&lt;/code&gt; 或者 &lt;code&gt;val&lt;/code&gt; ，至于为什么，只要看它会被翻译成什么样子就能明白：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;val resp2 = for {
+    resp1 &amp;#x3C;- fetch1()
+    data = doSomething(resp1)
+    resp2 &amp;#x3C;- fetch2(data)
+    printf(resp2.data)
+} yield resp2.data
+
+var resp2 = fetch1()
+.map { resp1 =&gt;
+    (resp1, doSomething(resp1))
+}
+.flatMap { 
+    case (resp1, data) =&gt;
+        fetch2(data)
+    .map { resp2 =&gt;
+        printf(resp2.data)
+        resp2.data
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;所以这个时候再写 &lt;code&gt;val&lt;/code&gt; 和 &lt;code&gt;var&lt;/code&gt; 已经没什么意义了&lt;/p&gt;
+&lt;h2&gt;CPS 变换&lt;/h2&gt;
+&lt;p&gt;其实 Scala 做的这个变换是一种 CPS(Continuation Passing Style) 变换，把一系列看上去想是赋值 &lt;code&gt;&amp;#x3C;-&lt;/code&gt; 的操作转换成 CPS 的形式，这有什么好处呢，通过这种变换，map 和 flatMap 的参数 f 就可以是一个纯（Pure）的函数，也就是说通过一系列纯函数的组合，可以实现像命令式编程里面的有状态的赋值操作，而这些操作是含有上下文（context）的。&lt;/p&gt;
+&lt;p&gt;另一个好处是，像下面这种调用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scala&quot;&gt;c1.map(p1 =&gt; p1.map(p2 =&gt; p2.map(p3 =&gt; ...)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其实是尾递归调用，编译器可以为此做很多优化，提高运行速度。&lt;/p&gt;
+&lt;h1&gt;总结&lt;/h1&gt;
+&lt;p&gt;for comprehension 其实是一个很甜很好用的语法糖，可以帮我们省下很多代码。我们当然可以选择继续用 &lt;code&gt;flatMap&lt;/code&gt; 和 &lt;code&gt;map&lt;/code&gt;，但是 for 就能用很简单的语言写出来。当然，简单的背后是有代价的，用 for 的过程中就需要使用者明白表达式最终会被怎样转换成相应的 &lt;code&gt;flatMap&lt;/code&gt; 和 &lt;code&gt;map&lt;/code&gt; 代码，这样才能让我们写出简洁的 for comprehension。&lt;/p&gt;
+&lt;p&gt;这个时候，我真的很佩服 Scala 的设计，让整个语言各个部分的设计都非常容易和优雅地组合，设计得相当地精妙，同时我在其中也看到了一些 Haskell 的味道。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[webpack 如何通过作用域分析消除无用代码]]></title><description><![CDATA[GSoC 2018 中，我的项目就在于给 webpack 实现深作用域分析（Deep Scope Analysis），主要还是为了改进 webpack 的 tree-shaking 工作。 前言 JS 的 tree-shaking…]]></description><link>https://diverse.space//webpack 如何用作用域分析消除无用代码/</link><guid isPermaLink="false">https://diverse.space//webpack 如何用作用域分析消除无用代码/</guid><pubDate>Fri, 25 May 2018 14:24:18 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;GSoC 2018 中，我的项目就在于给 webpack 实现深作用域分析（Deep Scope Analysis），主要还是为了改进 webpack 的 tree-shaking 工作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;JS 的 tree-shaking 一直是前端开发中的痛点，大家都在想尽办法减少打包的代码体积。Tree shaking 是一个帮助在不同模块之间消除无用代码的 feature。在编译原理中，我们把这项技术叫做 DCE(dead code elimination)。但是 DCE 和 tree shaking 有些许不同，按照 Tobias 的说法，tree shaking 主要应用于于模块（module）之间，用于帮助进行 DCE（webpack 的 DEC 通过 uglify 完成），rollup 的作者也曾经提到， tree shaking 是打包的过程中抽取有用的部分，别的部分像树叶一样落下，所以叫 tree shaking。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/webpack-deep-scope-analysis-plugin&quot;&gt;项目地址&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;从前&lt;/h2&gt;
+&lt;p&gt;webpack 本身的 tree shaking 比较简单，主要是找一个 import 进来的变量是否在这个模块内出现过，非常简单粗暴。但是这种方式往往作用不大，因为一般人不会去 import 一个没有用到的变量。比较多的情况是可能曾经引用过，但是忘了删掉。现在的编辑器和 lint 工具都会提示你去删掉无用的变量，所以 webpack 本身的 tree shaking 功能是不够强大的。&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/vincentdchan/9ccec2d1b603ef119e473cf285c7fa6b.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;在上面的例子中，变量 &lt;em&gt;isNumber&lt;/em&gt; 并没有被引用到，所以会被消去。&lt;/p&gt;
+&lt;h2&gt;开端&lt;/h2&gt;
+&lt;p&gt;在今年年初，webpack 项目下面有一个 &lt;a href=&quot;https://github.com/webpack/webpack/issues/6264&quot;&gt;issue&lt;/a&gt; 提到了 webpack 打包了多余的代码和模块。但是这也为优化 tree-shaking 提供了一个思路，就是找到作用域之间的关系，来进行优化。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/3199950/34681428-28df7576-f49c-11e7-942d-12caa6e905b8.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在上面的例子中，其实 &lt;em&gt;function2&lt;/em&gt; 和整个 &lt;em&gt;external2&lt;/em&gt; 都可以被消去，因为 &lt;em&gt;function2&lt;/em&gt; 并没有被 &lt;em&gt;entry&lt;/em&gt; 引用到。但是目前 webpack 的机制不能做到这一点。借助于 webpack 强大的插件极致，我的插件就可以帮助 webpack 做到。&lt;/p&gt;
+&lt;h2&gt;我的插件做了什么&lt;/h2&gt;
+&lt;p&gt;插件包括了一个作用域分析器，可以分析一个模块里面的作用域，从此我们可以得到不同作用域之间变量的引用关系。当我们知道一个作用域是否会被使用，就可以因此而推断出这个作用域做引用的其他作用域是否也会被使用。这就是作用域分析器帮助消除无用代码的原理。&lt;/p&gt;
+&lt;h3&gt;什么是作用域&lt;/h3&gt;
+&lt;p&gt;下面的代码列举了 JS 中会&lt;strong&gt;新建&lt;/strong&gt;一个作用域的代码：&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/vincentdchan/a67ee79011c9c1fbb699a137538dcbe7.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;对于 ES6 模块来说，module scope 是最底层的作用域。而对于一个模块来说，&lt;strong&gt;只有 class 和 function 的作用域是可以导出到其他模块的&lt;/strong&gt;。所以在这张需要遍历的图里面，并不是所有的作用域都可以被当作一个独立的遍历结点，像 if-else 作用域其实是归属于父作用域的。&lt;/p&gt;
+&lt;h2&gt;插件的工作原理&lt;/h2&gt;
+&lt;p&gt;在我们去分析作用域之间的引用关系之前，我们先需要去分析代码的作用域。代码的作用域分析建立在 AST(Abstract Syntax Tree) 之上。在这里，我借助了一个叫 &lt;a href=&quot;https://github.com/estools/escope&quot;&gt;escope&lt;/a&gt; 的工具。&lt;/p&gt;
+&lt;p&gt;解析完之后，其实就是图的深度遍历，找到那些作用域是会被使用到了，哪些是可以消去的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/tree-shaking.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;因为这个插件可以从导出的作用域之间分析出这些导出的作用域和导入变量之间的关系，也就是说。只要知道哪些导出作用域被使用的到，那么就知道哪些导入变量被引用，那些没有被引用。&lt;/p&gt;
+&lt;p&gt;另一方面，webpack 本身是可以分析出模块之间的变量引用关系的，从 webpack 我可以得知一个模块哪些导出变量是被用到的，这是 webpack 4 的新 feature。所以我的插件 tap 上了 webpack 相应的 hook，获取这个模块中会被其他模块引用的导出变量，返回给 webpack 哪些引入的变量被用到，这样 webpack 就可以根据我的插件的信息进行更完善的 tree-shaking。&lt;/p&gt;
+&lt;h2&gt;Edge cases&lt;/h2&gt;
+&lt;p&gt;实际上，JavaScript 的分析有很多 Edge cases 会导致代码不会被消去，这里列举一些比较常见的：&lt;/p&gt;
+&lt;p&gt;同时提供一个 &lt;a href=&quot;https://vincentdchan.github.io/webpack-deep-scope-demo/&quot;&gt;Demo&lt;/a&gt; 来给大家尝试。&lt;/p&gt;
+&lt;h3&gt;根作用域的引用&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/vincentdchan/c8cbb1198bfef580c216343e1ef4eedf.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;在根作用域引用到的作用域不会被消除。&lt;/p&gt;
+&lt;h3&gt;给变量重新赋值 👎&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/vincentdchan/f7f94c8e28bf8cc29e0e691371012783.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;因为缺少&lt;a href=&quot;https://en.wikipedia.org/wiki/Data-flow_analysis&quot;&gt;数据流分析&lt;/a&gt;，对变量重新赋值的作用域不会被消去。在上面的例子中，因为对 &lt;em&gt;fun&lt;/em&gt; 变量进行了重新赋值，所以 &lt;em&gt;isNull&lt;/em&gt; 无论如何都会被引入。&lt;/p&gt;
+&lt;h3&gt;纯函数调用 👍&lt;/h3&gt;
+&lt;script src=&quot;https://gist.github.com/vincentdchan/473b219b3cbbc64c903e9a1bf100e791.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;如果一个匿名函数被包在一个函数调用中，那么其实这个插件是无法分析的，像上面的例子。但是如果加上了 PURE 注释的话，这个插件会把这个函数调用当作一个独立的域，所以在上述的例子中，tree-shaking 是会生效的。&lt;/p&gt;
+&lt;h2&gt;实际使用的过程中应该注意什么&lt;/h2&gt;
+&lt;p&gt;深作用域分析原理很简单，实现起来也不复杂，但是真的要使用再实际项目的过程中，却有很多要注意的地方：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一、必须使用 ES6 的 import/export 模块机制。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;其实整个深作用域分析都是基于 ES6 模块完成的，也就是说深作用域分析无法分析 CommonJS 和 AMD 等等模块规范。这个时候，就要求项目中引用的模块都遵循 ES6 的规范，比如使用 lodash-es 代替 lodash。另外就是要注意 babel-loader 和 TypeScript 的设置，是否会把代码转换到 ES5 语法，导致深作用域分析失效。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二、学会使用 PURE 注释。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于 JS 语法的复杂程度，webpack 没有打算给 JS 实现数据流分析，所以插件是无法知道一个函数调用是否具有副作用的。所以对于一些导出模块，如果是纯的函数调用，则需要加上 &lt;code&gt;/*@__PURE__*/&lt;/code&gt; 注释来表明这个函数是 pure 的，这是 &lt;a href=&quot;https://github.com/mishoo/UglifyJS2&quot;&gt;Uglify&lt;/a&gt; 使用的方法。当然也可以使用相关的 babel 插件进行批量添加。&lt;/p&gt;
+&lt;h1&gt;总结&lt;/h1&gt;
+&lt;p&gt;其实我这插件的实现是归根于 ES6 中良好的 import/export 语法的设计的。相信很多前端大佬都提到，就是模块的设计一定要合理。tree shaking 再强大它也只是一个编译器的工具，如果模块设计不合理，它一样会在打包的时候引入很多无用的代码。一个合理设计的模块一定能借助 tree shaking 机制只引入它需要的代码。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[GSoC 之旅]]></title><description><![CDATA[有幸被  webpack  选中参加今年的 GSoC，这次的 GSoC 我主要负责实现 Deep Scope Analysis，这个最后会被用到最新版本的 webpack 里面用于 Tree Shaking Github 项目地址： webpack-deep-scope…]]></description><link>https://diverse.space//GSoC-之旅/</link><guid isPermaLink="false">https://diverse.space//GSoC-之旅/</guid><pubDate>Sun, 29 Apr 2018 14:16:00 GMT</pubDate><content:encoded>&lt;p&gt;有幸被 &lt;a href=&quot;https://webpack.github.io&quot;&gt;webpack&lt;/a&gt; 选中参加今年的 GSoC，这次的 GSoC 我主要负责实现 Deep Scope Analysis，这个最后会被用到最新版本的 webpack 里面用于 Tree Shaking&lt;/p&gt;
+&lt;p&gt;Github 项目地址：&lt;a href=&quot;https://github.com/vincentdchan/webpack-deep-scope-analysis-plugin&quot;&gt;webpack-deep-scope-analysis-plugin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;根据 webpack 的要求，我会把 GSoC 期间发现的事情记录在 Medium&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/webpack/better-tree-shaking-with-deep-scope-analysis-a0b788c0ce77&quot;&gt;&lt;strong&gt;Better tree shaking with deep scope analysis&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Here’s my project in GSoC 2018: Improve tree-shaking for webpack, a widely used JS code bundler.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/webpack/my-story-of-gsoc-2018-beginning-4c98d8966bfe&quot;&gt;&lt;strong&gt;My story with GSoC 2018: Beginning&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is the first part of my stories with GSoC 2018. I will tell my personal experiences and all the things happened with GSoC 2018 in the series.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://vincentdchan.github.io/webpack-deep-scope-demo/&quot;&gt;&lt;strong&gt;Deep Scope Analysis Demo&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个简易的用于测试分析结果的 demo&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[初窥 Racket：解析一个数学表达式]]></title><description><![CDATA[当 Haskell 这些静态类型的函数式语言玩久了，就想尝试一下动态类型的函数式语言，比如 Lisp，最古老的编程语言之一。不过现在写 Lisp 是不现实，因为原始的 Lisp 是 dynamic scope 的，写起来会异常痛苦。所以我打算从 Lisp…]]></description><link>https://diverse.space//初窥-Racket：解析一个数学表达式/</link><guid isPermaLink="false">https://diverse.space//初窥-Racket：解析一个数学表达式/</guid><pubDate>Sun, 28 Jan 2018 19:09:00 GMT</pubDate><content:encoded>&lt;p&gt;当 Haskell 这些静态类型的函数式语言玩久了，就想尝试一下动态类型的函数式语言，比如 Lisp，最古老的编程语言之一。不过现在写 Lisp 是不现实，因为原始的 Lisp 是 dynamic scope 的，写起来会异常痛苦。所以我打算从 Lisp 的一些比较现代方言下手，比如说 Racket 这种广受赞誉的语言。&lt;/p&gt;
+&lt;p&gt;看了一下官方文档之后感觉还是应该写点什么实际的东西感受一下，个人比较喜欢写数学表达式解析器了。之前写过一篇「&lt;a href=&quot;/2017/10/parsing-math-expression-by-haskell/&quot;&gt;初窥Haskell：解析一个数学表达式&lt;/a&gt;」。所以这次打算用 Racket 写解析一个数学表达式程序。&lt;/p&gt;
+&lt;p&gt;Racket 不是一个“纯”的语言，所以在 Racket 里面写有副作用的代码是没有问题的，说不定还会有更高的效率。但是这次我没有这么做，因为受到 Haskell 的影响，所以我还是用“纯”函数式的方法去实现。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scheme&quot;&gt;(define (char-&gt;op ch)
+  (cond
+    [(char=? ch #\+) &apos;add]
+    [(char=? ch #\-) &apos;sub]
+    [(char=? ch #\*) &apos;mul]
+    [(char=? ch #\/) &apos;div]))
+
+(struct token (type value)
+  #:prefab)
+
+(define (tokenizer content)
+  (letrec (
+    [char-list (string-&gt;list content)]
+    [my-tokenizer (lambda (reading-buffer number-buffer token-buffer)
+      (if (null? reading-buffer)
+        (if (null? number-buffer)
+          token-buffer ;;; 所有字符都已经解析完毕
+          (cons  ;;; 还有 number-buffer 的字符串
+            (token &apos;number 
+              (string-&gt;number (list-&gt;string (reverse number-buffer)))) 
+            token-buffer))
+        (let (
+          [first-char (car reading-buffer)]
+          [buffer-tail (cdr reading-buffer)]
+        ) (if (char-numeric? first-char) ;;; 当前字符是一个数字
+              (my-tokenizer buffer-tail (cons first-char number-buffer) token-buffer)
+              (if (null? number-buffer)
+                (let (
+                  [current-token (token &apos;operator (char-&gt;op first-char))])
+                  (my-tokenizer buffer-tail (list) (cons current-token token-buffer)))
+                (let (
+                  [number-token 
+                    (token &apos;number 
+                      (string-&gt;number 
+                        (list-&gt;string 
+                          (reverse number-buffer))))]
+                ) (my-tokenizer 
+                    reading-buffer 
+                    (list) 
+                    (cons number-token token-buffer))))))))]
+  ) (my-tokenizer char-list (list) (list))))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以上代码实现了一个 tokenizer，是用尾递归的方法来实现的。&lt;/p&gt;
+&lt;p&gt;Lisp 的括号语法一直饱受争议，但是这样做不是没有好处的，就是整个 Lisp 写起来其实没有太多复杂的语法，而且语法都显得很一致，很容易组合，而且 Racket 有很强的宏编程能力，关于这点我还没有了解。有人把 Lisp 理解成手写 AST(Abstract Syntax Tree)，这种说法我觉得也没有问题。&lt;/p&gt;
+&lt;p&gt;一般的类 C 语言的变量名喜欢用下划线或者驼峰标记法来区分，而在 Racket 里面，则可以用 &lt;em&gt;this-is-a-variable&lt;/em&gt; 这种小短杠来表示，个人觉得看上去还是很舒服的。另一方面，很多标点符号也可以用来作为变量名，比如 &lt;em&gt;string?&lt;/em&gt; 是一个用来判断变量是否为 &lt;em&gt;string&lt;/em&gt; 的函数。比如 &lt;em&gt;string-&gt;numer&lt;/em&gt; 用来表示字符串转数字的函数，个人感觉非常直观。&lt;/p&gt;
+&lt;p&gt;和 Haskell 相比起来会麻烦一点的地方就是要自己去判断变量的类型，但是这也意味着给语言提供更大的灵活性。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-scheme&quot;&gt;(define (get-precedence x) 
+  (match x
+    [&apos;add 1]
+    [&apos;sub 1]
+    [&apos;mul 2]
+    [&apos;div 2]))
+
+(define (eval tokens)
+  (letrec (
+    [get-handler (lambda (op)
+                  (match op
+                    [&apos;add +]
+                    [&apos;sub -]
+                    [&apos;mul *]
+                    [&apos;div /]))]
+    [my-eval (lambda (tokens num-stack op-stack)
+                (if (null? tokens)
+                  (match op-stack
+                    [null (car num-stack)]
+                    [(cons top-op op-stack-tail)
+                      (let* 
+                        (
+                          [num1 (car num-stack)]
+                          [num2 (car (cdr num-stack))]
+                          [num-stack-tail (cdr (cdr num-stack))]
+                          [handler (get-handler top-op)]
+                          [result (handler num1 num2)]
+                        )
+                        (my-eval (list) (cons result num-stack-tail) op-stack-tail))])
+                  (let* (
+                    [next-op (token-value (car tokens))]
+                    [next-number (token-value (car (cdr tokens)))]
+                    [tokens-tail (cdr (cdr tokens))]
+                  ) (match op-stack
+                      [null 
+                        (my-eval 
+                          tokens-tail 
+                          (cons next-number num-stack) 
+                          (cons next-op op-stack))]
+                      [(cons top-op op-stack-tail)
+                        (let* (
+                            [op-stack-tail (cdr op-stack)]
+                            [top-op (car op-stack)]
+                            [top-op-precedence (get-precedence top-op)]
+                            [next-op-precedence (get-precedence next-op)]
+                          ) (if (&gt; next-op-precedence top-op-precedence)
+                              (my-eval 
+                                tokens-tail 
+                                (cons next-number num-stack) 
+                                (cons next-op op-stack))
+                              (let* (
+                                [num1 (car num-stack)]
+                                [num2 (car (cdr num-stack))]
+                                [num-stack-tail (cdr (cdr num-stack))]
+                                [handler (get-handler top-op)]
+                                [result (handler num1 num2)]
+                              ) (my-eval tokens (cons result num-stack-tail) op-stack-tail))))]))))]
+    [num (token-value (car tokens))]
+    [token-tail (cdr tokens)]
+  ) (my-eval token-tail (list num) (list))))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上述代码定义了一个 eval 函数，用优先级解析的方法去解析上面写的函数生成的 tokens&lt;/p&gt;
+&lt;p&gt;代码写起来会比 Haskell 版本的稍长一点，但是个人感觉非常清晰，语法也很一致和漂亮。个人感觉是 Racket 确实是一门非常漂亮的语言，也没有像 Haskell 玩各种概念这么烧脑，还是动态类型的，平时娱乐一下开拓一下眼界感觉非常好。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[关于函数式]]></title><description><![CDATA[此篇博文整理了我和  walkerlala  关于函数式相关问题的讨论 Vincent Chan 我觉得函数式很重要的一点是 Immutable，使得每一次更改都要重新生成一次整个数据结构（当然我们可以通过编译器优化来减少某些生成），但是immutable…]]></description><link>https://diverse.space//关于函数式/</link><guid isPermaLink="false">https://diverse.space//关于函数式/</guid><pubDate>Mon, 13 Nov 2017 12:54:18 GMT</pubDate><content:encoded>&lt;p&gt;此篇博文整理了我和 &lt;a href=&quot;http://walkerlala.github.com/&quot;&gt;walkerlala&lt;/a&gt; 关于函数式相关问题的讨论&lt;/p&gt;
+&lt;p&gt;Vincent Chan&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我觉得函数式很重要的一点是 Immutable，使得每一次更改都要重新生成一次整个数据结构（当然我们可以通过编译器优化来减少某些生成），但是immutable 也使得整个程序的状态可以被记录和更改。我之前写前端的时候就尝试了 Redux + React 这种模式。这种模式很有意思，我刚写起来的时候觉得超级别扭，写了很多无用的代码。但是当我开始着手用它来写一个前端项目的时候，我开始体会到了这里面的思想（虽然我仍然觉得很恶心和别扭，因为它尝试用 js 来写函数式)。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们都知道 html 界面其实就是一颗很庞大的树，有很多 html 节点，这些html 节点里面有很多子节点，每个子节点又有自己的属性（attributes）。当我们以前写的 jQuery 代码都在干什么？就是绑定一个节点的事件，然后更改另一个节点。想想看，我相信你写过 jQuery，我们先在这个庞大的 document 树里面 query 到节点，比如一个 button，然后我们监听它的click 事件，当这个事件发生时，我们 query 另外一个节点，比如一个label，然后修改里面的内容。这就是我们以前用 jQuery 做的事情。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;而 Redux+React 的事情是这样的，React 维护着一个 js 的假的 document tree，这棵树和真正的 document tree 比起来是很轻量级的，也很快，然后通过这颗虚拟的树去生成真的 document 树。每当一个状态改变了，然后，重新生成一颗虚拟树，然后和老的虚拟树做 diff，然后更新真的 DOM。这种做法看起来很折腾，但是却有它的用处：什么状态就对应怎样的 DOM，也就是你状态没错，你界面肯定就没错。想想之前 jQuery 的办法，逻辑多起来，你怎么保证状态一定是你脑中的那样。那我们怎么管理这个状态呢？这里就用 Redux 了：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每当我们要改变一个状态时，我们就是要 sending a message，这个message 是一个数据，告诉 redux 我要更改什么，删除什么，添加什么……然后我们会定义一个 reducer，reducer 的作用就是通过一颗旧的状态树，接收消息之后，通过消息来生成一颗新的状态树，然后把新的状态树交给React 生成新的虚拟 document 树，然后再做 diff，然后更新视图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;刚才 jQuery 做的事情，我现在用 Redux+React 的方法重新做一遍：把某个按钮绑定某个 meesage，当用户按下某个按钮，就发送一个 message，告诉 Redux 要更新某个 label 的值，Redux 根据 message 重新生成新的状态树，包含了新的 label 值，然后生成新的虚拟 DOM 树，然后和旧的比较，做 diff，然后更新真正的 DOM。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当你开始用 Redux+React 重新写上面的流程的时候，你会沉浸在很多细节里面，因为要解决很多问题，但是你简化这个模型，发现这就是 FP 的思想，而这种思想来源于 Elm，这是一个 Haskell 写成的语言，语法是仿Haskell 的，可以编译成 js 代码，而这门语言所实现的，就是刚才所说的Redux+React 架构，当我们用 Elm 写上面这一切的时候，你会发现，这种做法用FP语言去做是多么自然，React+Redux 几百行代码才做好的事情，用Elm可以用不到一百行写出来，建议你去官网看看，代码真的非常漂亮。我觉得写 Redux+React 简直就是在人工编译 Elm 代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;至于为什么 Elm 没有火起来，而 Redux+React 火了，我相信你也明白，Redux+React 是用 js 写的，可以和现有的代码很好的结合，而 Elm 要重写代码，Haskell 语法一般人也很难接受，加上 React 有 Facebook 的爹（摊手&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yubin Ruan&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hmm... 对我来说，FP 的 Immutable 的好处有两种：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;因为没有 side effect 所有比较好 reasoning；&lt;/li&gt;
+&lt;li&gt;因为看起来像看数学公式一样所以逻辑清晰（同时也方便形式化验证）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但是你上面所说的状态，真的也是 FP 的好处吗？即使是一个状态对应一个虚拟树，但是如果逻辑多起来(e.g., 状态A =&gt; 状态B =&gt; 状态C)，怎么保证状态一定是脑海中的那样呢？JQuery 的确有这个问题(状态比较乱），但是 Elm 貌似也治标不治本...?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当然，如果 Elm 是内嵌 Redux+React 的模式的话，肯定是比 jQuery 要好。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我其实写过很多 JS 代码，虽然没有正式看过他的语法（至今还分不清 === 和 == 的区别）。给我的感觉的确很操蛋...大括号换行还能改变程序的意思；闭包是假闭包，而且你还不知道这个闭包是真的还是假的（C++ 的闭包虽然可以非 Immutable，但是起码都会在闭包声明的时候看得到）...&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我觉得终究会有一门语言来操翻 js 的 (摊手&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;诶，如果C语言里面有 hygien macro 我觉得就完美了。&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[初窥 Haskell：解析一个数学表达式]]></title><description><![CDATA[最近在学习 Haskell，不得不说，这真的是一门令我着迷的语言，lazy 和纯函数式等特性都非常吸引我，不过短时间内还无法掌握得很好，最重要是思维的转变非常苦难。 学习一门语言最好的办法就是多实践，我还记得我写过一片文章 编译原理学习笔记…]]></description><link>https://diverse.space//初窥Haskell：解析一个数学表达式/</link><guid isPermaLink="false">https://diverse.space//初窥Haskell：解析一个数学表达式/</guid><pubDate>Mon, 30 Oct 2017 20:26:27 GMT</pubDate><content:encoded>&lt;p&gt;最近在学习 Haskell，不得不说，这真的是一门令我着迷的语言，lazy 和纯函数式等特性都非常吸引我，不过短时间内还无法掌握得很好，最重要是思维的转变非常苦难。&lt;/p&gt;
+&lt;p&gt;学习一门语言最好的办法就是多实践，我还记得我写过一片文章&lt;a href=&quot;https://vincentdchan.github.io/2016/07/parse-math-expression/&quot;&gt;编译原理学习笔记1：解析数学表达式&lt;/a&gt;
+来讲述怎样去解析数学表达式，但是我没有讲如何去实现，现在刚好用 Haskell 实现一个。&lt;/p&gt;
+&lt;p&gt;本篇文章所有源码&lt;a href=&quot;https://gist.github.com/vincentdchan/78435adcbb007df77e0c674201202925&quot;&gt;https://gist.github.com/vincentdchan/78435adcbb007df77e0c674201202925&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;gists 里包含了我曾经在我的作业里面用 C# 实现了一个过程式的数学表达式运算器，总代码 161 行，而 Haskell 版只用了54行。FP 的 pattern matching 在写状态复杂的程序的时候真的如虎添翼。&lt;/p&gt;
+&lt;h2&gt;写一个词法分析器 Tokenizer&lt;/h2&gt;
+&lt;p&gt;我们要把字符串解析成一个个 token，也就是我们平时所说的词法分析器里面的”词“，想想一个数学表达式里面有什么类型的 token？大概是只有数学符号和是数字？&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-haskell&quot;&gt;data Token = Num Int 
+    | T_Plus | T_Sub 
+    | T_Mul | T_Div
+    deriving (Show)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意我在上一篇博文里面提到的优先级问题，我们需要有一个函数来返回操作符的优先级，我们可以用 pattern matching&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-haskell&quot;&gt;getPrecedence:: Token -&gt; Int
+getPrecedence T_Plus = 1
+getPrecedence T_Sub = 1
+getPrecedence T_Mul = 2
+getPrecedence T_Div = 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这种表达可以说是非常优雅了，然后开始写一个词法分析器……的定义&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-haskell&quot;&gt;tokenizer:: String -&gt; [Token]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Haskell 的类型定义，一个词法分析器输入一个字符串，然后输出一串 Token&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;接下来看我放大招&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tokenizer&lt;/code&gt; 函数将调用下面这个稍微复杂一点的 &lt;code&gt;_tokenizer&lt;/code&gt; 来完成词法分析操作，下面我来解释一下这个函数的参数有什么作用&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;第一个参数就是待解析的字符串&lt;/li&gt;
+&lt;li&gt;第二个参数是暂存的数据缓冲区，如果我们要读入数字1234，那么要先把123先缓存起来，读入4后再一起解析&lt;/li&gt;
+&lt;li&gt;第三个参数是&lt;strong&gt;之前已经读入的token&lt;/strong&gt;, 我们把这次解析出来的token连接进去，然后通过递归传给下一次运算，最后直接返回下一次的递归调用返回的值，这种写法叫做尾递归，可以减少内存的使用。关于尾递归这里不详细说。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&quot;language-haskell&quot;&gt;_tokenizer:: String -&gt; String -&gt; [Token] -&gt; [Token] -- 尾递归写法
+_tokenizer &quot;&quot; [] previous = previous -- 所有字符都解析完毕
+_tokenizer &quot;&quot; buf previous = ((Num $ read $ reverse buf):previous) -- 字符都解析完毕，但是缓冲区还有数据
+_tokenizer (ch:expr) buf previous = 
+    if (Data.Char.isDigit ch) then -- 当前字符是一个数字
+        _tokenizer expr (ch:buf) previous -- 把数字放入缓冲区
+    else -- 当前字符不是数字
+        case buf of  -- 检查缓冲区是否为空
+            [] -&gt;  -- 缓冲区为空
+                case ch of -- 解析当前字符
+                    &apos;+&apos; -&gt; _tokenizer expr [] (T_Plus:previous)
+                    &apos;-&apos; -&gt; _tokenizer expr [] (T_Sub:previous)
+                    &apos;*&apos; -&gt; _tokenizer expr [] (T_Mul:previous)
+                    &apos;/&apos; -&gt; _tokenizer expr [] (T_Div:previous)
+            _ -&gt; _tokenizer (ch:expr) [] ((Num $ read $ reverse buf):previous) -- 缓冲区不为空，读取缓冲区字符
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：缓冲区保存的数字缓冲是倒序的，当我们用 &lt;code&gt;read&lt;/code&gt; 函数读取数值的时候，要先用 &lt;code&gt;reverse&lt;/code&gt; 函数反转&lt;/p&gt;
+&lt;p&gt;然后 &lt;code&gt;tokenizer&lt;/code&gt; 的定义就很简单了，我们词法分析出来的列表是倒序的，我们要用reverse函数来反转。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-haskell&quot;&gt;tokenizer expr = reverse (_tokenizer expr [] [])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;表达式求值&lt;/h2&gt;
+&lt;p&gt;到此为止，词法分析器就完成了，当我们对一串字符串调用 tokenizer 就可以得到一串 token 了，接下来就是如何对表达式进行求值，原理可以回顾&lt;a href=&quot;https://vincentdchan.github.io/2016/07/parse-math-expression/&quot;&gt;编译原理学习笔记1：解析数学表达式&lt;/a&gt;，这里讲讲实现&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-haskell&quot;&gt;-- 定义操作符运算
+evalOp :: Token -&gt; Int -&gt; Int -&gt; Int
+evalOp T_Plus a b = a + b
+evalOp T_Sub a b = a - b
+evalOp T_Mul a b = a * b
+evalOp T_Div a b = a `div` b
+
+-- 搞一个好看点的包装函数
+eval :: [Token] -&gt; Int
+eval ((Num value):tokens) = _eval tokens [value] []
+
+-- 真正运作的函数在这里
+_eval :: [Token] -&gt; [Int] -&gt; [Token] -&gt; Int
+-- 操作数栈里面只有一个数了，就是我们要求的值了
+_eval [] [value] _ = value
+-- 操作符栈数值为空，进行SHIFT操作
+_eval (op:(Num num):tokens) numStack [] =
+    _eval tokens (num:numStack) [op]
+-- 操作符栈不为空
+_eval (op:(Num num):tokens) numStack (topOp:opStack) =
+    if (getPrecedence op) &gt; (getPrecedence topOp) then
+        _eval tokens (num:numStack) (op:topOp:opStack) -- SHIFT
+    else -- REDUCE
+        case numStack of
+            (num1:num2:stack) -&gt;
+                _eval (op:(Num num):tokens) ((evalOp topOp num1 num2):stack) opStack
+-- 栈里还有一些残留的值，继续运算
+_eval [] (num1:num2:numStack) (topOp:opStack) =
+    _eval [] ((evalOp topOp num1 num2):numStack) opStack
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里 &lt;code&gt;_eval&lt;/code&gt; 的参数&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;要解析的 token 集合&lt;/li&gt;
+&lt;li&gt;操作数的栈&lt;/li&gt;
+&lt;li&gt;操作符的栈&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;总的来说，在 pattern matching 的帮助下，写一个表达式求值的程序可以说非常简洁明了。当你用过程式语言去写 tokenizer 的时候，你需要控制一个指针在字符串上移来移去，非常容易出错，如果用 pattern matching，只需要定义好相应的字符串就可以了，非常优雅。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[用 Python 生成饼状旋转动画]]></title><description><![CDATA[在写一个小游戏过程中，打算做一个饼状旋转的动画，于是打算用 Python…]]></description><link>https://diverse.space//用Python生成饼状旋转动画/</link><guid isPermaLink="false">https://diverse.space//用Python生成饼状旋转动画/</guid><pubDate>Sun, 29 Oct 2017 01:53:48 GMT</pubDate><content:encoded>&lt;p&gt;在写一个小游戏过程中，打算做一个饼状旋转的动画，于是打算用 Python 来生成这个动画，假设我们有这样一张图片&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38af76d5aae29e7a83399b6046f7f4d3/a8408/red-circle.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 128px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAACVklEQVQ4y61UPWhTYRS9aRcdnMW0SUS01kVQqSBSq2kagzVpLC1YUq2KS0FRuiilKOLSwaFTKeikky46KggO4iAl4CZuTg6uWrC81+94z/3el9dKoZoa+Mjlve+ed3/OOYLFB8Ifvn8Td2xHp8WA4G5j2F0ZeIyxI000Tqzg0slVjB5uumvFp7g9WtM7/u5e6cDHdx7jybz44MMbgSTx/eslTBz/hFoPUMkDpW7gTFbPHh/z2fn9wMW+z5i7WkvSxL19mWlV1gKbGbuH+iFN7AIGu2MM5SM9a3ochgouiSN7xzv1XuBWfT6Aovle0jYN7CAr0aRC7EH0lHJu05h3itkYIweAmyOPDEOkI22TlXmwNU1EmpjHHyeAwyomqI7HzV6+4HvnAjgztsCvpmDY4gRQ3/740S+6qJ22TVuAn5n7S7D11XJZEaq6qJnxCTFqVOxl1AYgkiojVApQar0Q4xnpwHn4oeMfj7O2yzm4au+yGGnJs3aq8xU6lJVSp3ezwp9iCiBpPc/aq5CAAwo4deqXUE7/peWzVFDPspg2t7cU11rKVP8rMaFTm9uiTS7C8D7gRnWSztJpQm+b2JozmCWxv2Llxy4vPXUNEzpl5Ge5Fahr3Sl2KalVz3cakxL8zP7VNUzoHjReR9rNDMJXRjDmTJ9bTMwhI8Ec7YG6hsmQ7VNOflGx0aJccMmHIpsZ26ymYJb/+nlmozkyVtcwoVOb3JwqwEhLnpEafMYFcGahTYI9W8hssG2aY/AzugaFTm1STlQASUuekRrcZlgA2wyVYemh/AYK9VmiTWdy5wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;red circle&quot;
+        title=&quot;&quot;
+        src=&quot;/static/38af76d5aae29e7a83399b6046f7f4d3/a8408/red-circle.png&quot;
+        srcset=&quot;/static/38af76d5aae29e7a83399b6046f7f4d3/a8408/red-circle.png 128w&quot;
+        sizes=&quot;(max-width: 128px) 100vw, 128px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后生成的动画是这个样子的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/red-ani2.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当然，中间会生成很多帧的动画&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/41eb5fcf99a8e3f6b23642b5889142e3/0eaa2/red-circle2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 49.53429297205758%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAABYlAAAWJQFJUiTwAAACV0lEQVQozxWQTUgUYRjHB+oQdOrSoQ5Bl6AOCUGXICHo0CEIErqFEXgJgiI6mEmEYFC2ZZluatrm6jrSbunq7tqWjm1qmpua2oq768eYozuzu/OxOx/vvO/7NHP7PfB74Mefobs8fVSDf4zS5TnaeBtnU5QLk44nWNgCto3Eg5jPUn8zXkmSPzM02Gnndsi3T/B9pLQnMPA1BMcY3HCLeBvgKGP3vab3rtGK/TgehEvHydXTdpSFMwdI7XXi88ApxvZ5aP1NOHtQjgUZs1wSe1vlvwvqriB2v1Rze+pSMtfTUjKMYnwwHw7oyBb7vIUZrlwsiB1P1c2MuvZXevdc5DcZkk1ZkX69VFLHYiIX2TUoirBmJoX0Mgp2mjZGfNYa/GAC2HMJaypuATgCSs3LCDMwOgAV+6zmOsPzwMnTQn5ypwqunMQTw252XTWODcC5Q6S/lbQ3woUj9u9JercKbpzXNtKMaZpi4G1xfobfkdKtTetrG8XklNDxTNP1AheVQj7FsPIfuwsTMVVRpC5PMbWkbGbEziZ5e4sh6SUryjpViIsIXGSBF7JC7p9zljXEek1CrK0sCnW5wuy4NfnFhbAfrSR1AAYiAacKL05Tz31y+URxfa3kqcWvHmJRgMrDZHwIz3IuaDJpewzVlTYArbkILfWG86wbhsS2F2YTSl6SfM3azrY6Py2+f6GWdSc1PzKgmigf8km/JjVFFvvbi4KgZFb3PvtlVWPI+ioa6nE2tBNRmwu7Yw75rfQyIsQOvEGWZQm8zXpdIZlAY4MuDPfaiz/LFP4Dn8zaaD8Lv5QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;red circle2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/41eb5fcf99a8e3f6b23642b5889142e3/84ad3/red-circle2.png&quot;
+        srcset=&quot;/static/41eb5fcf99a8e3f6b23642b5889142e3/687da/red-circle2.png 175w,
+/static/41eb5fcf99a8e3f6b23642b5889142e3/0ab4d/red-circle2.png 350w,
+/static/41eb5fcf99a8e3f6b23642b5889142e3/84ad3/red-circle2.png 700w,
+/static/41eb5fcf99a8e3f6b23642b5889142e3/ef8d3/red-circle2.png 1050w,
+/static/41eb5fcf99a8e3f6b23642b5889142e3/0eaa2/red-circle2.png 1181w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;怎么去生成每一帧动画呢？其实关键就在于挖去一个饼状图形里面的像素&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a236b82cf5500f6f0b887cbfd78a486d/a8408/red-ani3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 128px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAC0ElEQVQ4y4WUS2hTQRSGJymCIi7cKOZxU2xTYxdCFRURG/PsM2laG7CmplFEEJRKN0opigjShQtXRdSVBUE3Cm4UBAVRkFIQN+LGx0ZBVAQNWJPM7zkz99XYpIHJzL33zDfnn/MQmLsk+Ievn4XctbZFrQGB84UBlKI3kO96gyN7P+FkOqi+laIeZCLC+iEovHj2UK9vzZovXzwWsAwunkhibM9rZDuAHgNIBSBjvh+IbvKr731tXjUf3r0R08V+Cyyf3PfYntmwqdELyG0Hkn4gEagiZSwhHSKo8Y1mDUwZa9ScCMzgUCcwOXzF9nbxuXBkKtg2ILalhlSIYZJGDWlDA1OG396YDLbRcxlxH5ANQ54ZuqreC+F1ZLJnGlajDWgGlCljHr3seegvQat8PXK6OKw/cgD4zlgme+bA4ACDDDRMyd3mIZJs2a6q9uZ3vqNgrtPR5ADoO5MumAtofLc8pPml9s6o2HbJQAWZdmAqPyZkKXoTvYZl0Aj4k8Z68qiIvlY3TJqKKuqQo/vvCYx2LdIJerOWgP+BwS+07qTxXqcSvXdstOx0EDITWRAo7Csj5sMK3rk9/EDjDnqU1KoLBOVEOiRxcDN7+FvQ3xJFlwOyEtAJjvMs6w7XwCgBJ7r/CIzsaCaZ5co6GOoO1pL5KgY7FoQ8Hr/dJCiNYI6NdkIHZeLAA4GzI1kMtjdKm9WGdY8VDGwFTmfGubO0UKG/bZDYzWHKlvYkfJzYH1H+tUGX3syxLHIRqDLSd7kaVNo2cT8ldRg4VxjXsFZd0JjMzWIobEGrphR3iUnXWnvGMN5zqn/ObA4egVdPnWZJXUOVIcvnctKBqqq0SIekeVBF3RnLzDgwtf/RXc/y5shr6hqq0Lk2OXJUASppOc84NfgdB4DvzJLJsPlrnmVtm5uj1c+4a3Chc21yOXEFcNJynnFqcDStALBMyzNcvyz+AXNMK+qPAbllAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;red ani3&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a236b82cf5500f6f0b887cbfd78a486d/a8408/red-ani3.png&quot;
+        srcset=&quot;/static/a236b82cf5500f6f0b887cbfd78a486d/a8408/red-ani3.png 128w&quot;
+        sizes=&quot;(max-width: 128px) 100vw, 128px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;那我们只要遍历这张图片的所有元素，然后挖去在这个饼状范围内的像素即可，从这个思路出发，我们可以很容易想到使用极坐标。假设我们有两条极坐标空间里面的直线 &lt;code&gt;p = Theta1&lt;/code&gt; 和 &lt;code&gt;p = Theta2&lt;/code&gt; 那我们只要把这两条直线中间的像素挖掉即可。当我们遍历所有元素的时候，我们需要判断这个像素点在极坐标空间中的位置。当然，我们坐标的圆心是整个图片的中心，所以对于每个像素点，我们要减去整张图片中点坐标，求出的相对坐标再作 atan2 计算。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wikimedia.org/api/rest_v1/media/math/render/svg/86ad33236e019c6a82a8dd674f266fb70f51ac57&quot;&gt;&lt;/p&gt;
+&lt;p&gt;用 math.atan2 求出 theta 之后若在 theta1 和 theta2 之内，则删去即可，所以说核心代码其实很简单：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for x in range(SIZE[0]):
+        for y in range(SIZE[1]):
+            relative_point = (x - CENTER_POINT[0], y - CENTER_POINT[1])
+            theta = math.atan2(relative_point[1], relative_point[0])
+            theta = theta * 180 / math.pi + 180
+
+            if theta &gt;= theta1 and theta &amp;#x3C; theta2:
+                draw = ImageDraw.Draw(img, &apos;RGBA&apos;)
+                draw.point([x, y], (0, 0, 0, 0))    # write null pixel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后附上源码 gist 地址:
+&lt;a href=&quot;https://gist.github.com/vincentdchan/e120f3cacf88efbba3e51fa1b0084086&quot;&gt;https://gist.github.com/vincentdchan/e120f3cacf88efbba3e51fa1b0084086&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[HTML Canvas实现《黑客帝国》数字雨]]></title><description><![CDATA[《黑客帝国》是我最喜欢的电影之一，我感觉《黑客帝国》里面的数字雨简直是一种艺术，非常好看，看上去非常高大上，而且和“雨”这种东西结合，非常有意思，于是想自己实现一下。 效果图: 在Canvas…]]></description><link>https://diverse.space//HTML-Canvas实现《黑客帝国》数字雨/</link><guid isPermaLink="false">https://diverse.space//HTML-Canvas实现《黑客帝国》数字雨/</guid><pubDate>Mon, 19 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;《黑客帝国》是我最喜欢的电影之一，我感觉《黑客帝国》里面的数字雨简直是一种艺术，非常好看，看上去非常高大上，而且和“雨”这种东西结合，非常有意思，于是想自己实现一下。&lt;/p&gt;
+&lt;p&gt;效果图:&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d0dab848e704fc95b1559329d05867f9/70ccc/matrix-ani.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 48.04687499999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAA3klEQVQoz21Syw7DIAxLeJaWaYf9/7cyqGzVrXqwgCTYccAs2rBsw4sP+819nXAgTKSJDajA2hvyjpp94rvi61AmItYsxVHiJMw4G3Ko8+rDj9nUmSxQyVipSjF2etiIRxzWXkQbmylihQX+6I77inMHYRJ0dt7gf4PCJsRZVgdJ4ayQIyHFl41TOcqcmGzyOOEiOR8wyMzp7iTsCPJSFsIq1nQURWLqKpEwPQo45A0kWR7KXmba5OvYBxejtJ1Q1GFx90vUIJBF9KuEx50wlHAvXoTJLwcmX4z/sl+W/33ny1L5gsdYAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;matrix ani&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d0dab848e704fc95b1559329d05867f9/84ad3/matrix-ani.png&quot;
+        srcset=&quot;/static/d0dab848e704fc95b1559329d05867f9/687da/matrix-ani.png 175w,
+/static/d0dab848e704fc95b1559329d05867f9/0ab4d/matrix-ani.png 350w,
+/static/d0dab848e704fc95b1559329d05867f9/84ad3/matrix-ani.png 700w,
+/static/d0dab848e704fc95b1559329d05867f9/ef8d3/matrix-ani.png 1050w,
+/static/d0dab848e704fc95b1559329d05867f9/70ccc/matrix-ani.png 1280w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在Canvas里面实现动画的思路其实很简单，在很短的时间里面刷新一次就行了。每次刷新的时候，字符都会下降，然而数字雨里面并不是整串“雨”往下移动一个单位，而是这个雨的最下端，显示了一个新的字符。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/matrix.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;所以我们不妨换个思路，就是其实每个字符的位置其实是固定，每次刷新的不是每个字符的位置，而是刷新他们的颜色，让一个字符的颜色从最绿慢慢变黑，然后又变最绿，然后慢慢变黑……周而复始。最后把每个字符用Canvas在对应的坐标画出来就行了。&lt;/p&gt;
+&lt;p&gt;当然这当中有先后顺序，一列里面，第n个字符的颜色应该刚好比第n-1个字符少一个梯度，也就是说&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;第i秒的时候：
+    第N个字符的颜色为 A
+        第N-1字符的颜色为 A -1
+    
+第i+1秒的时候
+        第N个字符的颜色为A-1
+        第N-1个字符的颜色为A-2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当然了，为了要让每一条雨条下落的先后顺序不一样，必须给它们的颜色加一个随机的偏移量，然后取模，这样就会有先后落下的效果。&lt;/p&gt;
+&lt;p&gt;最后附上源码，需要用Babel编译一下&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/vincentdchan/aa426fc9767b2508d79fbefc87c659fd&quot;&gt;Github gist 源代码&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[写一个光线追踪渲染器]]></title><description><![CDATA[最近都在做一件事情，做一个光线追踪渲染器，一直很想揭开光线追踪渲染器的大门，于是跟着 Milo Yip 的步伐开撸了 用 JavaScript 玩转计算机图形学(一)光线追踪入门 渲染结果图：
+ 其实制作的过程是非常坎坷的，我首先用 C…]]></description><link>https://diverse.space//写一个光线追踪渲染器/</link><guid isPermaLink="false">https://diverse.space//写一个光线追踪渲染器/</guid><pubDate>Thu, 18 May 2017 00:01:00 GMT</pubDate><content:encoded>&lt;p&gt;最近都在做一件事情，做一个光线追踪渲染器，一直很想揭开光线追踪渲染器的大门，于是跟着 Milo Yip 的步伐开撸了&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/miloyip/archive/2010/03/29/1698953.html&quot;&gt;用 JavaScript 玩转计算机图形学(一)光线追踪入门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;渲染结果图：
+&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6f3405112aa6623034871f512c1a8cd9/748a9/renderer-img.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsSAAALEgHS3X78AAAD9UlEQVQ4y6WTX0xbdRTH77/e3vb+6b29t/Te9lIKpbSl6x/+NaMQSKkg1aZCqTXMxYBsUP5Mp5ixFGhHmdB2tOmqwtiyMM2iEnSEbGQvZpiQGF/2YHDyIHHuwUfju4nWW3gx2Xzy5PfyO+d8zvfkd34HAP6/gcfnxKD/THk+90Vx4MXx59wnNx6GX8WwCZKcpulBkhRg+N8tgLBCRtlxIcCZ39Jaz8pV5mPvMWqA4VGCSNH0jcrKb1tbfw0Gv3G52jHshIcQHKUbcF1QdIwHh+7OffxsZO4HrqqnTKIg2I1hwzh+kWHW7PanExOlra2/CoVHLlcNVNaGZWoZZSO0bY62WDy7v/+kdP/7Uu/QLohyAA1BHSgaVijOU1Smru5gbKz08GHpwYOjSFRqh0ZRXkkBcgFn3ZamwXPvf3bjy18ytw67Br9QaNoBJQi6MSxAkmdZ9oOqqg2f78mFCz+/e3GnozPOMF6NxsIwoIwk2TrR3OXpigXeWOp8banaM4txbQAIQWa12s/zYUEYMRjeM5nSjY3XXK55vf5tHDfKZLxSoWY5tcagMzZJfPWpsNFxRnTEUMIEoChKkaSF4xwY1klR52y2IYNhWK9/x2hsxXGlQqFAZKyawQkCgHC9sdns6OWMPbzpFQzDgVAo5HK5WIapFYRTHNdAUR6CaEbRdq3W29TU3NKiragwG42iKAqCjuFEmVLU1Xg9rb6ammogHA5PTk5KJerr651OJ8+yJILYqqtf7ukJBAJer9disUikFOV5HoJgXqiss9gEnnc4ncDIyEgikYjH41NTU9FoVKvVSuOhGYaiKJZlY7HYzMxMfHY2m82Oj8ekEoIgYBgGgqBOpwPsdrvVau3v719YWJAK9ff1RcLhgVDozUgkFAy2eDySeLff7/P5uvx+t9tNEKS7oTEafT0SiQCS1EA4nEgmc/n8R9evF7PZ1XT6Tj5/b20tPz9PSO8EABiKYnIMQZDyn4PlDFvpcDaMjp4HUqnUtWNbTqXyqdTdQuHzXG5zZWU7l1u/dEmkaRSCcByXy+XSUFW0hlbr5YQIIqzUOSBpJhOJQiaznsl8urJyr1jcu337u42N/dW1zdnZOo2GgGGJlJSVuEql1rPaWlpjUTI2CCEAiUxfufLJ4uKddHorl3t08+bT3d3f9/aebX21OTdn5DgKKW8YIlOQKi0vWk3W04baVqqiCcF4YDGZLKZSt6SGr169n8v9tLn558FB6ejoj+3t1cuXlSRZXj5IDslIXCVKZEf3oK932OzsQ4kq4MNk8oT8enl5r1j8bWendHj49+PHP66vz0xPE2UYhmUULOdItane/dLAmemh8aXT/jEU1/8DpXECkfMkBosAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;renderer img&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6f3405112aa6623034871f512c1a8cd9/84ad3/renderer-img.png&quot;
+        srcset=&quot;/static/6f3405112aa6623034871f512c1a8cd9/687da/renderer-img.png 175w,
+/static/6f3405112aa6623034871f512c1a8cd9/0ab4d/renderer-img.png 350w,
+/static/6f3405112aa6623034871f512c1a8cd9/84ad3/renderer-img.png 700w,
+/static/6f3405112aa6623034871f512c1a8cd9/748a9/renderer-img.png 1024w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其实制作的过程是非常坎坷的，我首先用 C# 按照博文的思路重写了一边，渲染出结果（1024x1024），总共耗时6秒，结果令人很不满意，觉得有点慢，于是打算用 C++ 重新实现一遍，使用 MSVC 编译器，第一次做出来的结果是2.1s，比 C# 快一点，但是优势还不是很明显。但是我做了如下改动之后，性能得到了极大的提升：&lt;/p&gt;
+&lt;p&gt;本来的写法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;std::shared_ptr&amp;#x3C;Result&gt; function()
+{
+    if (do_something()) return std::make_share&amp;#x3C;Result&gt;();
+    else return null;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;改为：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;bool function(Result&amp;#x26; result)
+{
+    if (do_something()) 
+    {
+        result = xxx;
+        return true;
+    }
+    else return false
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;经过这一改动之后，渲染实践从原来的 2.1 秒瞬间缩短到了 0.6s，有点令人不可思议，个人猜测是 shared_ptr 进行频繁的分配和释放空间导致的速度大幅度变慢。0.6s 的渲染时间让我觉得很满意，本来想继续做下一步实验，但是不知道怎么的，我总是觉得程序还能优化。于是我看了看 Profile，没发现什么问题，我觉得该改的都改了，再改可能也得不到大幅度的提升，后来我往另一个方面想：多线程&lt;/p&gt;
+&lt;p&gt;光线追踪算法每个像素的计算之间没有任何关系，这意味着，可以同时进行计算，然后最后把结果合并，pbrt 也讲了这种思想，于是我也试试。一开始我使用了 Windows 的 API，可是我没有什么 Windows 的编程经验，Win32 的 API 都是现查现用，于是出现了一个我解决不了的问题，就是我用WaitForMultipleObjects 函数去等待子线程结束，调度线程才结束，可是每次调度线程自己先结束了，WaitForMultipleObjects 函数没起到作用，我检查了结果，在正确范围内，也没发现问题，但是就是不行，没办法解决。&lt;/p&gt;
+&lt;p&gt;后来采用 boost 的 thread 框架，成功地使用了 join，调度程序等所有渲染都完成了才结束，由于我使用的电脑的 CPU 是 i5-5200U，双核四线程，所以我开了四线程，进行渲染，总共耗时 0.3s，速度可以说是加快了许多，我尝试开八线程进行渲染，也是 0.3s，速度没有得到提升，说明四线程在我的电脑上应该是最合适的。&lt;/p&gt;
+&lt;p&gt;多线程的问题解决了，然后就可以进行下一步的实验了。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[从头打造一个 Markdown 编辑器（一）：数据结构和展现]]></title><description><![CDATA[刚开始写这个编辑器的时候，我是毫无思路的，就是完全不知道如何下手，后来去翻了一下 CodeMirror, ACEditor, VSCode…]]></description><link>https://diverse.space//从头打造一个Markdown编辑器（一）：数据结构和展现/</link><guid isPermaLink="false">https://diverse.space//从头打造一个Markdown编辑器（一）：数据结构和展现/</guid><pubDate>Tue, 03 Jan 2017 10:26:00 GMT</pubDate><content:encoded>&lt;p&gt;刚开始写这个编辑器的时候，我是毫无思路的，就是完全不知道如何下手，后来去翻了一下 CodeMirror, ACEditor, VSCode 这些优秀编辑器的代码，但是我没有全看，因为我要我的编辑器大部分都是我自己想出来的，只有我想不到的时候才去看。
+首先我们需要一个数据结构来储存我们的文本，为什么要用数据结构而不直接用 string，是因为编辑器需要大量的增删查改操作，而当一个文本很大的时候，string 是不够快的，因为 string 的增删查改操作的时间复杂度基本上都是 O(n)，还不够快。&lt;/p&gt;
+&lt;h1&gt;数据结构 Data structure&lt;/h1&gt;
+&lt;p&gt;一开始我打算用的是 Rope，是因为看上这个数据结构足够快，后来弃用了，是因为它和我的编辑器的 View 部分的构想不太一样，很难融合在一起，另外就是它本身自己也比较难实现，所以我就用了很简单的 chains of lines 来实现了，就是用一个数组，里面存的是每一行的内容。废话不多说先上代码&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/MDE/blob/master/src/model/textModel.ts&quot;&gt;/src/model/textModel.ts&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-typescript&quot;&gt;class TextModel {
+
+    protected _lines : LineModel[];
+
+    constructor(_string: string) {
+        // ctor
+    }
+
+    // other methods
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/MDE/blob/master/src/model/lineModel.ts&quot;&gt;/src/model/lineModel.ts&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-typescript&quot;&gt;class LineModel {
+
+    protected _number : number;
+    protected _text : string;
+
+    constructor(_num : number, _t : string) {
+        // ctor
+    }
+
+    // other methods
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;数据结构就是这么简单，就是用数组把每一行的内容都存起来存起来。在这里我用了一个 LineModel 的类来储存，是因为我还要实现一些别的方法，比如最典型的增删操作。当然我们实际上要实现的数据结构的操作不止那么多，至少要把insert, delete, replace这几个操作都实现了才行。这样我们文中所有的字符都可以用一个对象 Position 来表示，就是行+位移&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-typescript&quot;&gt;export interface Position {
+    line : number;
+    offset : number;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;而一段文字，也就是我们说的 Range，或者说选区（Selection）则可以用两个Position 来表示：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-typescript&quot;&gt;export interface Range {
+    begin: Position;
+    end: Position;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;想想我们要做编辑器要做的操作&lt;/p&gt;
+&lt;p&gt;1.插入（Insert）: 在文本内的一个位置（Position）插入一段文字（string）&lt;/p&gt;
+&lt;p&gt;2.删除（Delete）: 删除掉一段范围（Range）内的文字&lt;/p&gt;
+&lt;p&gt;3.替换（Replace）: 把一段范围（Range）内的文字替换为一段新的文字（string）&lt;/p&gt;
+&lt;p&gt;&lt;samll&gt;其实替换操作很容易理解，我们先删除，再插入即可，所以我们主要实现 Insert 和 Delete。具体的实现方法可以参考我的源码&lt;/small&gt;&lt;/p&gt;
+&lt;h1&gt;展现 Presentation&lt;/h1&gt;
+&lt;p&gt;下面讲讲如何展现（presentation)，就是如何通过 HTML DOM 操作把数据结构里面的数据展现出来，我想大家都已经想到了，一个 LineModel 对应一行，一个父 DOM 包含着每一行的 DOM&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fbbaf443f03da85035ccb2a80b3965f1/b1413/screen-present.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 20.75242718446602%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAwUlEQVQI1y2OO08DMRCE7///FyqkFDRpgCBER4GQUoUkyt2e7fXa+/A9OFYK0mg0xXya6b4+j8/7w8v+9XQ8KQpB5mzWtta2MVBhHYHPPzmODCAx2jAogLqLLN3h4/th9/b49H69hLltwovKarZNDo9UxUpSHFLChklKLs4TTTlPLHOHqCy/PqW21rqwLE7+w4GwqlDDQESGWRKy90udvaZt7WLkEIrLgwtR7vD9dmXFKNcLBShDXwHsdpO+F3fm+Q8Dl+CmDoAFMAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;screen present&quot;
+        title=&quot;&quot;
+        src=&quot;/static/fbbaf443f03da85035ccb2a80b3965f1/84ad3/screen-present.png&quot;
+        srcset=&quot;/static/fbbaf443f03da85035ccb2a80b3965f1/687da/screen-present.png 175w,
+/static/fbbaf443f03da85035ccb2a80b3965f1/0ab4d/screen-present.png 350w,
+/static/fbbaf443f03da85035ccb2a80b3965f1/84ad3/screen-present.png 700w,
+/static/fbbaf443f03da85035ccb2a80b3965f1/ef8d3/screen-present.png 1050w,
+/static/fbbaf443f03da85035ccb2a80b3965f1/fed13/screen-present.png 1400w,
+/static/fbbaf443f03da85035ccb2a80b3965f1/5b79c/screen-present.png 2100w,
+/static/fbbaf443f03da85035ccb2a80b3965f1/b1413/screen-present.png 2472w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;看图可知，MDE 里面每一行其实就是一个 &amp;#x3C;p&gt;，所以其实没什么神秘的东西，不过就是加上了行号，还有 Syntax Highlighting 而已（这个我们后面会说）。怎么把上面提到的 TextModel 编程 HTML DOM 元素了，自己写个遍历器遍历一遍就好了，在这里不推荐自己拼接 HTML 字符然后用 innerHTML 更新，这样一来效率低下，二来需要手动过滤字符，三来不方便我们后续的更新。&lt;/p&gt;
+&lt;p&gt;遍历一遍 TextModel，然后用 document.createElement 好了，这里你可能需要一个方便的工具类&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/MDE/blob/master/src/util/dom.ts&quot;&gt;/src/util/dom.ts&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-typescript&quot;&gt;function elem(elemName : string, className?: string, props?: any) {
+    let _elm = document.createElement(elemName);
+
+    if (className)
+        _elm.setAttribute(&quot;class&quot;, className);
+
+    if (props &amp;#x26;&amp;#x26; typeof props === &quot;object&quot;) {
+        for (let key in props) {
+            _elm.setAttribute(key, props[key]);
+        }
+    }
+
+    return _elm;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;具体的实现大家可以参考下列几个文件，不过因为已经实现了 Syntax Highlighting，可能现在的版本已经很复杂了，初学的话看可能有点压力&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/MDE/blob/master/src/view/viewLine.ts&quot;&gt;/src/view/viewLine.ts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/MDE/blob/master/src/view/viewDocument.ts&quot;&gt;/src/view/viewDocument.ts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;到现在为止，你可能已经知道怎么把 TextModel 里面的内容展现出来了，但是做一个编辑器，仅仅这样还是不够的，下一张讲讲如何更新视图。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[从头打造一个 Markdown 编辑器（序章）]]></title><description><![CDATA[开始写文章之前，先打个小广告，就是小弟新鲜出炉的作品 MDE，一个完全免费的，开源的，基于 Electron 的 Markdown 编辑器 MDE Editor，点击链接 进入GitHub 截图为在 Windows 10 上运行的效果 支持的功能： 即时渲染 Markdown…]]></description><link>https://diverse.space//从头打造一个Markdown编辑器（序章）/</link><guid isPermaLink="false">https://diverse.space//从头打造一个Markdown编辑器（序章）/</guid><pubDate>Sun, 01 Jan 2017 09:13:00 GMT</pubDate><content:encoded>&lt;p&gt;开始写文章之前，先打个小广告，就是小弟新鲜出炉的作品 MDE，一个完全免费的，开源的，基于 Electron 的 Markdown 编辑器&lt;a href=&quot;https://github.com/vincentdchan/MDE&quot;&gt;MDE Editor，点击链接&lt;/a&gt;进入GitHub&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2c8b1f22315d52bfaada2c27347674af/a9195/screen-mde.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 53.63281250000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABaUlEQVQoz2VR246CMBTk///IRze+GcWgG90XVynIrVfaUi6l3YPsJmyYTEgDZzpzhmCz2Ww/tsfjMQzD438cDgdKqfd+GIZ+haZpglP4udsdzudbFF2XvFy+9vtT+AZjDK5wzvkF4Magb50harTTpyUBTWNmf5jzK0xiVXey4I0ejHFLdp2nVEdRVFXV2nYhprrrfd97EMxPIJhxbq7XmxAClNba8Q3nxvkMawcwkeVMyUHKXqlh5nyu6/bxeCAUw85FUUAESgmlglKulNJaB4w1CSoRMCnTF8kyAm8wrquqJkTmeZ4kGSihWzmhZsxY+xcbJp6ozF+MpZQiXKaE8RbCw4SUbVlWcayM6daFQfhAiDaOc8GNUdbosTVOawuFta2H2K9XhjEHW1jS/mLefZycRd3d70maVggVjDeDnToDQmFKgTNGyI3j2tiDPkiS6nb7BnNCFMYStpgJ/ynLcBw/GROcizWgxR+OQm0kEXBfDgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;screen mde&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2c8b1f22315d52bfaada2c27347674af/84ad3/screen-mde.png&quot;
+        srcset=&quot;/static/2c8b1f22315d52bfaada2c27347674af/687da/screen-mde.png 175w,
+/static/2c8b1f22315d52bfaada2c27347674af/0ab4d/screen-mde.png 350w,
+/static/2c8b1f22315d52bfaada2c27347674af/84ad3/screen-mde.png 700w,
+/static/2c8b1f22315d52bfaada2c27347674af/ef8d3/screen-mde.png 1050w,
+/static/2c8b1f22315d52bfaada2c27347674af/fed13/screen-mde.png 1400w,
+/static/2c8b1f22315d52bfaada2c27347674af/5b79c/screen-mde.png 2100w,
+/static/2c8b1f22315d52bfaada2c27347674af/a9195/screen-mde.png 2560w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;截图为在 Windows 10 上运行的效果&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9ef094f703837e7c78add9c69ca7b7a2/a9195/screen-mde-night.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 53.63281250000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABc0lEQVQoz22Se2+CMBTFq9MMtVCoFGxB5KH4iMz5ac1MjEb3h5j4HXcohrjNX8jlNuH03Adkt9vtv/ZlWd5ut1Jz0yC53+/X6/V4PJ5OJ8TD4YD4rblcLufzmTjcDmOeLoSMOLNsxlhPYxiGZVlKKdd1J5rNZpNlGSGk1WohttttIoSbz7MkjVQglZK+70NjapB4nqfGYQwmkyRJpJS1GFRix3GGruDcHVDT6PX6/T6l9CFmzLbt1Anoe78xbKiOjm0rz51EKonh4VfmnjC1HC3QwWBKpdF9J/+oxL7nbT8/Vqt5UaziOGLarXZGjkLiJC6KAscXYswjz3MMBma0Rivxxi2YHFpN03Q8HiP/Kx4Oh8vlcjabcc7NJyCuyqYUQ+l2u6/LhvNisYAYa2jm3BAEwXq9RoLZdjqdtycqsRACJdWL+eWs42g0mk6n+AC3hGFYR/SIBHUR7nCz6bbq9/Ewy2QQS7ndbmGOf6aptt4ZzH8AhcdKi1MTbe8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;screen mde night&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9ef094f703837e7c78add9c69ca7b7a2/84ad3/screen-mde-night.png&quot;
+        srcset=&quot;/static/9ef094f703837e7c78add9c69ca7b7a2/687da/screen-mde-night.png 175w,
+/static/9ef094f703837e7c78add9c69ca7b7a2/0ab4d/screen-mde-night.png 350w,
+/static/9ef094f703837e7c78add9c69ca7b7a2/84ad3/screen-mde-night.png 700w,
+/static/9ef094f703837e7c78add9c69ca7b7a2/ef8d3/screen-mde-night.png 1050w,
+/static/9ef094f703837e7c78add9c69ca7b7a2/fed13/screen-mde-night.png 1400w,
+/static/9ef094f703837e7c78add9c69ca7b7a2/5b79c/screen-mde-night.png 2100w,
+/static/9ef094f703837e7c78add9c69ca7b7a2/a9195/screen-mde-night.png 2560w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;支持的功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;即时渲染&lt;/li&gt;
+&lt;li&gt;Markdown 语法高亮（Syntax Highlighting）&lt;/li&gt;
+&lt;li&gt;白天模式和夜间模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一个已经版本在2017年元旦发布了，现在我只打包了 Windows win32 64 位版本，有兴趣的朋友可以下载来跑一下。迟些我会打包 Linux 版本，至于 Mac 的话，我身边没有设备还真不好搞。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/MDE/releases&quot;&gt;下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其实现在这个时代，好用，能用的 Markdown 编辑器已经很多了，比如我很喜欢的 Typora，CMD Markdown，还有各种编辑器加上 Markdown 插件也很好用，加上 Markdown 语法比较小众，所以说自己撸一个其实意义不大，但是为什么我还要写这样一个编辑器呢？&lt;/p&gt;
+&lt;p&gt;一来其实是我一直很好奇我们平时用的这么多编辑器是怎么实现的，这方面的资料也不多，于是打算自己从头撸一个，看看能不能掌握一些知识。&lt;/p&gt;
+&lt;p&gt;二来我是广州某高校的 CS 学生，网上很多人说现在学校出来的学生什么都做不了，所以我也写个能用的东西来证明一下自己对吧&lt;/p&gt;
+&lt;p&gt;三来，这个程序是开源的，免费无广告的，希望有志同道合的朋友可以一起学习，交流，所以我会把我开发过程的一些想法和心得都写出来，我会在知乎专栏发表一系列关于这个编辑器的文章，这个只是序章，希望有朋友可以一起交流&lt;/p&gt;
+&lt;p&gt;在这个序章，我简单介绍一下我做这个编辑器需要的一些东西，我的编辑器是基于 Electron，主要是看上了跨平台的特性，以及我对 Javascipt 比较熟悉，对 Typescript 比较感兴趣的原因，我的编辑器是用 Typescript + Electron 实现的，我的文章主要也是讲这个，如果有要动手的朋友可以选择自己喜欢的框架和语言，打造一个 Markdown 编辑器的旅程就要开始了，你准备好了吗？&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Syntax Highlighting之后的视图更新]]></title><description><![CDATA[前一篇blog讲述了如何给编辑器做Syntax Highlighting，可是做完之后要怎么样给视图更新才会做到更高效呢 毕竟我们采用这种Syntax Highlighting…]]></description><link>https://diverse.space//Syntax-Highlighting之后的视图更新/</link><guid isPermaLink="false">https://diverse.space//Syntax-Highlighting之后的视图更新/</guid><pubDate>Fri, 16 Dec 2016 09:56:00 GMT</pubDate><content:encoded>&lt;p&gt;前一篇blog讲述了如何给编辑器做Syntax Highlighting，可是做完之后要怎么样给视图更新才会做到更高效呢&lt;/p&gt;
+&lt;p&gt;毕竟我们采用这种Syntax Highlighting的方法， 就是要保证高效，如果不能好好利用，那么我们的这种方法就没有意义了。&lt;/p&gt;
+&lt;p&gt;我们知道，当一行改变了之后，这行下面的状态可能全部都会改变，所以这一行包括下面所有行都要重新进行Tokenize，毫无疑问，如果文件很大，如果用UI线程进行Tokenize，可能会造成卡顿。不过就算是一个几千行的文件，每输入一次，进行全文Tokenize，全文扫一遍，也是瞬间完成的事情，我们大可不必为此操心，但是谁知道会不会有其它情况，比如突然发生了GC，或者输入者手速太快了。当然，这层我们是不知道的，但是我想到了更好的办法。&lt;/p&gt;
+&lt;p&gt;一行发生了改变，那么这一行要马上更新，这时肯定的，也几乎不会消耗什么时间，就算一行有好几百个字，也几乎可以忽略不计，所以我的编辑器在输入这一行的时候，会马上进行Tokenize，马上进行上色。但是这一行下面的行却不要求马上进行更新，因为如果正在输入这一行，只是输入了一些正常的字符，而没有触发什么加粗什么的，那么下面的行其实无需更新，就算触发了，我们也不要求马上进行更新，对吧。很明显下面行数的更新就要异步进行。&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/05ee6c32981bb80cd2f4c5820305f335/b109a/RenderLine.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 623px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 39.00481540930979%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhElEQVQoz2NgIBLU1NSAaRsbG+I0GBoagmlvb28wff78eYYTJ06A2WlpaWC6u7ub8f///0y9vb1s4eHhYq6urvx5eXniV69eLbl06ZIrTkOJABxQzODp6cl85MgRgdTUVEmwDMgVDx48YL5+/TrLv3//mIASLEBh5nPnzsmdPHlSRk5OjhXoIi6gGMuSJUtU3759OxGofsfTp0+3vHz5sjgoKIgTZI6SkpIg0PWYVgsLCwsAKdbjx4+brlu3Tg1JimvChAl+Hz58uPHixYsfr1+//vn8+fPNMTEx4hoaGrxOTk5cYFXHjh0TuXfvXsLNmzfLHj16FFtXV6d29uxZCaBXOK5cueJ4+/bt4vv372ceOHDACGZyVVUVu76+PjO6Y4yMjMCB7wC07SnQ1u9v3rx5sn37dp8LFy74zJo1y+7u3bsHnj17BnLJN2DAN4A0Ab3FCDMAxJ44cSIj1tgvKiriwRb6paWlXH5+fqwwPjAcGU6fPs0ADGMGYLjDDGYAhj2YDQAWw7b2V6zBHgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;RenderLine&quot;
+        title=&quot;&quot;
+        src=&quot;/static/05ee6c32981bb80cd2f4c5820305f335/b109a/RenderLine.png&quot;
+        srcset=&quot;/static/05ee6c32981bb80cd2f4c5820305f335/995c0/RenderLine.png 175w,
+/static/05ee6c32981bb80cd2f4c5820305f335/69d98/RenderLine.png 350w,
+/static/05ee6c32981bb80cd2f4c5820305f335/b109a/RenderLine.png 623w&quot;
+        sizes=&quot;(max-width: 623px) 100vw, 623px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我们看这张图，就是一行的&lt;strong&gt;渲染状态&lt;/strong&gt;图了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Null -&gt; 没有进行渲染&lt;/p&gt;
+&lt;p&gt;Plain Text -&gt; 渲染了，没有上色，是纯色文字&lt;/p&gt;
+&lt;p&gt;Colored -&gt; 已经完成了上色&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们渲染有两种模式，分别是立即（Imd）和延迟（Lazy）更新，这样我们可以有下图的表格&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Null&lt;/th&gt;
+&lt;th&gt;Plain Text&lt;/th&gt;
+&lt;th&gt;Colored&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Imd&lt;/td&gt;
+&lt;td&gt;马上在UI层进行渲染，跳到Colored状态&lt;/td&gt;
+&lt;td&gt;马上进行上色，跳到Colored状态&lt;/td&gt;
+&lt;td&gt;立即进行重新渲染，更新&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lazy&lt;/td&gt;
+&lt;td&gt;先渲染成纯色的字符，不进行上色，跳到PlainText状态&lt;/td&gt;
+&lt;td&gt;调用后台线程进行上色，上色完成后调用Callback，然后更新UI，然后跳到Colored状态&lt;/td&gt;
+&lt;td&gt;调用后台线程进行重新上色和渲染，完成后调用Callback更新UI层&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; 所以如果是更新&lt;strong&gt;正在编辑&lt;/strong&gt;的行的话，就调用Imd模式进行渲染和更新，如果是&lt;strong&gt;正在编辑下面的行&lt;/strong&gt;的话，就调用Lazy渲染和更新。&lt;/p&gt;
+&lt;p&gt; 当然，由于我是用NodeJS进行实现，所以就没有办法调用后台线程（Thread），只能通过IPC调用后台进程（Process），不过原理是一样的。&lt;/p&gt;
+&lt;p&gt; 但是关于后台更新有一个问题，就是后台Tokenize完成以后，用户已经又更新了，比如说我第7行完成了Tokenize，但是这时可能用户又重新输入了第3行，这时第3行之后的行数都会在后台进行Tokenize操作，可是这时原来已经Tokenize的第7行的结果已经没有意义了，所以不能让它更新UI层。这时我们可能需要维护一个优先队列（Priority Queue），来得到目前等待Tokenize的最小的行号。&lt;/p&gt;
+&lt;p&gt; 仍然用回刚才的例子，当我们第7行已经Tokenize完成的时候，准备更新UI层，这时第3行触发了输入，第三行本身立刻完成了渲染，这时第3行之后的行数（4..）全部加入Priority Queue，这时第7行的callback调用Priority Queue的队列头，得到当前最小的是4，也就是第4行正在后台进行Tokenize，所以第7行Tokenize的结果不会更新到视图。当第4行的Tokenize完成之后，调用更新视图的Callback，这时检查到当前Priority Queue 的队列头正是4，然后更新视图，把4在队列里面Pop出来。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[如何实现编辑器文本语法高亮着色]]></title><description><![CDATA[最近正在尝试造一个Markdown编辑器的轮子  MDE  现在算是实现了简单的数据结构，用 chains of lines实现了，支持插入，删除，替换操作。 至于 Model 至视图（View）层面的更新就简单了，只要判断出插入、删除的那几行，去更新 DOM…]]></description><link>https://diverse.space//如何实现编辑器文本语法高亮着色/</link><guid isPermaLink="false">https://diverse.space//如何实现编辑器文本语法高亮着色/</guid><pubDate>Sun, 06 Nov 2016 13:06:00 GMT</pubDate><content:encoded>&lt;p&gt;最近正在尝试造一个Markdown编辑器的轮子 &lt;a href=&quot;https://github.com/vincentdchan/MDE&quot;&gt;MDE&lt;/a&gt; 现在算是实现了简单的数据结构，用 chains of lines实现了，支持插入，删除，替换操作。&lt;/p&gt;
+&lt;p&gt;至于 Model 至视图（View）层面的更新就简单了，只要判断出插入、删除的那几行，去更新 DOM 里面那几行就可以了，也可以说是非常简单。&lt;/p&gt;
+&lt;p&gt;目前比较棘手的一个问题是给 &lt;strong&gt;Syntax Highlighting&lt;/strong&gt;。Syntax Highlighting 是编辑器很重要的一部分。因为它需要速度非常快，必须在输入瞬间就完成，这样不会给用户发现有卡顿。而且它必须在输入瞬间完成。我想过一种做法就是，先显示没有着色的文本，然后在后台进行着色，然后再更新视图(View)。但是我觉得这样的做法就体验非常差了，用户输入的时候，文本没有被着色，而是等一段时间才有，会让人觉得非常不流畅。所以 Syntax Highlighting 必须再用户输入的瞬间完成。另外，我用很多基于Web的编辑器(Atom, Typora)都觉得不如 Native 的（Sublime Text）之类的来得快，这样就造成了体验不好，所以我写的 Syntax Highlighting 必须要快。&lt;/p&gt;
+&lt;p&gt;我的编辑器只支持 Markdown 语法，按道理来说 Markdown 语法（包含HTML）是属于&lt;strong&gt;有限自动机（Finite-State）&lt;/strong&gt;语法，也就是说，只要写Lexer(Tokenizer)就好了。&lt;/p&gt;
+&lt;p&gt;如果这样想的话，就简单了，有限自动机语法直接用&lt;strong&gt;正则表达式（Regular Expression）&lt;/strong&gt;做就好了，如果一行有更新，就对这一行进行&lt;strong&gt;重新 Tokenize&lt;/strong&gt;，然后再更新视图（View），一行来说一不会超过 50 个字，如果是 DFA 的话，速度会很快，基本不用担心速度问题，即使是正则表达式也不会慢多少，但是这就有一个问题，就是换行的问题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;#x3C;div
+id = &quot;name&quot;&gt;&amp;#x3C;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;因为 Markdown 语法是兼容 HTML 的，假设，我们有一句 html，它的 tag 在第 n 行，它的 attribute在第 n+1，如果我们只对一行做正则表达式，那么第 n+1 行的 attribute 就无法感知上一行的改变了。另一方面，在上面得例子第二行上面加上&lt;code&gt;&amp;#x3C;div&gt;&lt;/code&gt;这样一行，下面的语法高亮都会有所不同。那是否意味着，我们每一次改变，都要对整个文本进行 tokenize 呢？当然这样肯定是不切实际的，上面说过，语法高亮必须是实时的，这样才能保证好的用户体验，但是 Syntax Highting 依然与上下文有关。这里我们可以采用 CodeMirror 的做法了： 每一行保存一个 state&lt;/p&gt;
+&lt;p&gt;我们刚才说到，Syntax Highting 需要用到上下文的信息，那么我们可以为每一行保存一个 state。当我们对当前行进行 high lighting 的时候，就可以使用前一行的 state 的。仍然用回上面的例子，第一行里面我们 tokenize 了，进入了一个state 这个 state 告诉我们这个 tag 还没有定义完，例如 &lt;code&gt;state.finishTag = false&lt;/code&gt;  当我们第二行修改的时候，就可以利用上一行的 state，得知我们仍在一个tag里面，这样，第二行的 attribute 就可以正确着色了。第二行完成了 tag 之后 &lt;code&gt;state.finishTag = true&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;仍然用回上面的例子，我们知道，如果某一行的 state 改变了，下面所有的内容都必须进行重新 tokenize，但是我们可以考虑下一下，第 n 行被修改了，那么下文的修改其实不需要实时进行修改，我们可以把这个工作交给后台，用别的 process 或者 thread 进行，完成以后再更新视图，我们只需要保证当前行的着色是实时的就可以了。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[（翻译）用 Javascript 在浏览器里面虚拟一个可编辑的控件]]></title><description><![CDATA[此文翻译自  Marijn Haverbeke  的  Faking an editable control in browser JavaScript 你当前的问题是：你正在写一个和文本输入控件（Text intput Filed）相似的Javascript…]]></description><link>https://diverse.space//（翻译）用Javascript在浏览器里面虚拟一个可编辑的控件/</link><guid isPermaLink="false">https://diverse.space//（翻译）用Javascript在浏览器里面虚拟一个可编辑的控件/</guid><pubDate>Fri, 21 Oct 2016 21:44:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;此文翻译自 &lt;a href=&quot;http://marijnhaverbeke.nl/&quot;&gt;Marijn Haverbeke&lt;/a&gt; 的 &lt;a href=&quot;http://marijnhaverbeke.nl/blog/browser-input-reading.html&quot;&gt;Faking an editable control in browser JavaScript&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;你当前的问题是：你正在写一个和文本输入控件（Text intput Filed）相似的Javascript 控件——它必须是 focusable 的，而且要支持复制和粘贴，接受任意类型的输入，但是它又不是一个真正的控件，因为你想去自己画，而且可以完全控制它的内容。&lt;/p&gt;
+&lt;p&gt;在这篇文章里面，我不想讲任何关于画一个指针（Cursor），维护自己的 selection 之类的东西。当然，对于实现一个可靠的文本编辑器来说，这些东西都是必需的。但是他们实现起来都相对简单。&lt;/p&gt;
+&lt;h2&gt;隐藏的 Textarea&lt;/h2&gt;
+&lt;p&gt;我的解决方案的结症在于一开始我从 ACE editor 获得的灵感，让我围着一个隐藏的 textarea 团团转。这就是当 &lt;code&gt;textarea&lt;/code&gt; 看起来是 focused 的时候，浏览器就认为它是 focused 的。它就像一个常规的 focusable 的东西，你可以赋值一个 &lt;code&gt;tabindex&lt;/code&gt; 给它，让它得到或者失去 focus 的时候接收 &lt;code&gt;focus&lt;/code&gt; 和 &lt;code&gt;blur&lt;/code&gt; 事件，这允许我们去更新编辑器的样式（显示/隐藏的指针，彩色/黑白的选区）来反映出它是否是 focused 的。&lt;/p&gt;
+&lt;p&gt;然而这个 &lt;code&gt;textarea&lt;/code&gt; 一定不能是可见的。因为如果当你输入的时候，这个 &lt;code&gt;textarea&lt;/code&gt; 一直跟着你，而且还带上它那个自带的一闪一闪的光标的时候，这个编辑控件就会显得毫无真实感。&lt;/p&gt;
+&lt;p&gt;不过，如果你给你的编辑器设置 &lt;code&gt;display:none&lt;/code&gt; 或者 &lt;code&gt;visibility: hidden&lt;/code&gt; 属性的时候，浏览器会觉得它不是这个页面真正的部分从而不会去 focus 它。CodeMirror 让 &lt;code&gt;textarea&lt;/code&gt; （变小）放在一个 &lt;code&gt;overflow: hidden; height : 0&lt;/code&gt; 的元素（div）里面，这就让它即不可见，也可以 focus，从而解决了这个问题。&lt;/p&gt;
+&lt;p&gt;（另外，你需要一个 &lt;code&gt;outline: none&lt;/code&gt; 样式，去防止一些浏览器在它 focused 的时候显示一圈光环，但却某些原因没有被 &lt;code&gt;overflow: hidden&lt;/code&gt; 禁止掉）&lt;/p&gt;
+&lt;p&gt;另外一个不幸的（或者说是幸运的，取决与你怎么看）在编辑器上效果就是浏览器每次都会滚动来提醒我们编辑器有事件发生，这就意味着，如果 &lt;code&gt;textarea&lt;/code&gt; 简单地放在编辑器地顶部，然后你就会不停地滚动到顶部因为你正在编辑编辑器地步地内容，每当你输入一个字符，窗口都会滚动。&lt;/p&gt;
+&lt;p&gt;CodeMirror 给 &lt;code&gt;div&lt;/code&gt; 元素设置了绝对路径来隐藏 &lt;code&gt;textarea&lt;/code&gt; ，每当指针移动的时候， &lt;code&gt;textarea&lt;/code&gt; 也会跟着移动。这样的话，之就会帮助滚动到真正的视图。&lt;/p&gt;
+&lt;h2&gt;保持选择区域&lt;/h2&gt;
+&lt;p&gt;当用户选择了一些文字，然后复制或者剪切，正确的文字会被放在粘贴板里面。&lt;/p&gt;
+&lt;p&gt;这就意味着选区里面的文字要被正确地放在 &lt;code&gt;textarea&lt;/code&gt; 里面，和选择它们。达到这个目的有两种方法。第一种，被ACE采用了，就是去监听 &lt;code&gt;copy&lt;/code&gt; 和 &lt;code&gt;cut&lt;/code&gt; 事件（在真正复制和剪切之前就会被触发），仅当这样地事件触发的时候，把当前选择地文字插入到 &lt;code&gt;textarea&lt;/code&gt; 里面然后选择它。&lt;/p&gt;
+&lt;p&gt;CodeMirror 的实现方法并没有那么聪明，不过更实用。它就是简单地在每一次选择的时候把当前选择的文字复制到 &lt;code&gt;textarea&lt;/code&gt; 里面。这种做法的一个缺点就是当你从从 &lt;code&gt;textarea&lt;/code&gt; 的 &lt;code&gt;value&lt;/code&gt; 里面获得（get）和设置（set）许多文字的时候，速度会很慢。如果你在 CodeMirror 里面放一个很大的文档，然后按 &lt;code&gt;Ctrl-A&lt;/code&gt; 或者 &lt;code&gt;cmd-A&lt;/code&gt; （全选），这将会有一个可以察觉的停顿。（在一些老的浏览器上，取决于文档的大小，这看上去可能更像整个浏览器卡住，而不是一个短暂的停顿）&lt;/p&gt;
+&lt;p&gt;但这个做法的优势就是它适用于 Opera 浏览器，Opera 浏览器不会触发 &lt;code&gt;copy&lt;/code&gt; 和 &lt;code&gt;cut&lt;/code&gt; 事件，在 Linux 上某些浏览器，这种做法可以和 X Windows 的选择粘贴板很好的兼容。CodeMirror 会花更大精力去缩小 &lt;code&gt;textarea.value&lt;/code&gt; 的消耗，例如当一个选区拖动的时候不去更新，在拖动完成后才去更新。&lt;/p&gt;
+&lt;h2&gt;感知输入&lt;/h2&gt;
+&lt;p&gt;因此隐藏的 &lt;code&gt;textarea&lt;/code&gt; 包含着当前选区，它的内容被选取了。这意味着当用户输入一些东西，或者粘贴文字，&lt;code&gt;textarea&lt;/code&gt; 当前内容会被插入文字（如果之前有选择文字的话，就会覆盖它们），然后文字会被插入到真正的文档上面指针的位置当中。&lt;/p&gt;
+&lt;p&gt;不过谁告诉我们输入发生了？一开始，我们可以监听 &lt;code&gt;keypress&lt;/code&gt;, &lt;code&gt;paste&lt;/code&gt;, &lt;code&gt;input&lt;/code&gt;这样的事件。这些事件会告诉我们有些事情发生了，这样，我们设置一个延迟，然后在几毫秒之后检查 &lt;code&gt;textarea&lt;/code&gt; 的内容。&lt;/p&gt;
+&lt;p&gt;不过这并不完美的。Opera 不会触发 &lt;code&gt;paste&lt;/code&gt; 事件——当你从菜单粘贴时，也不会有任何鼠标事件被触发。另外，在一些浏览器上面，输入法输入的时候 &lt;code&gt;textarea&lt;/code&gt; 不会触发任何事件。&lt;/p&gt;
+&lt;p&gt;所以我们必须检测。然而如果我们检测次数过多从而每次从 &lt;code&gt;textarea&lt;/code&gt; 读取数据（可能会很大），那么检测的代价可能就很昂贵了。幸运的是，如果 &lt;code&gt;textarea&lt;/code&gt; 有一个很大的值（选择的文字），那些文字会被选择（selected），而输入文字就会覆盖它们。因此，如果 &lt;code&gt;textarea&lt;/code&gt; 有一个选区（检查的代价很低），它的值不必被读出。这就会让检测的代价降低，从而允许 CodeMirror 去当编辑器focused 的时候密集地检测也不会消耗太多 CPU（当编辑器失去聚焦，停止检测）。&lt;/p&gt;
+&lt;h2&gt;关于输入法&lt;/h2&gt;
+&lt;p&gt;我在上文提到过输入法。我不是这方面的专家，因为我不说任何需要用到输入法的语言。不过，这允许人们在写很长的脚本的时候，用一系列快捷键去输入字符。这就需要实现在编辑器展示当前的输入法正在候选的字符（composition），然后在输入法输入完成的时候，用真正的结果去替代它。&lt;/p&gt;
+&lt;p&gt;如果 CodeMirror 在每次读入输入的时候都去清空 &lt;code&gt;textarea&lt;/code&gt;，这就会留下还没完成的输入法的输入。那它真正的做法是，当没有选区存在的时候，把当前输入留在 &lt;code&gt;textarea&lt;/code&gt;，然后把它的值（value）存在别的地方。然后下一次检测的时候，它就会用新的值和和旧的进行比较（切除共同的前缀字符），这意味着之前的值被新的值替换，新的值应该替代掉文档里面那些旧的值。&lt;/p&gt;
+&lt;h2&gt;Drag and drop&lt;/h2&gt;
+&lt;p&gt;现代的浏览器都提供了 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/DragDrop/Drag_and_Drop&quot;&gt;drap and drop API&lt;/a&gt;。这就会让我们的编辑器更加方便地支持在编辑器里面放置(drop)内容，拉取内容离开编辑器。这里面有一点细微之处，这是 CodeMirror 的 &lt;code&gt;dragstart&lt;/code&gt; 的handler:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;on(node, &quot;dragstart&quot;, function(e) {
+  // Set the dragged data to the currently selected text
+  e.dataTransfer.setData(&quot;Text&quot;, editor.getSelection());
+
+  // Use dummy image instead of default browsers image.
+  if (e.dataTransfer.setDragImage)
+    e.dataTransfer.setDragImage(document.createElement(&apos;img&apos;), 0, 0);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当 &lt;code&gt;setDrapImage&lt;/code&gt; 方法被调用的时候，抑制了默认的拉动的映像，阻止了一些浏览器显示整个编辑器都被拉动了，因为外部元素被设置成 &lt;code&gt;draggable=true&lt;/code&gt; 的。&lt;/p&gt;
+&lt;p&gt;在 CodeMirror 的 &lt;code&gt;mousedown&lt;/code&gt; handler里面，我也在不在选区（selection）里面的点击调用了 &lt;code&gt;preventDefault()&lt;/code&gt;，这样拉动产生的选区就不会触发下一次拉动（dragging）。在 Webkit 引擎里面，这是必须的，因此，你不仅在处理 &lt;code&gt;mousedown&lt;/code&gt; 事件的时候把 &lt;code&gt;draggable&lt;/code&gt; 属性设置成真，还要在之后把它设置回来。&lt;/p&gt;
+&lt;p&gt;编辑器里面 &lt;code&gt;drop&lt;/code&gt; 事件的 handler 支持从 &lt;code&gt;FileReader&lt;/code&gt; 读取文件，可以控制被拉进编辑器的文件。&lt;/p&gt;
+&lt;h2&gt;全局菜单&lt;/h2&gt;
+&lt;p&gt;全局菜单就像蛋糕上的糖霜一样，一个好的编辑器在被右键的时候应该表现正常才行。全局菜单应该包含可以工作的复制，剪切和粘贴按钮。&lt;/p&gt;
+&lt;p&gt;不幸的是， 浏览器没有提供 API 去操作全局菜单。你可以捕捉点击事件和展示你自己的菜单，不过这样并不好，而且更坏的是，你没有权限去使用粘贴板，即使是正确地实现复制、粘贴你也做不到。&lt;/p&gt;
+&lt;p&gt;就像浏览器领域一贯地风格一样，这里有一个极差地实现方法去弥补API的不足。这次，我们可以通过短暂地不隐藏 &lt;code&gt;textarea&lt;/code&gt;（给它一个很低地透明度，以及没有边界来不让别人发现它）来响应鼠标点击事件和 &lt;code&gt;contextmenu&lt;/code&gt; 事件，然后把它放在鼠标指针下面。&lt;/p&gt;
+&lt;p&gt;因为 &lt;code&gt;textarea&lt;/code&gt; 已经包含了当前地选区地内容，以及，如果它有一个选区，它地左上角（我们把它放在指针下面），就是选区地位置。现在浏览器就会相信我们点击在 &lt;code&gt;textarea&lt;/code&gt; 的选区上面，然后就会提供我们想要的菜单。即使这个结点在几毫秒之后隐藏了，这个点击也会和它联系起来，随后的粘贴也会应用到我们的 &lt;code&gt;textarea&lt;/code&gt; 当中。&lt;/p&gt;
+&lt;p&gt;有一件事要注意的是，Firefox 在打开全局菜单&lt;strong&gt;之后&lt;/strong&gt;会触发 &lt;code&gt;contextmenu&lt;/code&gt; 事件，不过这还是让我们太晚知道 &lt;code&gt;textarea&lt;/code&gt; 被点击了。因此在那个浏览器上面，我们就蹩脚地使用 &lt;code&gt;mousedown&lt;/code&gt; 来代替它（右键按下后就会被触发）。&lt;/p&gt;
+&lt;p&gt;关于全局菜单我们要实现地第四项就是&lt;strong&gt;全选&lt;/strong&gt;。为了做到这个，我们在内容地开头加了一个假的、没有被选择的空间。然后定期进行检查看看这个控件是否被选择。如果它被选择了（剩下地内容完好无损），我们就选择编辑器里面所有内容。如果 &lt;code&gt;textarea&lt;/code&gt; 别的东西改变了，或者时间过得太长，我们就放弃。&lt;/p&gt;
+&lt;h2&gt;弯路&lt;/h2&gt;
+&lt;p&gt;对于没有输入的键盘事件，例如指针移动按键，CodeMirror 简单地处理原始的事件然后内部展现合适的选区效果。&lt;/p&gt;
+&lt;p&gt;一开始 CodeMirror 版本 2 采用了一个不同的实现方法，这个方法非常讨人喜欢，但是最后并没有成功。它不但把选区放进 &lt;code&gt;textarea&lt;/code&gt;，也把附近的几行放进去，让本地的指针也可以自由地移动。这将会不仅从 &lt;code&gt;textarea&lt;/code&gt; 得到输入，也可以得到选区（selection）信息。&lt;/p&gt;
+&lt;p&gt;这有一个有点就是使用了浏览器“本地”的按键绑定。这对于一些特定的按键绑定来说是可行的，也把一些复杂的选区操作交给了浏览器。&lt;/p&gt;
+&lt;p&gt;我们最终抛弃这个做法是因为它需要太多的hack做法来正常工作，比如说，当你在 &lt;code&gt;textarea&lt;/code&gt; 选择一段文字的时候，你不能设置外链。&lt;/p&gt;
+&lt;p&gt;当你按下 &lt;em&gt;shift-left&lt;/em&gt; 或者其他 &lt;em&gt;shift&lt;/em&gt; 移动的时候，外链不会移动。浏览器假设它永远在选区的左边当我们通过 &lt;code&gt;selectionStart&lt;/code&gt; 和 &lt;code&gt;selectionEnd&lt;/code&gt; 设置选区的时候。为了让选区可以正常工作，我们必须用很多痛苦和蹩脚的做法。&lt;/p&gt;
+&lt;p&gt;另外，似乎很少用户会在他们的浏览器里面真正地重新配置按键绑定（keyboard binding），有趣的是，用户更喜欢 CodeMirror 提供自定义按键绑定而不是在他们的浏览器里面重新定义。&lt;/p&gt;
+&lt;p&gt;最后，控制我们自定义键盘事件的额外的复杂度似乎没有上面所述的这种做法的复杂度大。因为 CodeMirror 使用 textarea 只包含选区这种做法，而不必去解决 &lt;code&gt;cursor-motion&lt;/code&gt; 按钮事件。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[编译原理学习笔记 3：实现一个虚拟机]]></title><description><![CDATA[至于 Lexer 和 Parser 部分，教程和用法实在太多，实现起来也比较简单，所以也没什么好说的，这里说说如何实现一个虚拟机（Virtual Machine） 虚拟机的实现有很多种，常见的分为 Stack Machine 和 Register Machine…]]></description><link>https://diverse.space//编译原理学习笔记3：实现一个虚拟机/</link><guid isPermaLink="false">https://diverse.space//编译原理学习笔记3：实现一个虚拟机/</guid><pubDate>Sat, 13 Aug 2016 21:00:00 GMT</pubDate><content:encoded>&lt;p&gt;至于 Lexer 和 Parser 部分，教程和用法实在太多，实现起来也比较简单，所以也没什么好说的，这里说说如何实现一个虚拟机（Virtual Machine）&lt;/p&gt;
+&lt;p&gt;虚拟机的实现有很多种，常见的分为 Stack Machine 和 Register Machine 前者基于栈，后者基于寄存器。
+目前来说，基于栈的虚拟机比较多，像（CPython, JVM, .NET…）都是基于栈的虚拟机，二基于寄存器的虚拟机中比较出名的就是 Lua 的官方实现了，官方称这是最早的基于寄存器的虚拟机，具体如何我们就无法考究了。但是本文主要介绍的是基于栈的虚拟机，因为比较好实现。&lt;/p&gt;
+&lt;p&gt;我们来看看下面这一行代码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;1 + 2 * 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果用 StackMachine 来表示是这样的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;LOAD 1
+LOAD 2
+LOAD 3
+MULTIPLE // result: 6
+ADD  // result: 7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样应该很好理解，执行这段代码后，栈顶的值是 7，也就是我们表达式的值。那么接下来做两件事情就好好了，一是把语法树生成一连串的指令，二是执行这些指令&lt;/p&gt;
+&lt;p&gt;语法树如何生成指令呢？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+
+| \
+1  *
+         |\
+         2 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 粗略地画，语法树是这个样子地，那么很明显，&lt;strong&gt;生成指令地过程就是后序遍历语法树地过程&lt;/strong&gt;。理解这句话之后，就好做了。但是也有几点要注意地地方，我们通常用一个常量表，把用到地常量给储存起来，如整形，字符串等等。所以我们设计指令的时候，比如说 LOAD_C  指令就可以从常量表里面加载一个值到栈顶。&lt;/p&gt;
+&lt;p&gt; 下面看一下我正在实现的哈语言里面的指令集&lt;/p&gt;
+&lt;pre style=&apos;color:#000020;background:#f6f8ff;&apos;&gt;&lt;span style=&apos;color:#004a43; &apos;&gt;#&lt;/span&gt;&lt;span style=&apos;color:#004a43; font-weight:bold; &apos;&gt;pragma&lt;/span&gt;&lt;span style=&apos;color:#7779bb; font-weight:bold; &apos;&gt; once&lt;/span&gt;
+
+&lt;span style=&apos;color:#200080; font-weight:bold; &apos;&gt;namespace&lt;/span&gt; halang
+&lt;span style=&apos;color:#406080; &apos;&gt;{&lt;/span&gt;
+	&lt;span style=&apos;color:#200080; font-weight:bold; &apos;&gt;enum&lt;/span&gt; &lt;span style=&apos;color:#200080; font-weight:bold; &apos;&gt;class&lt;/span&gt; VM_CODE
+	&lt;span style=&apos;color:#406080; &apos;&gt;{&lt;/span&gt;
+		LOAD_C&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x00 A - load constant&lt;/span&gt;
+		LOAD_V&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x01 A - load variable&lt;/span&gt;
+		LOAD_G&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x02 A - load global variable&lt;/span&gt;
+		LOAD_UPVAL&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;				&lt;span style=&apos;color:#595979; &apos;&gt;// 0x03 A - load upvalue&lt;/span&gt;
+		STORE_V&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;				&lt;span style=&apos;color:#595979; &apos;&gt;// 0x04 A - store the top of stack to A&lt;/span&gt;
+		STORE_G&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;				&lt;span style=&apos;color:#595979; &apos;&gt;// 0x05 A - store to the global value&lt;/span&gt;
+		STORE_UPVAL&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;			&lt;span style=&apos;color:#595979; &apos;&gt;// 0x06 A - store to the upvalue table&lt;/span&gt;
+		PUSH_INT&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;				&lt;span style=&apos;color:#595979; &apos;&gt;// 0x07 A - load A&lt;/span&gt;
+		PUSH_BOOL&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;				&lt;span style=&apos;color:#595979; &apos;&gt;// 0x08 A - load A&lt;/span&gt;
+		POP&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x09 A - Pop A&lt;/span&gt;
+		CLOSURE&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;				&lt;span style=&apos;color:#595979; &apos;&gt;// 0x0a A - linked Function&apos;s upvalue to current env&lt;/span&gt;
+		CALL&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x0b (A, B, C...) call function(A, B, C...)&lt;/span&gt;
+		RETURN&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x0c A - if A != 0 return exp else return nothing&lt;/span&gt;
+		IFNO&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x0d if not true, jump to the location.&lt;/span&gt;
+		JMP&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x0e&lt;/span&gt;
+		NOT&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x0f&lt;/span&gt;
+		ADD&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x10 add the top two val&lt;/span&gt;
+		SUB&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x11&lt;/span&gt;
+		MUL&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x12&lt;/span&gt;
+		DIV&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x13&lt;/span&gt;
+		MOD&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x14&lt;/span&gt;
+		POW&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x15&lt;/span&gt;
+		GT&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt; LT&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x16 0x17&lt;/span&gt;
+		GTEQ&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt; LTEQ&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;				&lt;span style=&apos;color:#595979; &apos;&gt;// 0x18 0x19&lt;/span&gt;
+		EQ&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;						&lt;span style=&apos;color:#595979; &apos;&gt;// 0x1a&lt;/span&gt;
+		OUT&lt;span style=&apos;color:#308080; &apos;&gt;,&lt;/span&gt;					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x1b&lt;/span&gt;
+		STOP					&lt;span style=&apos;color:#595979; &apos;&gt;// 0x1c&lt;/span&gt;
+	&lt;span style=&apos;color:#406080; &apos;&gt;}&lt;/span&gt;&lt;span style=&apos;color:#406080; &apos;&gt;;&lt;/span&gt;
+
+&lt;span style=&apos;color:#406080; &apos;&gt;}&lt;/span&gt;&lt;span style=&apos;color:#406080; &apos;&gt;;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;至于运行，如何储存变量呢，最简单的做法就是用 Environment 方法。用一个表来储存变量，这个表当然可以用哈希表（变量名-变量值）来做，但是这样还不够快。其实我们知道，在一个环境里面，我们可以为每一个变量名编一个号，这样子这个变量表就可以用数组（变量编号-变量值）来做，这样子，访问变量和储存变量的时候就快很多了。&lt;/p&gt;
+&lt;p&gt;项目 Github 地址：&lt;a href=&quot;https://github.com/vincentdchan/halang&quot;&gt;https://github.com/vincentdchan/halang&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[把正方系统的课表导出成 ics 文件]]></title><description><![CDATA[文章的开始，先上一张图，打开 Siri，问 Siri：明天有什么安排？ 为什么 siri 知道我的课表？因为我把课表导入了 iPhone 的日历中去了。 因为不想再使用超级课程表等软件，加上华农宝不怎么好看，而且很麻烦的缘故，自己写了一个工具，可以把课程表导出到 ics…]]></description><link>https://diverse.space//把正方系统的课表导出成ics文件/</link><guid isPermaLink="false">https://diverse.space//把正方系统的课表导出成ics文件/</guid><pubDate>Sat, 13 Aug 2016 18:27:00 GMT</pubDate><content:encoded>&lt;p&gt;文章的开始，先上一张图，打开 Siri，问 Siri：明天有什么安排？&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/34fe8bc343db15fe0a4b39070b14a564/437fe/iphone-siri.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 178.0250347705146%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAAIBBAMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQIA/9oADAMBAAIQAxAAAAH4+1dTK0s3y7W93ODJMgP/xAAZEAEBAQADAAAAAAAAAAAAAAABABEQEiD/2gAIAQEAAQUCxwJsgmOG1uza+P/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BX//EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAECAQE/AWv/xAAZEAACAwEAAAAAAAAAAAAAAAAQMQAgQZH/2gAIAQEABj8CmdKLLr//xAAeEAACAgICAwAAAAAAAAAAAAAAAREhMUFRcRBh8f/aAAgBAQABPyGHKuzmbBnNUKa0IlQEU4NL1yJv6Y15PeITJ5G5XVeP/9oADAMBAAIAAwAAABCMwA90D//EABkRAQEAAwEAAAAAAAAAAAAAAAEAEBEhMf/aAAgBAwEBPxB4R5JsgYx//8QAGBEAAgMAAAAAAAAAAAAAAAAAEBEBIUH/2gAIAQIBAT8QhQbGD//EAB4QAQACAgIDAQAAAAAAAAAAAAEAESExQWFRccGR/9oACAEBAAE/EEVSKkWpn7FafBDkSk0VoWAWDjlj6ErebhK01H0UuRX5OJXN3Z8nddwAxWaNk9wDlmiLkAoCipwT/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;iphone siri&quot;
+        title=&quot;&quot;
+        src=&quot;/static/34fe8bc343db15fe0a4b39070b14a564/f3a32/iphone-siri.jpg&quot;
+        srcset=&quot;/static/34fe8bc343db15fe0a4b39070b14a564/6ba01/iphone-siri.jpg 175w,
+/static/34fe8bc343db15fe0a4b39070b14a564/b8ff8/iphone-siri.jpg 350w,
+/static/34fe8bc343db15fe0a4b39070b14a564/f3a32/iphone-siri.jpg 700w,
+/static/34fe8bc343db15fe0a4b39070b14a564/437fe/iphone-siri.jpg 719w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;为什么 siri 知道我的课表？因为我把课表导入了 iPhone 的日历中去了。&lt;/p&gt;
+&lt;p&gt;因为不想再使用超级课程表等软件，加上华农宝不怎么好看，而且很麻烦的缘故，自己写了一个工具，可以把课程表导出到&lt;em&gt;ics&lt;/em&gt; 格式，可以把这个文件导入到系统的软件当中，比如iPhone自带的日历, Outlook, Google Calendar 等等你常用的日历工具……导入到 iPhone 或者 Android 手机自带的日历之后，无论是查看，通知甚至类似 Siri，小娜的各种语音助手进行查询，都会华农宝方便很多。&lt;/p&gt;
+&lt;p&gt;另外，这个插件是安装在你的电脑上进行导出，它的代码完全开放，托管在 Github，你无需担心密码泄漏等安全问题，相反华农宝使用你的密码登录教务系统，会使人多了一层疑虑。&lt;/p&gt;
+&lt;p&gt;目前来说，你可以通过使用 Chrome 或者 Tampermonkey 插件来使用我做的插件进行导出。&lt;/p&gt;
+&lt;h2&gt;方法一：Tampermonkey（油猴）插件&lt;/h2&gt;
+&lt;p&gt;Tempermonkey 插件支持的浏览器有:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Google Chrome&lt;/li&gt;
+&lt;li&gt;Firefox&lt;/li&gt;
+&lt;li&gt;Edge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上浏览器安装 Tampermonky 插件，安装方法自行搜索。&lt;/p&gt;
+&lt;p&gt;安装完成之后，去到&lt;a href=&quot;https://greasyfork.org/zh-CN/scripts/27557-%E5%8D%8E%E5%86%9C%E6%AD%A3%E6%96%B9%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B%E5%AF%BC%E5%87%BA%E5%B7%A5%E5%85%B7&quot;&gt;这个链接&lt;/a&gt;点击安装，安装成功之后登入你的正方系统，去个人课表导出页面设置好日期之后导出就好了，然后大功告成。&lt;/p&gt;
+&lt;h2&gt;方法二：Chrome插件&lt;/h2&gt;
+&lt;p&gt;下载下面的 Chrome 插件&lt;strong&gt;（仅华农的正方系统适用）&lt;/strong&gt;，安装方法请自行搜索&lt;/p&gt;
+&lt;p&gt;Github 地址: &lt;a href=&quot;https://github.com/vincentdchan/ZhengFangToolkit&quot;&gt;https://github.com/vincentdchan/ZhengFangToolkit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载 &lt;a href=&quot;https://github.com/vincentdchan/ZhengFangToolkit/releases&quot;&gt;Chrome 插件&lt;/a&gt;，并安装，安装方法请自行搜索，安装完成后，登入正方系统，进入个人课表，选择好正确的学年和正确的学期，&lt;strong&gt;检查一下开学的第一个星期一是否正确&lt;/strong&gt;，不然的的话生成的日历全部都会错误的。&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d98ad8ec48ad285cd5a2f7bf98ac1546/b4857/zhengfang-tutorial1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 11.99294532627866%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAIAAADXZGvcAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAAeElEQVQI1w3LsQ7CIBRA0f7/P7m4OBgXo0GrFim8hwUe0BYhkg6S3PHczi0/Wls1fDcwUaBBE96a7qMVmji4yxMH8FMsD2kZ11PIIVW/1jZ2qWxuzs0JJIn22g9KG0DsX1wB5FwMzfsj2x3OJyZvI3G9fHxRLsdU/yDNbN1HFLYzAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;zhengfang tutorial1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d98ad8ec48ad285cd5a2f7bf98ac1546/84ad3/zhengfang-tutorial1.png&quot;
+        srcset=&quot;/static/d98ad8ec48ad285cd5a2f7bf98ac1546/687da/zhengfang-tutorial1.png 175w,
+/static/d98ad8ec48ad285cd5a2f7bf98ac1546/0ab4d/zhengfang-tutorial1.png 350w,
+/static/d98ad8ec48ad285cd5a2f7bf98ac1546/84ad3/zhengfang-tutorial1.png 700w,
+/static/d98ad8ec48ad285cd5a2f7bf98ac1546/ef8d3/zhengfang-tutorial1.png 1050w,
+/static/d98ad8ec48ad285cd5a2f7bf98ac1546/b4857/zhengfang-tutorial1.png 1134w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;检查完之后点击&lt;strong&gt;导出课程&lt;/strong&gt;，最后会出现一条下载链接，下载那个 ics 文件就行了。
+然后把 ics 文件导入到各种软件中去，可以看看效果图&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3bb2a6695261b8704875ddc3ba966dc5/366f4/zhengfang-ios.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 56.22188905547226%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHZbtUUJ//EABkQAAMAAwAAAAAAAAAAAAAAAAABEQIhMf/aAAgBAQABBQKMWyGTiXD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAWEAEBAQAAAAAAAAAAAAAAAAAAMSD/2gAIAQEABj8CVcf/xAAbEAEAAgIDAAAAAAAAAAAAAAABABEQUSExof/aAAgBAQABPyHlofJdIxbaMFbnRj//2gAMAwEAAgADAAAAELPP/8QAFhEAAwAAAAAAAAAAAAAAAAAAEBFB/9oACAEDAQE/EIx//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxABAAICAwAAAAAAAAAAAAAAAQARECExQdH/2gAIAQEAAT8Q2D0a30gTKjbRAvAjU6UESo8pj//Z&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;zhengfang ios&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3bb2a6695261b8704875ddc3ba966dc5/f3a32/zhengfang-ios.jpg&quot;
+        srcset=&quot;/static/3bb2a6695261b8704875ddc3ba966dc5/6ba01/zhengfang-ios.jpg 175w,
+/static/3bb2a6695261b8704875ddc3ba966dc5/b8ff8/zhengfang-ios.jpg 350w,
+/static/3bb2a6695261b8704875ddc3ba966dc5/f3a32/zhengfang-ios.jpg 700w,
+/static/3bb2a6695261b8704875ddc3ba966dc5/61d28/zhengfang-ios.jpg 1050w,
+/static/3bb2a6695261b8704875ddc3ba966dc5/366f4/zhengfang-ios.jpg 1334w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;导入到 iOS 之后的效果图&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a14f27774672c79aaa49d4d4952ce537/a9195/zhengfang-win10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 50.625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAB2HAAAdhwGP5fFlAAACTklEQVQozy2R60tTYRzHJwVLHeRaKmvJcJUQMwJNcqaQFBQp2YXeBL0I6UX0HxS9KBRXKYGURL4MRc0i68W84GybeWnm3C3XKsnB3HbO2XbOec7OOc+ec+k5Gfz48OUH399Vp99Xri83luwp1ZdVRKPfFVVN0wLDQ1VVJUnaJZKVPCcWoJTnICsgjTzOqbrKKrOlxlayt7TMYAyGIkiWEUIizymyzAAOFhEAjCwhnmMVCXGAlRBiWRaKIq6r05cZDSbrfltzdW3DzJfQRJgbXs0+nN7pcRMj69TYBo31oznigWund57YIoCMICgURFFUFEVnsLUeaLhhauk2n765/C36k+QjSeCNU1+3wWaS/k3yWK9uA0+c8idAJg8gFHmehxBqZlN9l/ns3SrHbWvjtSlf9Ikv/3gu7XRneuYJLPrcRO98xrmg8ZmHTGQLilQURBGbZVnWHax1WE5cMh1ttx5vXwzEZ+PAtUl/ClOuGDMVImdizMcwOR3TMrM/GILmUBEWCry427mmrs3e1FlxuLntwq1wIvdyMTO0RL7wpYaWqEFv6vUKNehJvVomMYdXyD8EA0UBcByeXOtsPdJy0nG98tj5cx3dv1LMuzA9GaIng7ldfogwExu592F6PJCbijApmtcuLwj/d64219U3dR2yd7ZevBPcIsYCFI7RNWJ0PTviJ94Gc2/8mfFAdmRN00mKxWPjnfE7NbPl1GX7lft1jVfPdNxz+bcGFrNPPxPOhXS/h+xzpwe8lNOd7vdSWD/3UUlaUFWl+M+J//wXx7u0YDlaiYgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;zhengfang win10&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a14f27774672c79aaa49d4d4952ce537/84ad3/zhengfang-win10.png&quot;
+        srcset=&quot;/static/a14f27774672c79aaa49d4d4952ce537/687da/zhengfang-win10.png 175w,
+/static/a14f27774672c79aaa49d4d4952ce537/0ab4d/zhengfang-win10.png 350w,
+/static/a14f27774672c79aaa49d4d4952ce537/84ad3/zhengfang-win10.png 700w,
+/static/a14f27774672c79aaa49d4d4952ce537/ef8d3/zhengfang-win10.png 1050w,
+/static/a14f27774672c79aaa49d4d4952ce537/fed13/zhengfang-win10.png 1400w,
+/static/a14f27774672c79aaa49d4d4952ce537/5b79c/zhengfang-win10.png 2100w,
+/static/a14f27774672c79aaa49d4d4952ce537/a9195/zhengfang-win10.png 2560w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这是我的课表导入到 Windows 10 自带日历后的效果图，看起来效果还不错&lt;/p&gt;
+&lt;p&gt;油猴插件安装地址：&lt;a href=&quot;https://greasyfork.org/zh-CN/scripts/27557-%E5%8D%8E%E5%86%9C%E6%AD%A3%E6%96%B9%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B%E5%AF%BC%E5%87%BA%E5%B7%A5%E5%85%B7&quot;&gt;https://greasyfork.org/zh-CN/scripts/27557-%E5%8D%8E%E5%86%9C%E6%AD%A3%E6%96%B9%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B%E5%AF%BC%E5%87%BA%E5%B7%A5%E5%85%B7&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Chrome 插件下载地址：&lt;a href=&quot;https://github.com/vincentdchan/ZhengFangToolkit/releases&quot;&gt;https://github.com/vincentdchan/ZhengFangToolkit/releases&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Github: &lt;a href=&quot;https://github.com/vincentdchan/ZhengFangToolkit&quot;&gt;https://github.com/vincentdchan/ZhengFangToolkit&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[编译原理学习笔记 2：赋值操作]]></title><description><![CDATA[上文中，提到如果解析一个数学表达式，并把它变成一棵树，我们把这个程序称为解释器，这次我要为这个解释器加一个功能：赋值操作 这里我们要区分左值(left-value)和右值（right-value…]]></description><link>https://diverse.space//编译原理学习笔记2：赋值操作/</link><guid isPermaLink="false">https://diverse.space//编译原理学习笔记2：赋值操作/</guid><pubDate>Thu, 14 Jul 2016 11:04:00 GMT</pubDate><content:encoded>&lt;p&gt;上文中，提到如果解析一个数学表达式，并把它变成一棵树，我们把这个程序称为解释器，这次我要为这个解释器加一个功能：赋值操作&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let a = 3 * 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里我们要区分左值(left-value)和右值（right-value) 右值是临时结果，而左值是一个变量。至于右面是一个表达式，表达式如何解析在上一篇文章已经详细说了，所以这里就不多说。&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ebf402bbe50f54bc85cfda5122c0d625/115c7/parseLet.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 483px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 87.37060041407868%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACn0lEQVQ4y2NgQANv374F02fOnIGL/f//n2HOnDlg9q1btxhIBsiGzZgxQwTGXrBgAemGHT58GM5++PDh0s+fP/+/fft2A9SljHv37iXeMENDQ4ZLly4xgtjLli2T+vnz538QePPmzVOgEFj8woULYLVGRka4DQJJggwDgdLSUnCYgcCNGzf6nz59+hloSC4sLD08PBjCw8MZ2trawGpaWlrgesFg6dKlyN5lgrEVFBT4gBSflJQUP5DmNTY2FtLW1maDeR2ImSZPngxWizUYfv/+DTOM2dnZWQpoKy9yLOvq6rJbWlqKgixB1tfV1YVqkKKiItyLGzdutCsuLoa7n4uLi6G9vZ0xOTkZrn727NkqwKDY9ODBgw5bW1uwi5csWcKAksZAABgZxT9+/Pj/6dOnJ/v27bMDiX358oUxKysLHMbv3r1jAYk9evRo2n8oAOoJB4ldv36dGcPAa9euNf779+//hw8fPh88eNALJPb371/GmpoacKADEzxY082bN9NBhgEt/nj06FETkNi5c+eY4LGemJgIN/zQoUNu69evV4NaxIQcNFZWVoww9syZM0MmTJhgC81ZcHFPT08Ur8MNeP78OTOy6/fs2cMEYru7u3NYWFhIQpWxOjk5iYHEv379irB81apVcDbQ20ynT58G2/jt2zew2N27d+EuEBUVFZ40aRITzCIdHR1QSmCBJSWUhA2jkXPA/fv3wTYDw1QfmLjn9vb2gpINw6JFi+CRAAy/vlOnTgViGIoOgIaADVu+fLkxMJzAefDZs2c3gEkIXlgAS56NsBgHhn8s3ny9fft2MB0UFMQOdGk7MNm8AgZJMrJLTp486QTM53eB2XM1sCQSJ1hYrFy5Es4GukwYxtbU1IRHWEREBD+S9xkBv6xm4ZI7NxcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;parseLet&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ebf402bbe50f54bc85cfda5122c0d625/115c7/parseLet.png&quot;
+        srcset=&quot;/static/ebf402bbe50f54bc85cfda5122c0d625/aa027/parseLet.png 175w,
+/static/ebf402bbe50f54bc85cfda5122c0d625/e4a2b/parseLet.png 350w,
+/static/ebf402bbe50f54bc85cfda5122c0d625/115c7/parseLet.png 483w&quot;
+        sizes=&quot;(max-width: 483px) 100vw, 483px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;解析（parsing)后，得到的是这样一棵树，那么我们要如何实现赋值(Assign)操作呢？&lt;/p&gt;
+&lt;p&gt;在这里我们使用Environment实现，我们只需要一个map哈希表就可以了&lt;/p&gt;
+&lt;p&gt;把3 + 4计算的结果放到a里面就行了，eval函数里面可以这样写：&lt;/p&gt;
+&lt;!-- HTML generated using hilite.me --&gt;
+&lt;div style=&quot;background: #ffffff; overflow: auto; width: auto; border: solid gray; border-width: .1em .1em .1em .8em; padding: .2em .6em;&quot;&gt;
+&lt;pre style=&quot;margin: 0; line-height: 125%;&quot;&gt;		&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0066bb; font-weight: bold;&quot;&gt;if&lt;/span&gt; (root&lt;span style=&quot;color: #333333;&quot;&gt;-&amp;gt;&lt;/span&gt;asAssignment())
+		{
+			&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;auto&lt;/span&gt; _node &lt;span style=&quot;color: #333333;&quot;&gt;=&lt;/span&gt; root&lt;span style=&quot;color: #333333;&quot;&gt;-&amp;gt;&lt;/span&gt;asAssignment();
+			env.setValue(_node&lt;span style=&quot;color: #333333;&quot;&gt;-&amp;gt;&lt;/span&gt;Identifier(), _node&lt;span style=&quot;color: #333333;&quot;&gt;-&amp;gt;&lt;/span&gt;Expression());
+			&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;0&lt;/span&gt;;
+		
+&lt;/pre&gt;
+&lt;/div&gt;
+&amp;nbsp;
+&lt;p&gt;这里的env里面其实是一个Map而已。&lt;/p&gt;
+&lt;p&gt;在这里附上这个程序的源码：&lt;a href=&quot;https://github.com/vincentdchan/CalculatorParser&quot;&gt;https://github.com/vincentdchan/CalculatorParser&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[编译原理学习笔记 1：解析数学表达式]]></title><description><![CDATA[说到编译原理，是计算机科学里面很重要的一个学科，你可以说编译原理无处不在。但是一般人很少可以接触到这样的理论。编译原理分前端和后端，前端包括文本解析和类型检查，后端包括优化和代码生成等等。这篇日志里我主要讨论文本解析中一个最为简单的部分：数学表达式。 数学表达式：  1 +…]]></description><link>https://diverse.space//编译原理学习笔记1：解析数学表达式/</link><guid isPermaLink="false">https://diverse.space//编译原理学习笔记1：解析数学表达式/</guid><pubDate>Tue, 12 Jul 2016 22:50:00 GMT</pubDate><content:encoded>&lt;p&gt;说到编译原理，是计算机科学里面很重要的一个学科，你可以说编译原理无处不在。但是一般人很少可以接触到这样的理论。编译原理分前端和后端，前端包括文本解析和类型检查，后端包括优化和代码生成等等。这篇日志里我主要讨论文本解析中一个最为简单的部分：数学表达式。&lt;/p&gt;
+&lt;p&gt;数学表达式： &lt;code&gt;1 + 1 * 3 * 3 + 4 / 4 * 5&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;要求出这个表达式的值，不禁让我想起了当时学习数据结构时候的习题，这样的表达式用栈来解决。&lt;/p&gt;
+&lt;p&gt;我们先要列出一个表，包括各种算术符的优先级&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;符号&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;优先级&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;+&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;*&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;/&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;然后我们需要两个栈，一个操作符的栈名为&lt;code&gt;OP_STACK&lt;/code&gt; 一个数字的栈，名为&lt;code&gt;NUM_STACK&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;因为我们的操作符都是耳目操作符，就是操作符左右都为值，比如说 &lt;code&gt;1 * 1&lt;/code&gt;里面 &lt;code&gt;1*&lt;/code&gt; 或者 &lt;code&gt;*1&lt;/code&gt; 都是没有意义的，所以我们是一个数字，一个符号这样间隔读入的，这样就好办了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;把第一个数字入&lt;code&gt;NUM_STACK&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;这时，读入(SHIFT)的是一个操作符，如果&lt;code&gt;OP_STACK&lt;/code&gt;顶为空，则入栈&lt;code&gt;OP_STACK&lt;/code&gt;，如果不为空，则和&lt;code&gt;OP_STACK&lt;/code&gt;栈顶比较，如果比&lt;code&gt;OP_STACK&lt;/code&gt;栈顶优先级高，则入栈&lt;code&gt;OP_STACK&lt;/code&gt;，否则的执行REDUCE操作，&lt;code&gt;OP_STACK&lt;/code&gt;栈顶操作符出栈，&lt;code&gt;NUM_STACK&lt;/code&gt;出栈两个数字，然后运算结果，再将结果入栈&lt;code&gt;NUM_STACK&lt;/code&gt;，循环操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作流程如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;right&quot;&gt;表达式&lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt;&lt;code&gt;NUM_STACK&lt;/code&gt;&lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt;&lt;code&gt;OP_STACK&lt;/code&gt;&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;对比结果&lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt;对应的操作&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;1+1*3*3+4&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;NUL&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;NUL&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;SHIFT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;*3*3+4/4*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;1 1&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;SHIFT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;*3+4/4*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;1 1 3&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+ *&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;=&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;REDUCE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;*3+4/4*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;1 3&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;SHIFT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;+4/4*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;1 3 3&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+ *&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;=&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;REDUCE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;+4/4*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;1 9&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;=&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;REDUCE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;+4/4*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;10&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;NUL&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;SHIFT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;/4*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;10 4&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;SHIFT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;10 4 4&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+ /&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&gt;=&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;REDUCE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;code&gt;*5&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;10 1&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;SHIFT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;NUL&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;10 1 5&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+ *&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;REDUCE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;NUL&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;10 5&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;+&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;REDUCE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;right&quot;&gt;NUL&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;15&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;NUL&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;这样马上我们就算出结果了，然而编译有时并不要求我们马上算出结果，有时只需要我们保存解析的结果，以便以后运行，或者生成代码等等操作，请看下面的表达式：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;a + b * c&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;显然我们没办法马上算出结果，但是我们可以把它变成一棵树&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/96cc5fce883cef1b318cfd3540f12ffd/7703e/parse-tree.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 346px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 74.85549132947978%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACcklEQVQ4y2NgQAOFhYUM////B7O3bNnCePHiRaa1a9cygvi3b99mcHFxYSAJwAwDamZEFj948CCYv2vXLgaSwdOnT8Gay8vLRY4ePWqXlJTED+Lv3r2bkWhDDA0NwfSqVavAmurr62WfP3/+9Pv37/8fPXp0LSYmRggkPnPmTLB8YGAgdoOMjIxA3gGzS0pKGE6cOMECYvf09Ig+fvz47ps3b/7fu3fvbGNjIy9I/P79+yzh4eFg9UuXLsU0sL+/H0zn5eWhiIuJiQlbWlpqTZs2zRVoqTpQiAVZPjg4GLd3m5qa4GxgoMd0dnaGApmsyGoWL14cd+bMmc1nz57Nhhk+Z84cTMNqa2thTE6ghi3AWP7/5cuX/zt27CiBxjoozPhev3799j8ULFmyxB4kt337diZYsIEwAzQm4UkF6Dqz48ePrz958uSEBQsWyIDETp06xQyigeJp586du3bkyJGZWVlZXLAIbGtrY4Q5DBiRBNMk2LDk5GSQAeJAzAHyiZKSkoy7u7soTN3Lly+Z4+PjIZzc3Fy4C/ft28cE8iIwUTPDFANdowakJJAtamhoAIUhGxDLAZOTHEw8OzsbwnBwcGDYs2cPmA2MVbAXEhMTxa5cuTLn7t27v+7cubMbKK4DTdxgy9atW2cBlDsLzATfgBHVpa+vz4PVmxMnTgQbGBoaKnb16tUVQE3/b968eQIoDk75QEvABi5cuNAJKHcNaOAfYNhOERcX58EZdsBEDM9ivb29yjD23r17weK/fv2CyTMBI0MeJg/MopiGTZ48GUwXFRUxAsOTCVZgAHMFmA1MPgxQrzMhRR6Th4cHmA0AFSMldi3KetsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;parse tree&quot;
+        title=&quot;&quot;
+        src=&quot;/static/96cc5fce883cef1b318cfd3540f12ffd/7703e/parse-tree.png&quot;
+        srcset=&quot;/static/96cc5fce883cef1b318cfd3540f12ffd/45c13/parse-tree.png 175w,
+/static/96cc5fce883cef1b318cfd3540f12ffd/7703e/parse-tree.png 346w&quot;
+        sizes=&quot;(max-width: 346px) 100vw, 346px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;显然这样就容易多了，这就是我们要说的解析(parsing)，如何解析呢？方法其实和上面是一样的，不过要做一点点改动，我们知道乘法优先级比较高，当我们计算b * c的时候，我们并不是真的相乘，我们只是创建一个新的结点，把b和c作为子节点，然后把这个新结点入栈，就可以了。&lt;/p&gt;
+&lt;p&gt;有了这科语法树之后，当我们知道a b c的值之后，就可以递归算出结果了，我们要计算根节点的结果，就要首先计算子节点的结果，最后回溯可得答案。当然，从另一方面，你可以通过这棵树生成中间代码，或者机器码，这样就编译出真正的程序了。&lt;/p&gt;</content:encoded></item></channel></rss>
