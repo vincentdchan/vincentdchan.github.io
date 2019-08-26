@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Aug 2019 17:06:59 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Aug 2019 17:21:26 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
 &lt;p&gt;Quick JS 是 Fabrice Bellard 今年发布的一款 JavaScript 引擎，具有以下特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;轻量而且易于嵌入：只需几个C文件，没有外部依赖，一个x86下的简单的“hello world”程序只要180 KiB。&lt;/li&gt;
@@ -134,7 +134,7 @@ XCode 里面 debug 了。&lt;/p&gt;
 &lt;li&gt;id: OPCode 的名字&lt;/li&gt;
 &lt;li&gt;size: OPCode 的字节大小。比如说 &lt;code&gt;push_i32&lt;/code&gt; 指令的 size 是 5. 那么第一个字节用来存 OPCode 本身，
 后面四个字节用来存 32 为的整型，也就是四个字节。&lt;/li&gt;
-&lt;li&gt;n&lt;em&gt;pop: 从栈上面弹出的元素的数量。和下面的 n&lt;/em&gt;push 一起用户统计函数需要分配的栈的大小。&lt;/li&gt;
+&lt;li&gt;n_pop: 从栈上面弹出的元素的数量。和下面的 n_push 一起用户统计函数需要分配的栈的大小。&lt;/li&gt;
 &lt;li&gt;n_push: 从栈上面插入元素的数量。&lt;/li&gt;
 &lt;li&gt;f: 字节码的格式。&lt;/li&gt;
 &lt;/ul&gt;
