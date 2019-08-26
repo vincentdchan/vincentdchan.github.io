@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Fri, 07 Jun 2019 15:22:18 GMT</lastBuildDate><item><title><![CDATA[转换网易 ncm 格式到 mp3]]></title><link>https://diverse.space/2019/05/convert-ncm-to-mp3-on-mac</link><guid isPermaLink="false">https://diverse.space/2019/05/convert-ncm-to-mp3-on-mac</guid><pubDate>Tue, 07 May 2019 17:23:00 GMT</pubDate><content:encoded>&lt;p&gt;不知道什么时候开始，网易下载的歌曲都不用以前的 mp3 格式，而采用了自家的 ncm，说真的，比较恶心，平时自己想要剪个视频用个配乐都很麻烦，搜了很久很多工具，最后搜到了这个：&lt;a href=&quot;https://github.com/anonymous5l/ncmdump&quot;&gt;ncmdump&lt;/a&gt;。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Aug 2019 17:05:36 GMT</lastBuildDate><item><title><![CDATA[转换网易 ncm 格式到 mp3]]></title><link>https://diverse.space/2019/05/convert-ncm-to-mp3-on-mac</link><guid isPermaLink="false">https://diverse.space/2019/05/convert-ncm-to-mp3-on-mac</guid><pubDate>Tue, 07 May 2019 17:23:00 GMT</pubDate><content:encoded>&lt;p&gt;不知道什么时候开始，网易下载的歌曲都不用以前的 mp3 格式，而采用了自家的 ncm，说真的，比较恶心，平时自己想要剪个视频用个配乐都很麻烦，搜了很久很多工具，最后搜到了这个：&lt;a href=&quot;https://github.com/anonymous5l/ncmdump&quot;&gt;ncmdump&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;首页提供了 Windows 和 Linux 的使用方法，mac 下面使用也很简单，先用 brew 安装 taglib，然后 make 即可：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;$ git clone https://github.com/anonymous5l/ncmdump
 $ brew install taglib
@@ -1174,7 +1174,326 @@ id = &quot;name&quot;&gt;&amp;#x3C;/div&gt;
 &lt;p&gt;我们最终抛弃这个做法是因为它需要太多的hack做法来正常工作，比如说，当你在 &lt;code&gt;textarea&lt;/code&gt; 选择一段文字的时候，你不能设置外链。&lt;/p&gt;
 &lt;p&gt;当你按下 &lt;em&gt;shift-left&lt;/em&gt; 或者其他 &lt;em&gt;shift&lt;/em&gt; 移动的时候，外链不会移动。浏览器假设它永远在选区的左边当我们通过 &lt;code&gt;selectionStart&lt;/code&gt; 和 &lt;code&gt;selectionEnd&lt;/code&gt; 设置选区的时候。为了让选区可以正常工作，我们必须用很多痛苦和蹩脚的做法。&lt;/p&gt;
 &lt;p&gt;另外，似乎很少用户会在他们的浏览器里面真正地重新配置按键绑定（keyboard binding），有趣的是，用户更喜欢 CodeMirror 提供自定义按键绑定而不是在他们的浏览器里面重新定义。&lt;/p&gt;
-&lt;p&gt;最后，控制我们自定义键盘事件的额外的复杂度似乎没有上面所述的这种做法的复杂度大。因为 CodeMirror 使用 textarea 只包含选区这种做法，而不必去解决 &lt;code&gt;cursor-motion&lt;/code&gt; 按钮事件。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[编译原理学习笔记 3：实现一个虚拟机]]></title><link>https://diverse.space/2016/08/implement-a-vm</link><guid isPermaLink="false">https://diverse.space/2016/08/implement-a-vm</guid><pubDate>Sat, 13 Aug 2016 21:00:00 GMT</pubDate><content:encoded>&lt;p&gt;至于 Lexer 和 Parser 部分，教程和用法实在太多，实现起来也比较简单，所以也没什么好说的，这里说说如何实现一个虚拟机（Virtual Machine）&lt;/p&gt;
+&lt;p&gt;最后，控制我们自定义键盘事件的额外的复杂度似乎没有上面所述的这种做法的复杂度大。因为 CodeMirror 使用 textarea 只包含选区这种做法，而不必去解决 &lt;code&gt;cursor-motion&lt;/code&gt; 按钮事件。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Fri, 26 Aug 2016 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
+&lt;p&gt;Quick JS 是 Fabrice Bellard 今年发布的一款 JavaScript 引擎，具有以下特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;轻量而且易于嵌入：只需几个C文件，没有外部依赖，一个x86下的简单的“hello world”程序只要180 KiB。&lt;/li&gt;
+&lt;li&gt;具有极低启动时间的快速解释器： 在一台单核的台式PC上，大约在100秒内运行ECMAScript 测试套件1 56000次。运行时实例的完整生命周期在不到300微秒的时间内完成。&lt;/li&gt;
+&lt;li&gt;几乎完整实现ES2019支持，包括： 模块，异步生成器和和完整Annex B支持 (传统的Web兼容性)。&lt;/li&gt;
+&lt;li&gt;通过100％的ECMAScript Test Suite测试。&lt;/li&gt;
+&lt;li&gt;可以将Javascript源编译为没有外部依赖的可执行文件。&lt;/li&gt;
+&lt;li&gt;使用引用计数（以减少内存使用并具有确定性行为）的垃圾收集与循环删除。&lt;/li&gt;
+&lt;li&gt;数学扩展：BigInt, BigFloat, 运算符重载, bigint模式, math模式.&lt;/li&gt;
+&lt;li&gt;在Javascript中实现的具有上下文着色和完成的命令行解释器。&lt;/li&gt;
+&lt;li&gt;采用C包装库构建的内置标准库。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文主要记录我阅读 QuickJS 源码时记录的一些心得，主要用于学习用途。&lt;/p&gt;
+&lt;h2&gt;编译&lt;/h2&gt;
+&lt;p&gt;源码下载地址：&lt;a href=&quot;https://bellard.org/quickjs/&quot;&gt;https://bellard.org/quickjs/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;编译 qjs 引擎本身&lt;/h3&gt;
+&lt;p&gt;qjs 本身用于直接执行 JavaScript 代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ make qjs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;编译 qjsc 编译器&lt;/h3&gt;
+&lt;p&gt;qjsc 编译器可以把 JavaScript 代码编译成 QuickJS 虚拟机的字节码（可直接通过 QuickJs 虚拟机执行）。 也可以把 JavaScript 代码编译成一个 C 语言的 .c 文件，这个文件包含了字节码：&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e55cbce2ab1591c58a3346e75b42ca95/a79cf/qjs-bytecodes.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 79.79214780600462%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAADZUlEQVQ4y6VTzW8bRRRfCfXIAW0PyHAokNjOej9mv2dnZr1r78Z2vE7atAIJIfXSE1ckDvRQVXy01E1oYsqXSqoUCYTEga4Efwn/AJIlroAPHGq8jzcb0UbkyEo/vY+Z+c17vzer/HLt+Lm3dpKe3WfbxGZjjQSF4bLCdoLCspzC51kR8H7Be6OCJ4OCuFGh27SwA4F7wsIg4dhwoonti8E77753TpnemL6QDYrfSJRCy4wADwNxGbxmx/Cqk4BueqA7EbQNFy60Cax3XNAsH15p6nBBD0Gzab22tkH+uvn+rReV6b1P1W5+aW6HfWha7O+Ab1ZO2KtaJq2aiJbuVS3Dr5odr1rT3KqJcRvjdfTXdR/9YIV7YMMM/tz7ZPaScjD7QhX9SU3Y1r1Vx+1XBh1VHSusdJtXHYJAq9ui0h3pM8wx9DG2peUrjTDw2Obi4Tc/NJTD+1+pvFfMiZ9AS/dXG0YIjpUAQXS8EHSfgo5WcwJs16vRPAU8I6sFh2aLR9/92FA+uv622ptcnQfDa9DUyEpDHR2SgoM6ugEFQijGCIuChXBdKklOoyYkQbr4+vj7hvLxdF9Nh5fnLhvIG1dtrLBjcMDpgWkjMLZMJEPxZfWSZF3zaqxpdZWorw+aGS6m+4cNZf/gMzXOduY4CGhiyzpWkbIUUiEQHBLKocdEHceRAEYZ0CCCEMHRl1pLGTSLLu5Kwg9v76nZ6MrcYzm0jHCFGyAKKSICJkFPIA/HEQOBVpLKtS5joP+XcFYPZTK3cChtk6KGIYR+BDTESvBQgL4klxWd+M8qlPkzFX7+5ZEaJeO56XVhw4pWOg4gi7FNbDfl2DLj0Ec/i0Ud511R+zI3TGOpbSX1fEr44OiRGojh3HBifJxYId6It1e+T6sAgVWcAZXrHq1QhupMy3fuHqj90ZVf3SiThE+whSVqg+DLLufLnhDLlItlgn7MTuLTvkHoE/yDsHX6+969WUO5+cHt86Jf/GHXUw7AcDh0uxkIkQKNYuCsCwwheIo2qfPS0kjm8AdAqTTC6+d0687+y8rRw+Pn+8PtB/no0s9pXjye7L5Z7rx+tcy2dstAZGUYb5ahyMt8fLlMBztlsrlddvNJyXtbpcgKzO8+Hl9846d86+K3h7P7qgIAivyk/T/4l+Mf5HIPuwzWvGQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;QuickJS 把 JavaScript 编译成字节码&quot;
+        title=&quot;&quot;
+        src=&quot;/static/e55cbce2ab1591c58a3346e75b42ca95/84ad3/qjs-bytecodes.png&quot;
+        srcset=&quot;/static/e55cbce2ab1591c58a3346e75b42ca95/687da/qjs-bytecodes.png 175w,
+/static/e55cbce2ab1591c58a3346e75b42ca95/0ab4d/qjs-bytecodes.png 350w,
+/static/e55cbce2ab1591c58a3346e75b42ca95/84ad3/qjs-bytecodes.png 700w,
+/static/e55cbce2ab1591c58a3346e75b42ca95/a79cf/qjs-bytecodes.png 866w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;但是编译 qjsc 编译器首先需要编译 libquickjs 库：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ make libquickjs.a
+$ make qjsc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用 qjsc 编译器把 &lt;code&gt;my_test.js&lt;/code&gt; 文件编译成 &lt;code&gt;my_test.c&lt;/code&gt; 文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ./qjsc -e -o my_test.c my_test.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;使用 XCode 进行 Debug&lt;/h3&gt;
+&lt;p&gt;如果你想很清楚地了解整个虚拟机的执行过程，可能你需要 XCode 来进行单步调试：&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d5d570bd15780631e08356203da540ad/2b917/xcode-debug.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 61.1671469740634%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAACSklEQVQoz42TyW7UQBCG/UyICxLPAyMlAglxjS95gfiWJ+HIiUOQQCIkmfF4Mpsdr91te7x1293TlWoPSYYTlFQqu13+/Ndiazm9fuN5d5ez2ezC8zzHnaO7U2exmKPfO6v1yvF931mv16Mvl0tnOp06t7e3Dr7jfL+6cq5/31xMvfXlnbt4a93cuR9rISHOW8irDowpyUHwFv7HBOfAWAF7DeD7wWfrfhO8i0gJ6CIh+aD1fmiadpBSDZj/T+ecD4xS0bYNUEpPrK+/wsm3WQ5ffqbqx4JpBEJTN5AkCex2O+BcgBA9cCGg7wfAhGc3Vje1zrJMdagU46m1DdPJfOnDzX2oElaNQIGQ7WYLeV6AUuoA2L9Ajq1t2hHIn4BhnE5oUQLJS4VR17yDMIkh35UwILzfK+iVBHHk5r6TPTCeAy2ppoS+AGOSTxocSkILxcpKG0VZQiAjBLCR2GxUdqRIP0cNSqux5DiOVdM0QAg5tZI/wJSVKqZMZ4xBlmYQRTEQyrDsHIqiGPtZVxW0bQsVXhtAj73F80MPu+5vYMZ26oGm2t3MocQWSFQ3rgUOw8Bc1wXc0xG+Wq1wVdhhKHWtEfRSMgLflw03wN4nsXQ3rozCSGKCIY4Rl1kGQSDxBYkKJS64xBWRxlCpOe+NYownBvhhnFa/h0J0EOXxONFjM18/nnCFpT9VYKzrDj8BAj9ZUZK+SjNyHmf0zNtGdhAFNqPMLneljX2xUYkdRXgeBDY238ZSR0co5tS2HxE7DB/OwjA8x+evHwEh23HvrI2NowAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;使用 XCode 进行 Debug&quot;
+        title=&quot;&quot;
+        src=&quot;/static/d5d570bd15780631e08356203da540ad/84ad3/xcode-debug.png&quot;
+        srcset=&quot;/static/d5d570bd15780631e08356203da540ad/687da/xcode-debug.png 175w,
+/static/d5d570bd15780631e08356203da540ad/0ab4d/xcode-debug.png 350w,
+/static/d5d570bd15780631e08356203da540ad/84ad3/xcode-debug.png 700w,
+/static/d5d570bd15780631e08356203da540ad/ef8d3/xcode-debug.png 1050w,
+/static/d5d570bd15780631e08356203da540ad/2b917/xcode-debug.png 1388w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;为了能在 XCode 下进行调试，你可能需要先在 Makefile 里面把优化给去掉。
+打开 Makefile， 在里面找到这一句：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CFLAGS_OPT=$(CFLAGS) -O2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;改成：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CFLAGS_OPT=$(CFLAGS) -O0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来就好办了，我们照着 &lt;a href=&quot;https://blog.csdn.net/u011577874/article/details/73000207&quot;&gt;这篇教程&lt;/a&gt; 走就可以在
+XCode 里面 debug 了。&lt;/p&gt;
+&lt;h2&gt;OPCode&lt;/h2&gt;
+&lt;p&gt;QuickJs 的虚拟机使用栈式虚拟机。对于什么式栈虚拟机推荐阅读 &lt;a href=&quot;https://www.iteye.com/blog/rednaxelafx-492667&quot;&gt;这篇文章&lt;/a&gt; 了解。&lt;/p&gt;
+&lt;p&gt;QuickJS 的 OPCode 十分简洁和紧凑。所有 OP 码的定义都放在 &lt;code&gt;quickjs-opcode.h&lt;/code&gt; 文件里面：&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/75f622fd7f08e5fa7bc3eaa3a6a2913f/ef8d3/quickjs-opcode.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 79.71428571428572%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAADTElEQVQ4y6VTS2sbVxQe2kJ3hRLRbavGljSa9+POzL2ah0YaaRxZntgli5RQsumi0E0pwQluSBOblloxTRonRrS4j30E+QX9MyWCUiJol2ZmTs8dRSbdBbr4OGfu4zvf+c4d4ferT968thUmZkIvt2Wy1VLsTEQohpcZNsvcIMkIizMvHGR+N800i2WKSTPddDPZcDH3tlSLXtZsll67/unbwsPDx+/2ktGfshuBTiJw/T4QGoOoM/jQCEDWXZAQDcmEi20L2pivtVT4QPehqTrQUiyEzff/+ezzL94XHj6Z1sJk+7lkhiDbQe7Qful0BqVidso1yS4bklVhXTTLNUQD19bbmEukynEvX8dCouK8uLG7VxcenZxeYNGl50iAldzCNZJSt3qlqNOyJa8ucZCyKdvn383zdbtAgGSwF7fuTerCZH+3Fo0+metsjISk0FQfWwygoTjAD74GCq5QI9Hi3uRxXbg/OaxF6ZW55vRBVN3C0rtg2ANoGT4vwNfOgR1AS/Uw5945q/WC57LpL/a+eVAXHjya1qJBNlftADe9gpkpGAaSm1wpXcJgICPaOCjRDKqcr3ObFJMV8nJ/8eXu7bpwfPJjrTvcnmt2yKsXIipTrQ5ImgttVKgaFNqaB03ZqRRyVU2ZVO2ut1ct21iMLna/2q8LPxxPa3G6M0cPloSvKuKkqrNsEcGJVuCETQ6ZrIayqIZy//vjc4WiRguJptUFm/bADYagWxQsmwKx+6iaQqMiXHrI0VScJaHOFje//q4uHCFhmKCHFraMhDLbAM32KzIWj8CwGNiEgusmoBgdToBq/zOol4R0cesuEv50+luNdAZzCQ9XhKhQRM84KUGVXCEhDAjrvfRyqfCV9gseZStY3DzAKZ9MTy904vEfCk4VCc/aXprjgdxhvRxJcsOiOXFY9S3pXo5t5qgMo7uKZ5xQtYK/7u4f1YWDbyfcw791p1v9v2aU4SPtood96MSbYDohEDcExx/wxwu8ExlfAo8roPfor3d258beReH0l1/fSS5tT+PB+NlwtPN0vPPxbGPryizsj6oYxBuzTjSc+XE6w3OzXppV6A7GFfDe0+HmR8+Gmzs/HxwevScAAMcbiLf+JziH8C/sewvdumb8WwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;QuickJS 的 OP 码&quot;
+        title=&quot;&quot;
+        src=&quot;/static/75f622fd7f08e5fa7bc3eaa3a6a2913f/84ad3/quickjs-opcode.png&quot;
+        srcset=&quot;/static/75f622fd7f08e5fa7bc3eaa3a6a2913f/687da/quickjs-opcode.png 175w,
+/static/75f622fd7f08e5fa7bc3eaa3a6a2913f/0ab4d/quickjs-opcode.png 350w,
+/static/75f622fd7f08e5fa7bc3eaa3a6a2913f/84ad3/quickjs-opcode.png 700w,
+/static/75f622fd7f08e5fa7bc3eaa3a6a2913f/ef8d3/quickjs-opcode.png 1050w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;从上图可以知道 OPCode 定义分为这几个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;id: OPCode 的名字&lt;/li&gt;
+&lt;li&gt;size: OPCode 的字节大小。比如说 &lt;code&gt;push_i32&lt;/code&gt; 指令的 size 是 5. 那么第一个字节用来存 OPCode 本身，
+后面四个字节用来存 32 为的整型，也就是四个字节。&lt;/li&gt;
+&lt;li&gt;n&lt;em&gt;pop: 从栈上面弹出的元素的数量。和下面的 n&lt;/em&gt;push 一起用户统计函数需要分配的栈的大小。&lt;/li&gt;
+&lt;li&gt;n_push: 从栈上面插入元素的数量。&lt;/li&gt;
+&lt;li&gt;f: 字节码的格式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Runtime&lt;/h2&gt;
+&lt;p&gt;在虚拟机内部，运算的最基本单位是 JSValue，一个 JSValue 可以用以下 Tag 来标示：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;enum {
+    /* all tags with a reference count are negative */
+    JS_TAG_FIRST       = -10, /* first negative tag */
+    JS_TAG_BIG_INT     = -10,
+    JS_TAG_BIG_FLOAT   = -9,
+    JS_TAG_SYMBOL      = -8,
+    JS_TAG_STRING      = -7,
+    JS_TAG_SHAPE       = -6, /* used internally during GC */
+    JS_TAG_ASYNC_FUNCTION = -5, /* used internally during GC */
+    JS_TAG_VAR_REF     = -4, /* used internally during GC */
+    JS_TAG_MODULE      = -3, /* used internally */
+    JS_TAG_FUNCTION_BYTECODE = -2, /* used internally */
+    JS_TAG_OBJECT      = -1,
+
+    JS_TAG_INT         = 0,
+    JS_TAG_BOOL        = 1,
+    JS_TAG_NULL        = 2,
+    JS_TAG_UNDEFINED   = 3,
+    JS_TAG_UNINITIALIZED = 4,
+    JS_TAG_CATCH_OFFSET = 5,
+    JS_TAG_EXCEPTION   = 6,
+    JS_TAG_FLOAT64     = 7,
+    /* any larger tag is FLOAT64 if JS_NAN_BOXING */
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;那么一个 JSValue 的表示是这样的：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;typedef union JSValueUnion {
+    int32_t int32;
+    double float64;
+    void *ptr;
+} JSValueUnion;
+
+typedef struct JSValue {
+    JSValueUnion u;
+    int64_t tag;
+} JSValue;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从这个结构体可以看出一个 JSValue 占用 16 字节的内存。tag 用来表示这个 Value 的类型。而 &lt;code&gt;JSValueUnion&lt;/code&gt; 则是
+用来储存真正的值。这个值可以是 int/float 或者一个指针指向一个真正的对象。&lt;/p&gt;
+&lt;p&gt;真正的对象在 QuickJS 里面则是使用引用计数来进行内存管理，所以都有一个引用计数器：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;ypedef struct JSRefCountHeader {
+    int ref_count;
+} JSRefCountHeader;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;命令执行&lt;/h2&gt;
+&lt;p&gt;知道了上述背景之后，我们就可以看看 QuickJS 虚拟机具体的执行过程了。需要知道的是，一个栈虚拟机，需要两个很重要的
+指针，分别是 pc 和 sp。&lt;/p&gt;
+&lt;p&gt;pc 指的是程序计数器。指向正在读取的 OPCode，读取之后 pc 会 ++，指向下一个字节。&lt;/p&gt;
+&lt;p&gt;sp 是栈指针。指向栈机器栈顶的下一个元素，用来进行栈相关的操作。&lt;/p&gt;
+&lt;h3&gt;入栈&lt;/h3&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5a01f65ed89f2ad910820f02f6125e98/ef8d3/qjs-add.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 79.71428571428572%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAADmElEQVQ4y6VTTYscVRQtVHAnSBq3Wkx/1XdV16vvj66u6q7uznRXTxIyiIkYEHEjalBHE40JgySkR4aYIUxQI8aFG1OQvWt3/gR3kgaRNJjlUFXX+3qYUbN1cbiv3+s6755z7mN+uXDv2XPTsK8lzkxWnWlbJpmo2ZlK3EzSrIw4UeZ00ywMepnl9jJBtRBmpuC5ohmZoJhTUbNmKvGG599463nmxtX5i3F//Q/ViaAlO2D7fVCID2tcB+oiASSHRluGV0gMnOYALxvAKyastSRgZRt41YK2RKDBq0/efuf9l5n57u1a2N94pFoxNBWnsLykUnSvqnOdqsF3qhaiwWnVmmhWDYFUTUFfoY57dfpbJEWD14GTjMeXPv6MZW7d3j/h9SaPVDOCtuyUvOJUbcmqmpJZtbSgalkpfqyuCPDDYzQp2arqJZ6BZiWPf/r5N5b5am+/hoQLxYiAOEmpkBAl2CCGM3CzN2GQnoUw2gSjE4IoW9AUDWj9FyUqAc0dLn/89QnLXL/yXi06eX5hDC6ApNml2AmgwanAkQj80asw8QbQDyagaB60BLIiwe6OQQlpFXV/eXlnn2Vuzr+sddNTi46TosFuiYAm9UTvgtHbgL6TQGAEICgWNJ4iPOqQrhWju7y6PWeZnd09DCVbaFYPJL2LHfrQxIQ5IwZ3fA5mfgoDO8YO3WPCpyU3BQMvtJcffXKFZW7Md2vx6MyCOH0QNL8UUFoTPaGS7cEmDN0+RBiYRDvE/aPuGv/Ukq75I8K9O1/X3GgdQ+kioXcsuY1ekmAdErMHHkLQA2gpLnAKzp5kgojgEJJklqJkgag6yw+2PmWZO3e/rdnheCFjujJByZp/6A/+WbGH4PhTkJFcQAva+upSULBbHROnpESxS111QOq4y4sfXmaZb+7drxleuqDpSnp4KFnADlUPdHcEkZWAhSMlm0iIoyOggjZVoQUgo684r2Wd/5fkmzu3TvSGp3/voPFIdoCS6eQXKLuQZKvokLjg6J7iFii5QMlFG18UXlhIWFH2AX0pgmr/uXXpc5a5tn29FsSTv3QMRUSf6IDLtKJvGnpodaegox06DQZV0CmgdRUIf2gNvi7a4cG7F7fWmO/v//BCnE7vJsPsYTzMHkxPv5ZvnH097483cq87yP0gyYMozUeTMzme5710kiejWR7EozxMxrjOHoyzzYfpyVPfXdv+4iUGACieQTz3P0E5mL8BxX0O/M1TIAkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;qjs add&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5a01f65ed89f2ad910820f02f6125e98/84ad3/qjs-add.png&quot;
+        srcset=&quot;/static/5a01f65ed89f2ad910820f02f6125e98/687da/qjs-add.png 175w,
+/static/5a01f65ed89f2ad910820f02f6125e98/0ab4d/qjs-add.png 350w,
+/static/5a01f65ed89f2ad910820f02f6125e98/84ad3/qjs-add.png 700w,
+/static/5a01f65ed89f2ad910820f02f6125e98/ef8d3/qjs-add.png 1050w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;入栈操作就是把读入的值变成一个 JSInt32，然后赋值到 sp 指针指向的内存，然后 &lt;code&gt;sp++&lt;/code&gt;。就完成了一个入栈操作。
+我们可以看到 QuickJS 的字节码实际是十分冗余的，具体为什么这么设计我不太清楚。估计是 0-7 之间的数可以用一个
+字节搞定，节省空间，但是我个人感觉也太省了，对实际运行应该帮助不大。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;OP_push_i8&lt;/code&gt; 是一个两字节的 OP 码，第二个字节就是一个 8 位的整数，同理 &lt;code&gt;OP_push_i16&lt;/code&gt; 就是一个三个字节
+的指令，入栈一个 16 位的整数。&lt;/p&gt;
+&lt;h3&gt;加法&lt;/h3&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/26fc04630a6d21d4f24798f129c58c7c/cf304/qjs-add-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 62.913907284768214%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACt0lEQVQ4y21TvW7UQBC2REHN8QjJnb22d23vev17F99fIAHRwANQIiQaiiA45+6SXHJAEBVvQcUrAA0dLYgr6EG4QELI6DzM+pIjBcWnmd2Z+ebbGVtr97J9g/m5YfNcp37uBVu566e5bvu55cjc4knOwm7uiDgnVORNFubEDesYUXVUjEwmp6YT3L9778FlrTO4BZaXABMptGgAXpABRX/TlmA5ISAB6LwDthuCQSVsOAkQzLfcCAwWADaufUL973sP965qIh5UrsxKxtOyZfklC/plEPRKw5blBuFlyxQIXjaVxbg6Ny8A735vGh640eDzmw/fGlrUuw3MzyrTiSrdlpXpJpXw08oXUeW5UWVSWWFRpSNatvJlnXcBS2wCXnJt8foTNLS4fwcJu0gYqyA0LR88J4Z21Ace9kB30xrEa4ONI7HVCDCnZQkEWiRUdTZPF/uzF6iwcx0P7TWhjkWGjbOUHZBpF2zZAzPYRgxBcCRFYkN0ERk46BOKCi2JojqL+emrhpZ0b+JS0oqwcE3YwkHbLEGF2yDiITAsNJWysxfotsoJaqufK/TixWh8qAhv4Fa3/ilEEBpCpBT4XSDJLljJDtCgD9RNahg4Ep3hZlf5a8J8MsMZZrv1kwmL1oQKLn4eqLx+HvF7YIUDYIr4rAEPekCRtHWRcHzU0HjYV4RL4kTLs25L24mXQmQ4G4Eb5CtY/lIVK1vnqfPK/7MiTL7UhNGWUtgBorrV25P1vDg+l8khUGzIUCnB2Tbr+P+Bn93XkSJMsp2fPOwWQToseJgV+McUjt8uqBMV1EsK/BULgXF158pObVUO5ck5fuD9ryAdfHyST69oj0djOjmcsaenL+ns5BkdT4/owdEJfTKe0EejER3tTzF+XN/VmM3pFM/jgxmdnOFwNneO589bb9+9v/QXhMaRwBTo7QcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;qjs add 2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/26fc04630a6d21d4f24798f129c58c7c/84ad3/qjs-add-2.png&quot;
+        srcset=&quot;/static/26fc04630a6d21d4f24798f129c58c7c/687da/qjs-add-2.png 175w,
+/static/26fc04630a6d21d4f24798f129c58c7c/0ab4d/qjs-add-2.png 350w,
+/static/26fc04630a6d21d4f24798f129c58c7c/84ad3/qjs-add-2.png 700w,
+/static/26fc04630a6d21d4f24798f129c58c7c/ef8d3/qjs-add-2.png 1050w,
+/static/26fc04630a6d21d4f24798f129c58c7c/fed13/qjs-add-2.png 1400w,
+/static/26fc04630a6d21d4f24798f129c58c7c/cf304/qjs-add-2.png 1510w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;栈虚拟机上的加法就是从栈弹出两个元素，相加，然后入栈。这里首先从栈顶取出 op1 和 op2。然后判断是不是 int。
+这里的 int 类型是 32 位的。所以它先把他们切到 64 位进行相加。加完再切回 32 位的 int，看看数据是不是一样。
+若不一样，则说明加法产生了溢出，这个时候就丢到 add_slow 进行处理。&lt;/p&gt;
+&lt;p&gt;若两个 op 都是 float64 则进行浮点数的加法。&lt;/p&gt;
+&lt;h3&gt;If 分支跳转&lt;/h3&gt;
+&lt;p&gt;If 分支跳转是程序里面很重要的一步，实现了分支跳转，for 和 if 语句都可以实现了。
+QuickJs 有 goto 指令，比较简单，这里就不说了，这里介绍一下 &lt;code&gt;OP_if_true&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/83e893320956c5ea56965e06303824f9/cf304/qjs-if-true.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 62.913907284768214%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACkklEQVQ4y4WTu27UQBSGLVFQszwCWXs96/H4fhmvd7NZbgHRwANQIiQaikgkTvaSDRsFKQ2PQcUrAA0dJUJsQQ/CBRJCi+zDb8dJEAJRfDo+84/+OefMWEmGg9029zIdMNPPNMPNhJdkFuggF57MTHwzL82YCLDHy9rcz3Q7rr+Z8Hd005tAe3j/waOLSm90h1QRk+X3SBcBrTGXRLRBdtAnlQfEREgaYttOqWtFhEPpCg+p4yAXJzrDOgr6svV467LixaPScJKVcNIV53LFEA13sFKZu1K73qpdxRqn/m4zD+vnOfb8WOvYZEWjDy/ffm4p0fAuWcGwNCxZdoywFOGojJC7dpX7pfZ/ChxItry+fPGeWko8ukeoqNRFBNEjnEoGWvFdSYYZEiogDai/0W6oNRgC4k6yHD89RoX9G5iNLHWzMvQxL5+EGZPrSOJ2Nb8GmOsGZgYMfkKn2t8Ymm66XBw9byly/TZ17d65IWA8ptBPSYTrpCfQ5Sa5/jpxMyIOc0dENTpM1cawa8XL7d1pZXiLDCdtWj4x7KIaYUrSrB5pTp90S5JZ3Ta09j9aNmy5zMZzzHCw2bQcnhlytGzhKXXxRHSMQENlOtabFv+kMYyX2d5+S3HCDVTYK5iIi0YsGA8KbqeF8NPC9PuF7g0Ljj3cjosOtKbNU342FX6sDaP+ZjVD6qAKlXn1BTC0ym3MzB9S101JhaYJSXpz63+DiejTTmUoBze/2cEgD5KruYMo/H5uJ9dyvPwaVJVbfprjd4RWxV5uuknOHXnKV+jfg2T0bjubXFKe7OzxyWxuHj475vPFEd8bT/h4d5dn430w4+PZAZ8eHPLpfMFnoIoTrI2n8zOwLg4WR+qr128u/ALpxZAQuvlwkwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;qjs if true&quot;
+        title=&quot;&quot;
+        src=&quot;/static/83e893320956c5ea56965e06303824f9/84ad3/qjs-if-true.png&quot;
+        srcset=&quot;/static/83e893320956c5ea56965e06303824f9/687da/qjs-if-true.png 175w,
+/static/83e893320956c5ea56965e06303824f9/0ab4d/qjs-if-true.png 350w,
+/static/83e893320956c5ea56965e06303824f9/84ad3/qjs-if-true.png 700w,
+/static/83e893320956c5ea56965e06303824f9/ef8d3/qjs-if-true.png 1050w,
+/static/83e893320956c5ea56965e06303824f9/fed13/qjs-if-true.png 1400w,
+/static/83e893320956c5ea56965e06303824f9/cf304/qjs-if-true.png 1510w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If 分支跳转主要是看栈顶元素是不是为 true。若为 true，则把 pc 加等于相应的 offset。
+这个 offset 在 QuickJS 里面是 32 位的，这意味着 &lt;code&gt;OP_if_true&lt;/code&gt; 是一个 5 个字节的
+OPCode。这个 offset 在编译的过程中就可以被算出来。&lt;/p&gt;
+&lt;p&gt;图中有一个 tag 是否小于等于 &lt;code&gt;JS_TAG_UNDEFINED&lt;/code&gt; 的判断。这个判断根据上面的 tag 的定义。
+我们知道只有这几个类型是不符合这个判断的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;UNINITIALIZED = 4,&lt;/li&gt;
+&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;CATCH_OFFSET = 5,&lt;/li&gt;
+&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;EXCEPTION   = 6,&lt;/li&gt;
+&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;FLOAT64     = 7,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上几个类型需要用 &lt;code&gt;JS_ToBoolFree&lt;/code&gt;，进行判断，其他类型则可以从 JSValue 读出真正的 bool 值。&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;QuickJS 源码实现非常简单易懂，是一个非常适合学习的 JS 引擎。有一点谈不上好坏的就是
+像 Bellard 这样的 hacker 出来的代码非常的骚气。比如说通篇的 goto，不过幸好不是很难懂，
+有些逻辑确实 goto 写起来比较爽这一点，可以理解。另一方面不太好的就是大部分代码都写尽了一个 .c 文件
+里面了，读函数调用跳来跳去比较麻烦。总的来说是非常适合阅读的源码了。&lt;/p&gt;
+&lt;h2&gt;相关阅读&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;QuickJS 官方文档：&lt;a href=&quot;https://bellard.org/quickjs/quickjs.pdf&quot;&gt;https://bellard.org/quickjs/quickjs.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;栈式虚拟机：&lt;a href=&quot;https://www.iteye.com/blog/rednaxelafx-492667&quot;&gt;https://www.iteye.com/blog/rednaxelafx-492667&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;X86 架构：&lt;a href=&quot;https://blog.csdn.net/ajigegege/article/details/17055779&quot;&gt;https://blog.csdn.net/ajigegege/article/details/17055779&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;使用 Xcode 进行 Debug：&lt;a href=&quot;https://blog.csdn.net/u011577874/article/details/73000207&quot;&gt;https://blog.csdn.net/u011577874/article/details/73000207&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[编译原理学习笔记 3：实现一个虚拟机]]></title><link>https://diverse.space/2016/08/implement-a-vm</link><guid isPermaLink="false">https://diverse.space/2016/08/implement-a-vm</guid><pubDate>Sat, 13 Aug 2016 21:00:00 GMT</pubDate><content:encoded>&lt;p&gt;至于 Lexer 和 Parser 部分，教程和用法实在太多，实现起来也比较简单，所以也没什么好说的，这里说说如何实现一个虚拟机（Virtual Machine）&lt;/p&gt;
 &lt;p&gt;虚拟机的实现有很多种，常见的分为 Stack Machine 和 Register Machine 前者基于栈，后者基于寄存器。
 目前来说，基于栈的虚拟机比较多，像（CPython, JVM, .NET…）都是基于栈的虚拟机，二基于寄存器的虚拟机中比较出名的就是 Lua 的官方实现了，官方称这是最早的基于寄存器的虚拟机，具体如何我们就无法考究了。但是本文主要介绍的是基于栈的虚拟机，因为比较好实现。&lt;/p&gt;
 &lt;p&gt;我们来看看下面这一行代码&lt;/p&gt;
