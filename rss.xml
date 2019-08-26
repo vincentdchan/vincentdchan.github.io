@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Aug 2019 17:21:26 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Aug 2019 17:23:13 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
 &lt;p&gt;Quick JS 是 Fabrice Bellard 今年发布的一款 JavaScript 引擎，具有以下特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;轻量而且易于嵌入：只需几个C文件，没有外部依赖，一个x86下的简单的“hello world”程序只要180 KiB。&lt;/li&gt;
@@ -300,10 +300,10 @@ OPCode。这个 offset 在编译的过程中就可以被算出来。&lt;/p&gt;
 &lt;p&gt;图中有一个 tag 是否小于等于 &lt;code&gt;JS_TAG_UNDEFINED&lt;/code&gt; 的判断。这个判断根据上面的 tag 的定义。
 我们知道只有这几个类型是不符合这个判断的：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;UNINITIALIZED = 4,&lt;/li&gt;
-&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;CATCH_OFFSET = 5,&lt;/li&gt;
-&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;EXCEPTION   = 6,&lt;/li&gt;
-&lt;li&gt;JS&lt;em&gt;TAG&lt;/em&gt;FLOAT64     = 7,&lt;/li&gt;
+&lt;li&gt;JS_TAG_UNINITIALIZED = 4&lt;/li&gt;
+&lt;li&gt;JS_TAG_CATCH_OFFSET = 5&lt;/li&gt;
+&lt;li&gt;JS_TAG_EXCEPTION   = 6&lt;/li&gt;
+&lt;li&gt;JS_TAG_FLOAT64     = 7&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;以上几个类型需要用 &lt;code&gt;JS_ToBoolFree&lt;/code&gt;，进行判断，其他类型则可以从 JSValue 读出真正的 bool 值。&lt;/p&gt;
 &lt;h2&gt;总结&lt;/h2&gt;
