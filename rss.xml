@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Aug 2019 17:23:13 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 26 Aug 2019 17:24:27 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
 &lt;p&gt;Quick JS 是 Fabrice Bellard 今年发布的一款 JavaScript 引擎，具有以下特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;轻量而且易于嵌入：只需几个C文件，没有外部依赖，一个x86下的简单的“hello world”程序只要180 KiB。&lt;/li&gt;
@@ -310,7 +310,8 @@ OPCode。这个 offset 在编译的过程中就可以被算出来。&lt;/p&gt;
 &lt;p&gt;QuickJS 源码实现非常简单易懂，是一个非常适合学习的 JS 引擎。有一点谈不上好坏的就是
 像 Bellard 这样的 hacker 出来的代码非常的骚气。比如说通篇的 goto，不过幸好不是很难懂，
 有些逻辑确实 goto 写起来比较爽这一点，可以理解。另一方面不太好的就是大部分代码都写尽了一个 .c 文件
-里面了，读函数调用跳来跳去比较麻烦。总的来说是非常适合阅读的源码了。&lt;/p&gt;
+里面了，读函数调用跳来跳去比较麻烦。&lt;/p&gt;
+&lt;p&gt;总的来说是比较适合阅读的源码了。&lt;/p&gt;
 &lt;h2&gt;相关阅读&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;QuickJS 官方文档：&lt;a href=&quot;https://bellard.org/quickjs/quickjs.pdf&quot;&gt;https://bellard.org/quickjs/quickjs.pdf&lt;/a&gt;&lt;/li&gt;
