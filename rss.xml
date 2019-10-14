@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 02 Sep 2019 14:04:40 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 14 Oct 2019 11:37:01 GMT</lastBuildDate><item><title><![CDATA[使用 N-API 和 CMake 为 Node.js 添加 C++ 拓展]]></title><link>https://diverse.space/2019/10/using-napi-and-cmake-to-write-a-nodejs-extension</link><guid isPermaLink="false">https://diverse.space/2019/10/using-napi-and-cmake-to-write-a-nodejs-extension</guid><pubDate>Sun, 13 Oct 2019 21:00:00 GMT</pubDate><content:encoded>&lt;p&gt;以前为 Node.js 编写拓展的时候，使用的是 Node.js 的 C++ addon API，直接使用
+v8 提供的 api 和 Node.js 打交道。使用 C++ Addon 的 API 有个缺点就是
+ABI 层面不兼容，升级 Node.js 之后 extension 要重新编译。&lt;/p&gt;
+&lt;p&gt;现在 Node.js 提供了 N-API。这个 API 是 C 层面的支持（也有 C++ 绑定）。同时，使用 N-API
+写出来的拓展是 ABI 兼容的。&lt;/p&gt;
+&lt;p&gt;而使用 N-API 编写 Node.js 扩展不一定用 node-gyp 进行编译，也可以使用 cmake，
+这对一些使用 CMake 的 C++ 项目可以说非常友好了。&lt;/p&gt;
+&lt;h1&gt;使用方法&lt;/h1&gt;
+&lt;p&gt;按照&lt;a href=&quot;https://github.com/nodejs/node-addon-api/blob/master/doc/cmake-js.md&quot;&gt;官方教程&lt;/a&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ yarn add node-addon-api cmake-js bindings
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后在 &lt;code&gt;package.json&lt;/code&gt; 里面加上一句：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;&quot;scripts&quot;: {
+  &quot;install&quot;: &quot;cmake-js compile&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后愉快的 &lt;code&gt;yarn install&lt;/code&gt; 就可以使用了。&lt;/p&gt;
+&lt;p&gt;贴一下我的 CMakeList.txt 配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;project (zparser)
+cmake_minimum_required(VERSION 3.15)
+
+set(CMAKE_CXX_STANDARD 17)
+
+include_directories(${CMAKE_JS_INC})
+file(GLOB SOURCE_FILES &quot;src/*.cc&quot; &quot;src/*.h&quot;)
+add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
+set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX &quot;&quot; SUFFIX &quot;.node&quot;)
+
+set(JSON_BuildTests OFF CACHE INTERNAL &quot;&quot;)
+
+# Include N-API wrappers
+execute_process(COMMAND node -p &quot;require(&apos;node-addon-api&apos;).include&quot;
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        OUTPUT_VARIABLE NODE_ADDON_API_DIR
+        )
+string(REPLACE &quot;\n&quot; &quot;&quot; NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
+string(REPLACE &quot;\&quot;&quot; &quot;&quot; NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
+target_include_directories(${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以说非常简单易用了。&lt;/p&gt;
+&lt;h1&gt;Api 使用&lt;/h1&gt;
+&lt;p&gt;C++ &lt;a href=&quot;https://github.com/nodejs/node-addon-api/blob/master/doc/value.md&quot;&gt;官方文档&lt;/a&gt; 的介绍还是比较简陋的，如果不了解 C-API 用起来有些地方会比较困惑。
+但是如果用过之前用过 v8 的 addon-api 的话，还是比较容易理解的。&lt;/p&gt;
+&lt;p&gt;大部分的 Object 和 Array 等操作都有，你甚至可以用 &lt;a href=&quot;https://github.com/nodejs/node-addon-api/blob/master/doc/object_wrap.md&quot;&gt;ObjectWrap&lt;/a&gt; 去定义自己
+的 Class:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;class Example : public Napi::ObjectWrap&amp;#x3C;Example&gt; {
+  public:
+    static Napi::Object Init(Napi::Env env, Napi::Object exports);
+    Example(const Napi::CallbackInfo &amp;#x26;info);
+
+  private:
+    static Napi::FunctionReference constructor;
+    double _value;
+    Napi::Value GetValue(const Napi::CallbackInfo &amp;#x26;info);
+    Napi::Value SetValue(const Napi::CallbackInfo &amp;#x26;info);
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我目前没有发现的就是如何定义一个 Undefined 的 Value。所以用到 Undefined
+的时候，我就不得不用 C-API 去定义一个 &lt;code&gt;napi_value&lt;/code&gt; 来用 undefined。好在
+C++ 的 API 可以和 C 混用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;napi_value* result = nullptr;
+if (napi_get_undefined(env, result) == napi_ok) {
+  // do something
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在 js 里面的使用也很简单，不过要配合 bindings 库使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const example = require(&apos;bindings&apos;)(&apos;example&apos;);
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title><![CDATA[QuickJS 源码解读（一）]]></title><link>https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</link><guid isPermaLink="false">https://diverse.space/2019/08/understanding-source-code-of-quickjs-1</guid><pubDate>Mon, 26 Aug 2019 23:55:00 GMT</pubDate><content:encoded>&lt;h2&gt;简介&lt;/h2&gt;
 &lt;p&gt;Quick JS 是 Fabrice Bellard 今年发布的一款 JavaScript 引擎，具有以下特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;轻量而且易于嵌入：只需几个C文件，没有外部依赖，一个x86下的简单的“hello world”程序只要180 KiB。&lt;/li&gt;
