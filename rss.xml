@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 14 Oct 2019 11:37:01 GMT</lastBuildDate><item><title><![CDATA[使用 N-API 和 CMake 为 Node.js 添加 C++ 拓展]]></title><link>https://diverse.space/2019/10/using-napi-and-cmake-to-write-a-nodejs-extension</link><guid isPermaLink="false">https://diverse.space/2019/10/using-napi-and-cmake-to-write-a-nodejs-extension</guid><pubDate>Sun, 13 Oct 2019 21:00:00 GMT</pubDate><content:encoded>&lt;p&gt;以前为 Node.js 编写拓展的时候，使用的是 Node.js 的 C++ addon API，直接使用
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Tue, 14 Jan 2020 03:47:41 GMT</lastBuildDate><item><title><![CDATA[多线程 SQLite with C++ 踩坑汇总]]></title><link>https://diverse.space/2020/01/using-sqlite-with-multi-threads-cpp</link><guid isPermaLink="false">https://diverse.space/2020/01/using-sqlite-with-multi-threads-cpp</guid><pubDate>Mon, 13 Jan 2020 23:55:00 GMT</pubDate><content:encoded>&lt;p&gt;因为工作的原因使用 SQLite 作为本地数据库，然而 SQLite 和 C++ 配合使用有许许多多的坑，此文用于记录工作过程中使用 SQLite 的坑。&lt;/p&gt;
+&lt;h2&gt;Last Insert rowId&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.notion.so/SQLite-with-C-db4c079d709c452dbee7fc41844766d4#24c415960ef841babe1639f7b826fe10&quot;&gt;Last Insert Rowid&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SQLite 中有一个函数可以获得最最近 insert 的一行的 id。也就是说，当你 insert 新的自增的一行时，你可以用 sqlite3&lt;em&gt;last&lt;/em&gt;insert_rowid 这个函数拿到这一行的 ID 这是一个取巧的办法，实际上这个函数是记录在 sqlite 实例里面的一个变量。这个变量的读写当然是没问题的，但是它需要和上一次 Step 串行执行并上锁。&lt;/p&gt;
+&lt;p&gt;假设你有如下代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;sqlite3_step(stmt);
+std::int64_t id = sqlite3_last_insert_rowid(db);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;你必须为这两句话上锁，因为如果这两句语句中间有其他线程插入了数据，你从 &lt;code&gt;sqlite3_last_insert_rowid&lt;/code&gt; 拿到的是其他线程的数据。&lt;/p&gt;
+&lt;p&gt;SQLite 获取 last_rowid 的源码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;/*
+** Return the ROWID of the most recent insert
+*/
+sqlite_int64 sqlite3_last_insert_rowid(sqlite3 *db){
+  return db-&gt;lastRowid;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;事务&lt;/h2&gt;
+&lt;p&gt;事务可以说是 SQLite 里面多线程使用最坑的东西了。SQLite 不像其他 C/S 数据库一样一条链接保持一个事务。它就是纯函数调用。&lt;/p&gt;
+&lt;h3&gt;乱序提交&lt;/h3&gt;
+&lt;p&gt;SQLite 本身可以保证 step 是线程安全的，也就是多个线程同时 step 是没问题的。但是会有乱序提交的问题。比如一个线程开启事务进行提交，另一个线程也同时进行提交，这个线程回滚导致了其他线程的提交也回滚了。&lt;/p&gt;
+&lt;p&gt;所以事务提交要上锁，主动上锁的话，一来性能下去了不说，二来忘了上锁就 gg，这个地方很坑。&lt;/p&gt;
+&lt;h3&gt;多实例&lt;/h3&gt;
+&lt;p&gt;既然 SQLite 是一个实例一个事务，那么每一个事务我开一个 SQLite 实例是不是就可以了呢。答案是依然有坑。&lt;/p&gt;
+&lt;p&gt;一个 DEFERRED 的时候如果执行了一句写的语句，就会锁住整个数据库，直到 COMMIT 之前，其他实例执行任何语句都会返回 SQLITE_BUSY。不止 step 哦，是 prepare 也会哦，是不是很惊喜。如果你这个事务很长，其他实例也是不用写了（跟上锁也没啥区别）。&lt;/p&gt;
+&lt;p&gt;峰回路转，你终于找到了一个 busy&lt;em&gt;handler，可以在 busy 的时候执行一个回掉，刚好官网也实现了一个实现了一个重拾的 handler，你只要设置好 busy&lt;/em&gt;timeout 就可以了，它就会贴心帮你重试。而它的做法就是过一会儿再帮你提交一遍，直到 timeout 为止，这挫做法导致它比自己加锁更慢。&lt;/p&gt;
+&lt;p&gt;下面看一下 sqlite 的默认 busy handler 的源码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;/*
+** This routine implements a busy callback that sleeps and tries
+** again until a timeout value is reached.  The timeout value is
+** an integer number of milliseconds passed in as the first
+** argument.
+*/
+static int sqliteDefaultBusyCallback(
+ void *ptr,               /* Database connection */
+ int count                /* Number of times table has been busy */
+){
+#if SQLITE_OS_WIN || (defined(HAVE_USLEEP) &amp;#x26;&amp;#x26; HAVE_USLEEP)
+  static const u8 delays[] =
+     { 1, 2, 5, 10, 15, 20, 25, 25,  25,  50,  50, 100 };
+  static const u8 totals[] =
+     { 0, 1, 3,  8, 18, 33, 53, 78, 103, 128, 178, 228 };
+# define NDELAY (sizeof(delays)/sizeof(delays[0]))
+  sqlite3 *db = (sqlite3 *)ptr;
+  int timeout = db-&gt;busyTimeout;
+  int delay, prior;
+
+  assert( count&gt;=0 );
+  if( count &amp;#x3C; NDELAY ){
+    delay = delays[count];
+    prior = totals[count];
+  }else{
+    delay = delays[NDELAY-1];
+    prior = totals[NDELAY-1] + delay*(count-(NDELAY-1));
+  }
+  if( prior + delay &gt; timeout ){
+    delay = timeout - prior;
+    if( delay&amp;#x3C;=0 ) return 0;
+  }
+  sqlite3OsSleep(db-&gt;pVfs, delay*1000);
+  return 1;
+#else
+  sqlite3 *db = (sqlite3 *)ptr;
+  int timeout = ((sqlite3 *)ptr)-&gt;busyTimeout;
+  if( (count+1)*1000 &gt; timeout ){
+    return 0;
+  }
+  sqlite3OsSleep(db-&gt;pVfs, 1000000);
+  return 1;
+#endif
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这是一段退避重试的代码。可知重试时间是毫秒级的。这个延时速度真的还不如自己上锁呢……&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;SQLite 是一个很古老的数据库 lib。在业界也被广为使用。但是它的一些 api 设计真的值得吐槽。但是同时想到了 sqlite 官方 FAQ 的一句话：&lt;a href=&quot;https://www.sqlite.org/faq.html&quot;&gt;https://www.sqlite.org/faq.html&lt;/a&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Threads are evil. Avoid them.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同时还贴出了一篇论文：&lt;a href=&quot;https://www2.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-1.pdf&quot;&gt;https://www2.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-1.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;或许 SQLite 的作者真的不喜欢多线程，才设计成这个样子吧。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[使用 N-API 和 CMake 为 Node.js 添加 C++ 拓展]]></title><link>https://diverse.space/2019/10/using-napi-and-cmake-to-write-a-nodejs-extension</link><guid isPermaLink="false">https://diverse.space/2019/10/using-napi-and-cmake-to-write-a-nodejs-extension</guid><pubDate>Sun, 13 Oct 2019 21:00:00 GMT</pubDate><content:encoded>&lt;p&gt;以前为 Node.js 编写拓展的时候，使用的是 Node.js 的 C++ addon API，直接使用
 v8 提供的 api 和 Node.js 打交道。使用 C++ Addon 的 API 有个缺点就是
 ABI 层面不兼容，升级 Node.js 之后 extension 要重新编译。&lt;/p&gt;
 &lt;p&gt;现在 Node.js 提供了 N-API。这个 API 是 C 层面的支持（也有 C++ 绑定）。同时，使用 N-API
