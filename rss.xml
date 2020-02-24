@@ -1,4 +1,149 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Sun, 19 Jan 2020 13:34:45 GMT</lastBuildDate><item><title><![CDATA[多线程 SQLite with C++ 踩坑汇总]]></title><link>https://diverse.space/2020/01/using-sqlite-with-multi-threads-cpp</link><guid isPermaLink="false">https://diverse.space/2020/01/using-sqlite-with-multi-threads-cpp</guid><pubDate>Mon, 13 Jan 2020 23:55:00 GMT</pubDate><content:encoded>&lt;p&gt;因为工作的原因使用 SQLite 作为本地数据库，然而 SQLite 和 C++ 配合使用有许许多多的坑，此文用于记录工作过程中使用 SQLite 的坑。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Vincent Chan 的巴士站 🚉]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>RSS for Node</generator><lastBuildDate>Mon, 24 Feb 2020 03:40:01 GMT</lastBuildDate><item><title><![CDATA[使用 N-API 和 CMake 为 Node.js 添加 C++ 拓展]]></title><link>https://diverse.space/2020/02/using-js-to-manipulate-xattr-on-macos</link><guid isPermaLink="false">https://diverse.space/2020/02/using-js-to-manipulate-xattr-on-macos</guid><pubDate>Sat, 22 Feb 2020 21:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;任何可以使用 JavaScript 来实现的应用都最终都会使用 JavaScript. --Atwood&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过浏览器和 Node.js，JavaScript 可以说上天入地无所不能。现在许多客户端应用程序也使用 Electron 进行开发。但是 Node.js 本身在一些 native 操作上稍有欠缺，比如说 mac 下文件拓展属性。&lt;/p&gt;
+&lt;h1&gt;什么是拓展属性&lt;/h1&gt;
+&lt;p&gt;拓展属性是 mac 下文件系统提供的一种机制。除了基本的文件属性（修改时间、创建时间等），mac 还允许用户和程序自定义属性。这个属性是一个以 key-value 形式储存的键值对。key 是 UTF-8 字符串，value 则是任意形式的数据。&lt;/p&gt;
+&lt;p&gt;Mac 下一些系统程序也依赖这个拓展属性。比如说我们去 Node.js 官网下载一个 pkg 安装包，然后打开，mac 会弹出这个框。&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9861b50f81a6a48053283ea22289be12/efc66/quarantine.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 61.09022556390977%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACMklEQVQoz62Sz2vaYBjHhUkZY7fRXrbIdo7nKeLVm5rCTh6H7B/wOrr7oCcdaHGHXXaqU8cOoqjTdfRSxd+dJTHzZ8wPf1BmRF8Sn71JJe0Kgw4W+PC875s8H755EhMAmP7XtdlsrhY+n+9+pVJ5XavVItVqNYjru2azadBqtXRu7/GzoW3PQSAQeGCY3W73HsMwEsAGlsslyPIC5vM5zGYzHUmSYDKZ6OvpdKrvtSrLMuBU0Ol0Zn6//7EhfG6zPeG4EX1OM5A5La85XkL5fA6l02mUy+VQKpVCmUwGFYtFVCgUUDabxffzqFwur1mWheFw2KEo6qkhJK1WQhIF9sPHYwgdvlSFwRmclWpwcvIN2u02DAYD6Pf7Ot1u16hYpmpJ8b7n9XqfGUKbzUbgJnY8FmDInKoTnoZm8wfgBNBoNADPCOr1OpRKJaBpWpd1OiyMOE5dLGRdSN0UOhwOotfrsculDNP5L1WSZjDYJuI47g8EQQBRxDOciDCVeHW5uMRv0O95PDeEdrtdEzLa0EVRQBgFf0UFJ1PwuSKKooJFOjzP48orF11ROWclxAwvge32f77Y91wLnU4nMRqNBPxPwmq1AoTQX1ljQEXw/jvA2wzA4VeA2sV4EnhFXQsJgngUj8cPkslkNBaLHd2FxCeN46MvnxPRRCL+hiStu7rM5XJpZQfzEKMd7v0ju9veHYrav0posVhM0Wj0XiQSMYdCoTsTDAbN4XDYrPWSJKm7fgMzrCU6kl6VJAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;quarantine&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9861b50f81a6a48053283ea22289be12/84ad3/quarantine.png&quot;
+        srcset=&quot;/static/9861b50f81a6a48053283ea22289be12/687da/quarantine.png 175w,
+/static/9861b50f81a6a48053283ea22289be12/0ab4d/quarantine.png 350w,
+/static/9861b50f81a6a48053283ea22289be12/84ad3/quarantine.png 700w,
+/static/9861b50f81a6a48053283ea22289be12/ef8d3/quarantine.png 1050w,
+/static/9861b50f81a6a48053283ea22289be12/efc66/quarantine.png 1064w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;你可能会好奇，这个对话框上信息很全呀，系统怎么知道我是用 Chrome 从 nodejs.org 下载的呢？实际上是因为 Chrome 在你下载的这个 pkg 文件上设置了一个叫 com.apple.quarantine 的属性。怎么查看这个属性呢，其实可以用命令行看到：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;xattr -l node-v13.9.0.pkg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c19598bcd7f9ff4b895192278e3913a9/01b76/screenshot-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 54.305799648506145%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABl0lEQVQoz42T7W6CMBSGj/iBAlNBvkqNkDlMtpvYTcwlc7vN/ZZsd2T8J7R7T4NGF83240lb8Ty87Skk6G4QOrS2bHonos05tm1vPM/buK67GY1GZmQ6nc4F7f8/MJfkEIlERHUwF3o6mWrXczWKdb/fN0BqGAwGhl6vp1F8i1eaTseyuF/u4iTVQRDUSNAMh8PGcZwGgtMcSc0awgYvMvAcL6styzq0wjX5fiDzPN8nSaLjOG4gVb7vK6zVbDZTURQpyBTECskVRKrb7Z7gNbbanISQyLIsjVBKqYQQLOa0ejweGyDTKNZIcm2bCjRnCX1ZFMU+DEPNaZBKMyzCVo0Mx6Ank4kZr0gvhZDI1Wq151RpmioWM8ekPOf0i8WCn/8tRJpsuVzuIGbBAdTcHB4hq/HckGVZDSE3oEbhb45NeaEojuflQ6lTpOBUnIblEOi2UWa7x/O8cY5H3sgiCn0hPqM8/0LBFtegwtlVOLsKXTXwbwzPcVUqFJ6zbfkGz4A65NjD3uOTi/m/QMfNiOtyDr4R6v4Ap7W/bFht/MMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;screenshot 1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c19598bcd7f9ff4b895192278e3913a9/84ad3/screenshot-1.png&quot;
+        srcset=&quot;/static/c19598bcd7f9ff4b895192278e3913a9/687da/screenshot-1.png 175w,
+/static/c19598bcd7f9ff4b895192278e3913a9/0ab4d/screenshot-1.png 350w,
+/static/c19598bcd7f9ff4b895192278e3913a9/84ad3/screenshot-1.png 700w,
+/static/c19598bcd7f9ff4b895192278e3913a9/ef8d3/screenshot-1.png 1050w,
+/static/c19598bcd7f9ff4b895192278e3913a9/fed13/screenshot-1.png 1400w,
+/static/c19598bcd7f9ff4b895192278e3913a9/5b79c/screenshot-1.png 2100w,
+/static/c19598bcd7f9ff4b895192278e3913a9/01b76/screenshot-1.png 2276w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果你使用命令 xattr 把属性去掉，系统则不会再弹框了：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;xattr -d com.apple.quarantine your_file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;像 &lt;code&gt;com.apple.metadata:kMDItemWhereFroms&lt;/code&gt; 这个属性就告诉了我们这个文件是从哪里来的。像上图中的文件是我从浏览器下载的，就储存了这个文件下载的 URL。&lt;/p&gt;
+&lt;p&gt;比如你使用 AirDrop 传输文件，这个属性就会储存你的来源设备：&lt;/p&gt;
+&lt;p&gt;像上图，我用 iPhone 传了一张图片，属性里面储存了我的 iPhone 的设备名字。属性显示这个文件是从 sharingd 来的，而 sharingd 就是 AirDrop 的后台进程。所以对于一些文件来说，读取这个拓展属性可以知道这个文件的来源。在一些操作中，这个信息还是挺有用的。&lt;/p&gt;
+&lt;p&gt;而这个 kMDItemWhereFroms 属性的格式则是 mac 下比较常见的 plist 格式，下文会讲解如何读取这个格式。&lt;/p&gt;
+&lt;p&gt;拓展属性它还可以为文件设置自定义图标，比如说你可以为普通文件和文件夹设置你喜欢的图标，这个图标的内容就储存在拓展属性里面：&lt;/p&gt;
+&lt;p&gt;&lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/75381309d74dd791282115402ea4fe74/f99bc/custom-icon-screenshot.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 68.30601092896174%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACa0lEQVQ4y7WSz08TQRTHezExJhMunoyJHkw8KAo3qSmFhD/Co0c4VDxYuNlGDEcPSmJsirSNXkhMNPGoEgqVQkHQBigu3e52dmm73Z9tt2y77D6nWyIYaxoOvuSb9zKZ+cz3vRlX/N79c8/Gb6CxuXFk6YAW4osoHA6j189foDevXqKptx+R7/E0mguH0Fwkgubn51EoFEKxWAzNzs6imZkZFIlELkSjUZcT6S8LY7ndpLJJbTKJ+DJOp39gJpfDNMtihmXwVmYff9/JYJZhME3TmKIozBzXJLMY42I2m00GAoGLDnBxOfGkdtgAji9Aci0Fe9Q+KJoG7PYOHLAslMUyqIoCWqUCqqqCKIpQIbUsyyBJEpimCTzPC6Ojo1cc4NLKWoDmCrBHs02ldmgpesOqSLI1de269e7BQwsALNuynNxBR0RQr9e5iYmJNvDr2nowXxBgd582i5Jql7Ua6DUdPj2dhvT7D639QIBg2/ZvOWvt2joG8n6//wSISyJs/8ya7EHJLqtVqBsGyNUqVI3D04c76W8gaTlIsRykM5SZ4wq2SBw2zaMW5Q83naIjMLG6HmT4ImSyjMmVRLsgKtAggz7t7F/QjsDl1VQwxxUdhwRq84LUdngKciaHK6lvAV6QIZvnm6JatcgMrUaz2X5dcqCLnJt1XedOHiW1MVUxTGi12pqfVm/AWcMwDGFycvKqA/y8uPQoubGlk1kWSNsCneeFsigJmqYJ5CN3U5F8clkQhC2fz3fZAfb191+63dd/52bvLbdn0Dtw1+NxD3q97qGhoa7yer0Dw8PD7pGRkd6enp7zrv8RvwBV3Sf0GpYHOQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;&lt;/span&gt;
+    &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;custom icon screenshot&quot;
+        title=&quot;&quot;
+        src=&quot;/static/75381309d74dd791282115402ea4fe74/84ad3/custom-icon-screenshot.png&quot;
+        srcset=&quot;/static/75381309d74dd791282115402ea4fe74/687da/custom-icon-screenshot.png 175w,
+/static/75381309d74dd791282115402ea4fe74/0ab4d/custom-icon-screenshot.png 350w,
+/static/75381309d74dd791282115402ea4fe74/84ad3/custom-icon-screenshot.png 700w,
+/static/75381309d74dd791282115402ea4fe74/ef8d3/custom-icon-screenshot.png 1050w,
+/static/75381309d74dd791282115402ea4fe74/fed13/custom-icon-screenshot.png 1400w,
+/static/75381309d74dd791282115402ea4fe74/f99bc/custom-icon-screenshot.png 1464w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+  &lt;/span&gt;
+  &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;更多关于拓展属性的用法大家可以自行去搜索资料了解，下文讲讲如何在 JS 里面操作拓展属性。&lt;/p&gt;
+&lt;h1&gt;使用 JS 操作&lt;/h1&gt;
+&lt;p&gt;由于 Node.js 环境下缺乏比较好用的操作 xattr 的库，所以这里推销一下我封装的 &lt;a href=&quot;https://github.com/vincentdchan/node-xattr&quot;&gt;node-xattr&lt;/a&gt;，功能很全很强大。使用 N-API，支持同步异步操作、设置自定义 icon，解析 plist 等实用的功能。同时支持 TypeScript，提高开发效率。&lt;/p&gt;
+&lt;h1&gt;安装&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;yarn add node-xattr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;获取 xattr&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// 同步版本
+const buffer = getXattrSync(&apos;./test.txt&apos;, &apos;key&apos;); //获取 Buffer
+const string = getXattrSync(&apos;./test.txt&apos;, &apos;key&apos;, &apos;utf8&apos;); // 获取 string
+
+// 异步版本
+getXattr(&apos;./test.txt&apos;, &apos;key&apos;).then(buffer =&gt; console.log(buffer)).catch(err =&gt; console.error(err));
+getXattr(&apos;./test.txt&apos;, &apos;key&apos;, &apos;utf8&apos;).then(str =&gt; console.log(str)).catch(err =&gt; console.error(err));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;设置 xattr&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;setXattrSync(&apos;./test.txt&apos;, &apos;key&apos;, &apos;value&apos;);
+setXattr(&apos;./test.txt&apos;, &apos;key&apos;, &apos;value&apos;).catch(err =&gt; console.error(err));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;设置自定义图标&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/node-xattr&quot;&gt;node-xattr&lt;/a&gt; 提供了简单的 API 可以直接设置自定义图标，不需要去了解系统的储存格式。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const { macUtils } = require(&apos;node-xattr&apos;);
+
+macUtils.setCustomIconSync(TestFile, iconPath);
+macUtils.setCustomIcon(TestFile, iconPath).catch(err =&gt; console.log(err));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;解析 plist&lt;/h1&gt;
+&lt;p&gt;目前来说 &lt;a href=&quot;https://github.com/vincentdchan/node-xattr&quot;&gt;node-xattr&lt;/a&gt; 提供了简单的两个函数，可以用于解析 kMDItemWhereFroms 这个字段。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const { getXattrSync, macUtils } = require(&apos;node-xattr&apos;);
+const buffer = getXattrSync(&apos;./test.txt&apos;, &apos;com.apple.metadata:kMDItemWhereFroms&apos;); //获取 Buffer
+const list = macUtils.deserializeArrayOfString(buffer);
+console.log(list);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;总结&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/vincentdchan/node-xattr&quot;&gt;node-xattr&lt;/a&gt; 这个库提供了操作 xattr 的能力，可以让你完成很多 Node.js 本身做不到的事情。有了这个库，你可以发挥你的想象力，在你的 Node 程序、 Electron 程序里面直接操作拓展属性，实现你的 macOS 原生化功能。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[多线程 SQLite with C++ 踩坑汇总]]></title><link>https://diverse.space/2020/01/using-sqlite-with-multi-threads-cpp</link><guid isPermaLink="false">https://diverse.space/2020/01/using-sqlite-with-multi-threads-cpp</guid><pubDate>Mon, 13 Jan 2020 23:55:00 GMT</pubDate><content:encoded>&lt;p&gt;因为工作的原因使用 SQLite 作为本地数据库，然而 SQLite 和 C++ 配合使用有许许多多的坑，此文用于记录工作过程中使用 SQLite 的坑。&lt;/p&gt;
 &lt;h2&gt;Last Insert rowId&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.notion.so/SQLite-with-C-db4c079d709c452dbee7fc41844766d4#24c415960ef841babe1639f7b826fe10&quot;&gt;Last Insert Rowid&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;SQLite 中有一个函数可以获得最最近 insert 的一行的 id。也就是说，当你 insert 新的自增的一行时，你可以用 &lt;code&gt;sqlite3_last_insert_rowid()&lt;/code&gt; 这个函数拿到这一行的 ID 这是一个取巧的办法，实际上这个函数是记录在 sqlite 实例里面的一个变量。这个变量的读写当然是没问题的，但是它需要和上一次 step 串行执行并上锁。&lt;/p&gt;
