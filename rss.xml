@@ -1,17 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of Vincent's Bus Station]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 25 Dec 2020 15:15:28 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（二）:项目结构和基础设施]]></title><link>https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</link><guid isPermaLink="false">https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</guid><pubDate>Fri, 25 Dec 2020 23:01:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/2019/08/understanding-source-code-of-quickjs-1&quot;&gt;上一篇文章&lt;/a&gt; 里面主要解释了
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of Vincent's Bus Station]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 26 Dec 2020 04:49:19 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（二）：基础设施和标准库]]></title><link>https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</link><guid isPermaLink="false">https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</guid><pubDate>Fri, 25 Dec 2020 23:01:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/2019/08/understanding-source-code-of-quickjs-1&quot;&gt;上一篇文章&lt;/a&gt; 里面主要解释了
 了 QuickJS 虚拟机的运作。第二篇文章打算介绍一下 QuickJS 里面 JavaScript
 基础设施的实现。&lt;/p&gt;
-&lt;h2&gt;项目结构&lt;/h2&gt;
-&lt;p&gt;QuickJS 项目主要由以下几个部分组成：&lt;/p&gt;
-&lt;h3&gt;qjs&lt;/h3&gt;
-&lt;p&gt;qjs 其实的主要逻辑其实储存在 &lt;code class=&quot;language-text&quot;&gt;repl.js&lt;/code&gt; 文件里面，主要逻辑由
-JS 写成。提供命令行交互工具（repl）。&lt;/p&gt;
-&lt;p&gt;编译的时候，会用 &lt;code class=&quot;language-text&quot;&gt;qjsc&lt;/code&gt; 编译器编译成 JS 字节码，然后用 QuickJS 引擎执行。&lt;/p&gt;
-&lt;h3&gt;qjsc&lt;/h3&gt;
-&lt;p&gt;qjsc 是 QuickJS 编译器。可以把 JavaScript 编译成可以执行的程序。
-或者是纯字节码。&lt;/p&gt;
-&lt;p&gt;注意，用 qjsc 编译的程序默认支持 &lt;code class=&quot;language-text&quot;&gt;os&lt;/code&gt; 和 &lt;code class=&quot;language-text&quot;&gt;std&lt;/code&gt; 两个标准库。
-如果想要支持其他标准库，需要自行添加。&lt;/p&gt;
 &lt;h2&gt;基础设施&lt;/h2&gt;
 &lt;p&gt;注意，使用 QuickJS 新建 JSContext 的时候，默认是不带基础设施的
 (比如说 JSON 解析、Object、等等)。
@@ -37,8 +26,9 @@ obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&
 &lt;span class=&quot;token function&quot;&gt;JS_SetPropertyFunctionList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ctx&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; js_object_funcs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;countof&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;js_object_funcs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;JS_SetPropertyFunctionList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ctx&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ctx&lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;class_proto&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;JS_CLASS_OBJECT&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
                             js_object_proto_funcs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;countof&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;js_object_proto_funcs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这两行分别给 Object 对象本身，和 Object.prototype 设置了相应的函数。
-我们可以跟踪看看 &lt;code class=&quot;language-text&quot;&gt;js_object_proto_funcs&lt;/code&gt; 分别定义了什么函数：&lt;/p&gt;
+&lt;p&gt;这两行分别给 Object 和 Object.prototype 设置了相应的函数，
+函数的定义在 &lt;code class=&quot;language-text&quot;&gt;js_object_proto_funcs&lt;/code&gt; 这个静态变量里面。&lt;/p&gt;
+&lt;p&gt;我们可以跟踪看看 &lt;code class=&quot;language-text&quot;&gt;js_object_proto_funcs&lt;/code&gt; 分别定义了什么函数：&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; JSCFunctionListEntry js_object_proto_funcs&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token function&quot;&gt;JS_CFUNC_DEF&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;toString&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; js_object_toString &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token function&quot;&gt;JS_CFUNC_DEF&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;toLocaleString&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; js_object_toLocaleString &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -55,7 +45,12 @@ obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&
 &lt;p&gt;可以看到这些内置方法都是 C 实现的方法。对应的函数都是在 &lt;code class=&quot;language-text&quot;&gt;quickjs.c&lt;/code&gt; 里面定义。&lt;/p&gt;
 &lt;p&gt;知道了这些，我们就可以动手修改 QuickJS 代码，比如说我们想改变 Object 的 &lt;code class=&quot;language-text&quot;&gt;toString&lt;/code&gt; 的表现。让它输出更详细的信息，那我们更改 &lt;code class=&quot;language-text&quot;&gt;js_object_toString&lt;/code&gt; 的实现就可以了。&lt;/p&gt;
 &lt;h2&gt;标准库&lt;/h2&gt;
-&lt;p&gt;标准库的实现，不是语言的一部分。这一部分的实现内容放在了 &lt;code class=&quot;language-text&quot;&gt;quickjs-libc.c&lt;/code&gt; 这个文件。&lt;/p&gt;
+&lt;p&gt;标准库的实现，不是语言的一部分。这一部分的实现内容放在了 &lt;code class=&quot;language-text&quot;&gt;quickjs-libc.c&lt;/code&gt; 这个文件。
+这里稍微提一句，Bellard 实现标准库用了不少 POSIX 方法，这样实现起来代码会比较简单，但是
+同时导致了代码无法在 Windows 上编译（除非用 MingW)，所以想要在 Windows 上独立编译通过的话，需要做不少改动。&lt;/p&gt;
+&lt;p&gt;我自己也做了一份 Fork，修复了 Windows 的编译问题，同时支持 CMake：
+&lt;a href=&quot;https://github.com/vincentdchan/quickjs&quot;&gt;https://github.com/vincentdchan/quickjs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要的可以自取。&lt;/p&gt;
 &lt;h3&gt;console.log&lt;/h3&gt;
 &lt;p&gt;写过 JS 的人估计都用过 console.log 吧。那么在 QuickJS 里面，console.log 怎么实现呢。
 答案就在 &lt;code class=&quot;language-text&quot;&gt;quickjs-libc.c&lt;/code&gt; 这个文件的 &lt;code class=&quot;language-text&quot;&gt;js_std_add_helpers&lt;/code&gt; 这个函数里面：&lt;/p&gt;
