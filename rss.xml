@@ -1,4 +1,219 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of Vincent's Bus Station]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 27 Dec 2020 05:06:33 GMT</lastBuildDate><item><title><![CDATA[QuickJS 源码解读（二）：基础设施和标准库]]></title><link>https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</link><guid isPermaLink="false">https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</guid><pubDate>Fri, 25 Dec 2020 23:01:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/2019/08/understanding-source-code-of-quickjs-1&quot;&gt;上一篇文章&lt;/a&gt; 里面主要解释了
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of Vincent's Bus Station]]></title><description><![CDATA[Vincent Chan's Bus Station. Blog of Vincent.]]></description><link>https://diverse.space</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Aug 2021 02:12:14 GMT</lastBuildDate><item><title><![CDATA[读懂 WebAssembly 如何表达 C++]]></title><link>https://diverse.space/2021/08/understanding-cpp-on-wasm</link><guid isPermaLink="false">https://diverse.space/2021/08/understanding-cpp-on-wasm</guid><pubDate>Tue, 10 Aug 2021 23:12:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;本文同步发布到&lt;a href=&quot;https://zhuanlan.zhihu.com/p/397664711&quot;&gt;知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;背景&lt;/h2&gt;
+&lt;p&gt;最近因为项目原因，在项目中使用 Emscripten 将 C++ 代码编译到 WASM 以便在浏览器执行。借助这个过程我也学习了 WASM 上代码执行的方法。借助这个机会，用这篇文章介绍 C++ 是如何借助 WASM 字节码是执行的。&lt;/p&gt;
+&lt;p&gt;名词解释&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;WASM: WebAssembly，这个不多介绍了。&lt;/li&gt;
+&lt;li&gt;WAT: 用来表示 WASM 字节码的一种文本格式。&lt;/li&gt;
+&lt;li&gt;Emscripten: 用于把 C++ 代码编译成 WASM 的编译器，基于 LLVM。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;WebAssembly 字节码执行&lt;/h2&gt;
+&lt;p&gt;这一段主要解释 WASM 字节码执行的过程。如果了解可以跳过。&lt;/p&gt;
+&lt;p&gt;要想知道 WebAssembly 怎么执行。我们就要知道 WASM 字节码如何表示，有哪些类型和指令。编译完成可以执行的 WASM 程序是一个紧凑的二进制程序。
+但是我们仍然可以用一种语言来表示 WASM 程序，我们称之为 &lt;a href=&quot;https://www.webassemblyman.com/wat_webassembly_text_format.html&quot;&gt;WAT - WebAssembly Text Format&lt;/a&gt;。
+WAT 就像汇编之于机器码一样。我们虽然不能直接阅读 WASM 字节码，但是我们可以通过阅读 WAT 来了解程序的执行过程。&lt;/p&gt;
+&lt;h3&gt;基本类型&lt;/h3&gt;
+&lt;p&gt;和 Js 不同，WASM 是强类型的，WASM 程序里面运行的“值”有四个基本类型。其他的类型都由这四个基本类型组合而成。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;i32&lt;/li&gt;
+&lt;li&gt;i64&lt;/li&gt;
+&lt;li&gt;f32&lt;/li&gt;
+&lt;li&gt;f64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;从字面意思我们可以知道分别代表 32 位和 64 位整数和浮点数。&lt;/p&gt;
+&lt;h3&gt;指令&lt;/h3&gt;
+&lt;p&gt;要了解 WASM 的指令。就要了解 WASM 的“机器模型”。和我们现在运行的物理机不同，WASM 的运行环境是虚拟机，而且是一个栈式的虚拟机。栈式的虚拟机是和寄存器机器区分开的一个概念。下图展示了一个栈式机器执行的过程。前两句分别表示往栈上 push 两个值，最后一句执行加法操作，取栈顶两个值相加，然后结果再推回栈上。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/289c89c9d97af054cff6055cbfc0d390/f4bfa/Water-7.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.85714285714286%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB35QB/8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQABBQJf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAFxABAAMAAAAAAAAAAAAAAAAAEAARIf/aAAgBAQABPyGaU//aAAwDAQACAAMAAAAQU8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAZEAEBAAMBAAAAAAAAAAAAAAABABExQSH/2gAIAQEAAT8QXfurPUdkMmYMX//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;栈式虚拟机上 32 位整数的加法操作&quot;
+        title=&quot;栈式虚拟机上 32 位整数的加法操作&quot;
+        src=&quot;/static/289c89c9d97af054cff6055cbfc0d390/29d31/Water-7.jpg&quot;
+        srcset=&quot;/static/289c89c9d97af054cff6055cbfc0d390/e52aa/Water-7.jpg 175w,
+/static/289c89c9d97af054cff6055cbfc0d390/70ebb/Water-7.jpg 350w,
+/static/289c89c9d97af054cff6055cbfc0d390/29d31/Water-7.jpg 700w,
+/static/289c89c9d97af054cff6055cbfc0d390/9ecec/Water-7.jpg 1050w,
+/static/289c89c9d97af054cff6055cbfc0d390/d165a/Water-7.jpg 1400w,
+/static/289c89c9d97af054cff6055cbfc0d390/f4bfa/Water-7.jpg 1492w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;图为栈式虚拟机上 32 位整数的加法操作&lt;/p&gt;
+&lt;h3&gt;本地变量&lt;/h3&gt;
+&lt;p&gt;对于 WASM 程序里面的每个“函数”都有“本地变量”这个概念，在函数的头部定义。
+每个本地变量都有一个“编号”，而通过相应的指令，我们可以读取，写入这个变量的值，这两个指令分别是 &lt;code class=&quot;language-text&quot;&gt;local_set&lt;/code&gt; 和 &lt;code class=&quot;language-text&quot;&gt;local_get&lt;/code&gt;。
+再配合上类型，比如 &lt;code class=&quot;language-text&quot;&gt;i32.local_get 0&lt;/code&gt; 就把 0 号本地变量读取出来，然后 push 到栈上。&lt;/p&gt;
+&lt;h3&gt;内存空间&lt;/h3&gt;
+&lt;p&gt;WASM 的内存空间是线性，这个倒是跟我们的物理机很像。
+Emscripten 编译出来的产物里面，对于内存空间，同样分了“栈”空间和“堆”空间。这里很容易混淆的一点是。
+这里的“栈”空间并不是上面说的“栈”式虚拟机的那个栈，而是内存空间上的一个概念。
+C 语言的函数里面的本地变量，其实也存在于这个内存栈上（如果没有被编译器优化的话）。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/44aca9044b20409940e5e45b4ea1ec34/c9d92/Water-8.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe9NQoP/xAAXEAADAQAAAAAAAAAAAAAAAAAAEBEB/9oACAEBAAEFAtK4v//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAQADAQEAAAAAAAAAAAAAAAEAEBEhMf/aAAgBAQABPyHgjhO0mk9V/9oADAMBAAIAAwAAABDTz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQABBAMAAAAAAAAAAAAAAAERABAhMUFRgf/aAAgBAQABPxBCvIYosAD7aZOyK0IxE2//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;栈式虚拟机上 32 位整数的加法操作&quot;
+        title=&quot;栈式虚拟机上 32 位整数的加法操作&quot;
+        src=&quot;/static/44aca9044b20409940e5e45b4ea1ec34/29d31/Water-8.jpg&quot;
+        srcset=&quot;/static/44aca9044b20409940e5e45b4ea1ec34/e52aa/Water-8.jpg 175w,
+/static/44aca9044b20409940e5e45b4ea1ec34/70ebb/Water-8.jpg 350w,
+/static/44aca9044b20409940e5e45b4ea1ec34/29d31/Water-8.jpg 700w,
+/static/44aca9044b20409940e5e45b4ea1ec34/9ecec/Water-8.jpg 1050w,
+/static/44aca9044b20409940e5e45b4ea1ec34/d165a/Water-8.jpg 1400w,
+/static/44aca9044b20409940e5e45b4ea1ec34/c9d92/Water-8.jpg 1413w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;上图展现了一个 Emscripten 编译出来的 C 语言程序的内存空间。Emscripten 默认分配的栈空间是 5M。而栈空间是从内存的高位往低位增长的，这里可以抛出一个问题，这样设计会带来什么好处呢？。而“堆“空间就很容易理解了，这里不展开。&lt;/p&gt;
+&lt;h2&gt;反编译&lt;/h2&gt;
+&lt;p&gt;懂了大概这些概念之后，我们就可以动手了。如果还不了解的话，实际用到的时候再回来看看，会更容易理解。&lt;/p&gt;
+&lt;h3&gt;实验代码&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;工具&lt;/h3&gt;
+&lt;p&gt;反编译的工具这里用的是 WABT: &lt;a href=&quot;https://github.com/WebAssembly/wabt&quot;&gt;WABT&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;命令&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;wasm2wat test_wasm.wasm &amp;gt; test.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;得到的这个 test.txt 就是反编译后 WAT 格式的代码了。然后你应该能看到类似这样的代码：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(module
+  (type (;0;) (func (result i32)))
+  (type (;1;) (func (param i32)))
+  (type (;2;) (func (param i32) (result i32)))
+  (type (;3;) (func))
+  (type (;4;) (func (param i32 i32) (result i32)))
+  (type (;5;) (func (param i32 i32 i32) (result i32)))
+  (type (;6;) (func (param i32 i64 i32) (result i64)))
+  (func $__wasm_call_ctors (type 3)
+    call $emscripten_stack_init)
+  (func $add_int__int_ (type 4) (param i32 i32) (result i32)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这里你可能看不懂，但是也能大概猜出来里面的含义。以 type 开头的意思为分别定义了这些类型。以 func 开头则是代表定义了这些函数。下面我很很自然就看到 add_int 这个函数，这里摘取一部分代码：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(func $add_int__int_ (type 4) (param i32 i32) (result i32)
+    (local i32 i32 i32 i32 i32 i32)
+    global.get $__stack_pointer
+    local.set 2
+    i32.const 16
+    local.set 3
+    local.get 2
+    local.get 3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;看到这段代码我们要给这些变量编个号码，从 param 开始从 0 开始数，result 不算，遇到一个变量就加一，直到分配完所有变量。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ca74028b1c028426f98c45c7529e4ef7/34898/Water-9.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.714285714285715%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd6AsD//xAAWEAADAAAAAAAAAAAAAAAAAAAAECH/2gAIAQEAAQUCKv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABkQAAEFAAAAAAAAAAAAAAAAAAEAEBFBUf/aAAgBAQABPyEzSA03/9oADAMBAAIAAwAAABDzz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAAICAwAAAAAAAAAAAAAAAAERAIEQIUH/2gAIAQEAAT8QHuLmwwFPH//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Water 9&quot;
+        title=&quot;Water 9&quot;
+        src=&quot;/static/ca74028b1c028426f98c45c7529e4ef7/29d31/Water-9.jpg&quot;
+        srcset=&quot;/static/ca74028b1c028426f98c45c7529e4ef7/e52aa/Water-9.jpg 175w,
+/static/ca74028b1c028426f98c45c7529e4ef7/70ebb/Water-9.jpg 350w,
+/static/ca74028b1c028426f98c45c7529e4ef7/29d31/Water-9.jpg 700w,
+/static/ca74028b1c028426f98c45c7529e4ef7/9ecec/Water-9.jpg 1050w,
+/static/ca74028b1c028426f98c45c7529e4ef7/34898/Water-9.jpg 1270w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;而聪明的你一定就会发现，下面代码里面所谓的 &lt;code class=&quot;language-text&quot;&gt;local.get&lt;/code&gt; 和 &lt;code class=&quot;language-text&quot;&gt;local.set&lt;/code&gt; 后面的数字所代表的变量就是这几个变量。
+接下来看看 debug 模式下如何读取和存储 a 变量。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;global.get $__stack_pointer
+local.set 2  // 2 &amp;lt;- stack_pointer ; 把栈指针放到 2 号槽
+i32.const 16
+local.set 3  // 3 &amp;lt;- 16 ; 把数字 16 放到 3 号槽
+local.get 2
+local.get 3
+i32.sub     // 2 号和 3 号相减，推到栈上
+local.set 4 // 4 &amp;lt;- stack_pointer - 16 ; 把 stack - 16 放到 4 号槽，这个代表这个函数的基地址，函数内变量都通过基地址 + 偏移来进行访问。这里表示这个函数占用 16 bytes 的栈大小&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/47075fc88f7e0087644efcafa4a9137f/de520/Water-10.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3lBR/8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQABBQJf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAFxABAQEBAAAAAAAAAAAAAAAAEQEQAP/aAAgBAQABPyGvFdJn/9oADAMBAAIAAwAAABAjD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAAIDAQAAAAAAAAAAAAAAAAERACExEP/aAAgBAQABPxB2BF0XARiTio82WNB8/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Water 10&quot;
+        title=&quot;Water 10&quot;
+        src=&quot;/static/47075fc88f7e0087644efcafa4a9137f/29d31/Water-10.jpg&quot;
+        srcset=&quot;/static/47075fc88f7e0087644efcafa4a9137f/e52aa/Water-10.jpg 175w,
+/static/47075fc88f7e0087644efcafa4a9137f/70ebb/Water-10.jpg 350w,
+/static/47075fc88f7e0087644efcafa4a9137f/29d31/Water-10.jpg 700w,
+/static/47075fc88f7e0087644efcafa4a9137f/9ecec/Water-10.jpg 1050w,
+/static/47075fc88f7e0087644efcafa4a9137f/de520/Water-10.jpg 1345w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;图为 add 函数的内存布局&lt;/p&gt;
+&lt;h3&gt;Release 模式的优化&lt;/h3&gt;
+&lt;p&gt;Debug 模式下，生成的代码会比较啰嗦，先把参数 a, b 放到内存的这两个位置。然后再重新读出来，然后进行相加。然后再返回。这个时候或许我们会想，其实这里是不是没有必要写到内存，直接相加就可以了。就像我们 native 程序，有些变量直接在寄存器就能相加。所以 Release 模式下是没有写到内存的。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(func (;2;) (type 0) (param i32 i32) (result i32)
+    local.get 0
+    local.get 1
+    i32.add)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以上就是 Release 下生成的代码，不涉及内存操作。&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;以上讲述了 C++ 如何在借助 WASM 在浏览器里执行。相比机器码，WASM 读起来要易懂得多，我们也可可以借此机会多了解编译器如何理解和编译我们的代码，达到举一反三的效果。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[QuickJS 源码解读（二）：基础设施和标准库]]></title><link>https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</link><guid isPermaLink="false">https://diverse.space/2020/12/understanding-source-code-of-quickjs-2</guid><pubDate>Fri, 25 Dec 2020 23:01:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/2019/08/understanding-source-code-of-quickjs-1&quot;&gt;上一篇文章&lt;/a&gt; 里面主要解释了
 了 QuickJS 虚拟机的运作。第二篇文章打算介绍一下 QuickJS 里面 JavaScript
 基础设施的实现。&lt;/p&gt;
 &lt;h2&gt;基础设施&lt;/h2&gt;
